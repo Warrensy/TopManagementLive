@@ -19,7 +19,7 @@
                 
             if(isset($_GET['menu'])) {
                 switch($_GET['menu']) {
-                    include "redirect/joinTeam.html"; break;
+                    case 'joinTeam': include "redirect/joinTeam.html"; break;
                     case 'profile': include"components/profile.php"; break;
                     case 'hilfe': include"components/hilfe.php"; break;
                     default: include "components/posts.php";
