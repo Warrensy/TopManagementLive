@@ -12,6 +12,25 @@
   </head>
   <body>
     <div class="container-fluid">
+        <div class="container">
+            <?php
+            if(!isset($_GET['menu']))
+                include "redirect/joinTeam.php";
+                
+            if(isset($_GET['menu'])) {
+                switch($_GET['menu']) {
+                    include "redirect/joinTeam.html"; break;
+                    case 'profile': include"components/profile.php"; break;
+                    case 'hilfe': include"components/hilfe.php"; break;
+                    default: include "components/posts.php";
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
             <div class="row justify-content-center">            
                 <img src="Logo.png">
             </div>    
@@ -19,12 +38,16 @@
                 <h1>Willkomen</h1>
             </div>
             <div class="row justify-content-center space"></div>
-            <div class="row justify-content-center">            
-                <button type="button" class="btn btn-primary">Neues Team erstellen</button>
+            <div class="row justify-content-center">
+                <a href="redirect/newteam.html">
+                    <button type="button" class="btn btn-primary">Neues Team erstellen</button>
+                </a>            
             </div>
             <div class="row justify-content-center space"></div>
             <div class="row justify-content-center">            
-                <button type="button" class="btn btn-primary">Team beitreten</button>
+                <!--<a href="redirect/jointeam.html">--> 
+                    <button type="button" class="btn btn-primary">Team beitreten</button>
+                            
             </div>
     </div>
 
