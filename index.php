@@ -19,7 +19,8 @@
             else {
                 switch($_GET['site']) {
                     case 'joinTeam': include "redirect/joinTeam.html"; break;
-                    case 'createTeam': include"redirect/createTeam.html"; break;
+                    case 'createTeam': include "redirect/createTeam.html"; break;
+                    case 'idle': include "redirect/idle.html"; break;
                     default: include "redirect/team.html";
                 }
             }
