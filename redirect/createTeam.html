@@ -5,43 +5,42 @@
     <table class="center">
         <tr>
             <h1>Team erstellen</h1>
-        </tr>
-        <tr>
-            <span>Der Code für dein Team ist:</span> <span id="generatedTeamCode">123456</span>
-        </tr>
-        
+        </tr>        
         <tr>
             <p>Startressourcen auswählen: </p>
         </tr>
         
-        <form method="POST" action="">
+        <form method="POST" action="index.php?site=createTeamLogic">
             <tr>
                 <b><label for="formControlRange">Flüssige Mittel</label>
                 <span id="mittel">5</span></b>
             </tr>
             <tr>
-                <input type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#mittel').html($(this).val())">
+                <input name="mittel" type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#mittel').html($(this).val())">
             </tr>
             <tr>
                 <b><label for="formControlRange">Base</label>
                 <span id="base">5</span></b>
             </tr>
             <tr>
-                <input type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#base').html($(this).val())">
+                <input name="base" type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#base').html($(this).val())">
             </tr>
             <tr>
                 <b><label for="formControlRange">Plus</label>
                 <span id="plus">5</span></b>
             </tr>
             <tr>
-                <input type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#plus').html($(this).val())">
+                <input name="plus" type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#plus').html($(this).val())">
             </tr>
             <tr>
                 <b><label for="formControlRange">Max</label>
                 <span id="max">5</span></b>
             </tr>
             <tr>
-                <input type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#max').html($(this).val())">
+                <input name="max" type="range" class="form-control-range" min="0" max="10" step="1" id="formControlRange" onInput="$('#max').html($(this).val())">
+            </tr>
+            <tr>
+                <input type="submit" value="Speichern" name ="Speichern" ID = "Speichern" >
             </tr>
         </form>
     </table>

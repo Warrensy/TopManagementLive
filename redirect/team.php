@@ -23,6 +23,12 @@
                 </a>   
             </td>
         </tr>
+        <?php
+            if(isset($_SESSION["Team"])){
+                echo '<tr><td><form class="container" action="index.php?site=leaveTeam" method="post">
+                <input type="submit" class="btn btn-primary" value="Team verlassen" name ="leaveTeam" ID = "leaveTeam" ></form></tr></td>';
+            }
+        ?>
     </table>
 </div>
 

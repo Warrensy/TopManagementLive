@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,19 +10,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <title>Top-Management-Live</title>
+
+    <!-- Generelle Sachen für Datenbank -->
+    <?php
+			include "data/require.php";
+		?>
   </head>
   <body>
     <div class="container-fluid">
         <div class="container">
             <?php
             if(!isset($_GET['site']))
-                include "redirect/team.html"; 
+                include "redirect/team.php"; 
             else {
                 switch($_GET['site']) {
                     case 'joinTeam': include "redirect/joinTeam.html"; break;
                     case 'createTeam': include "redirect/createTeam.html"; break;
+                    case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
+                    case 'displayTeamCode': include "redirect/displayTeamCode.php"; break;
+                    case 'leaveTeam': include "redirect/leaveTeam.php"; break;
                     case 'idle': include "redirect/idle.html"; break;
-                    default: include "redirect/team.html";
+                    default: include "redirect/team.php";
                 }
             }
             ?>
