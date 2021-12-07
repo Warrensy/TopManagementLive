@@ -24,3 +24,14 @@ button {
 #logo{
     margin-bottom: 35px;
 }
+#base,#plus,#max
+{
+    font-size:130%;
+    margin-left: 41%;
+}
+
+#mittel
+{
+    font-size:130%;
+    margin-left: 25%;
+}
