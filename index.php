@@ -34,9 +34,10 @@
                     case 'liquidFunds': include "redirect/liquidFunds.php"; break;
                     case 'taxes': include "redirect/taxes.html"; break;
                     case 'taxesLogic': include "redirect/taxesLogic.php"; break;
+                    case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                     default: include "redirect/team.php";
                 }
-            }
+              }
             ?>
         </div>
     </div>

@@ -42,6 +42,21 @@ class DBclass {
         return $newTeamCode;
     }
 
+    function getRawMaterial($teamCode){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `materiallager` WHERE `Teamcode` = (?)" );
+        $stmt->bind_param("s", $teamCode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
 
     function getLiquidFundsByTeamCode($teamcode)
     {
