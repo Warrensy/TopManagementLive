@@ -30,6 +30,7 @@
                     case 'displayTeamCode': include "redirect/displayTeamCode.php"; break;
                     case 'leaveTeam': include "redirect/leaveTeam.php"; break;
                     case 'idle': include "redirect/idle.html"; break;
+                    case 'materialOrder': include "redirect/MaterialOrder.html"; break;
                     default: include "redirect/team.php";
                 }
             }
