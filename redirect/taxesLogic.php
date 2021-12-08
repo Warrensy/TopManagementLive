@@ -11,10 +11,9 @@
     //createTeamLogic
     if(isset($_POST["Zahlen"])){
         $summe = $_POST["summe"];
-        
-        $answer = $db->payTaxes($summe);
+    
+        $db->payTaxes($_SESSION["Team"], $summe);
 
-        $_SESSION["Team"] = $answer;
         header('Location: index.php?site=idle');
     }
 ?>

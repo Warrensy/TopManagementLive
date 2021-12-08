@@ -43,7 +43,7 @@ class DBclass {
     }
 
 
-    public function getLiquidFundsByTeamCode($teamcode)
+    function getLiquidFundsByTeamCode($teamcode)
     {
         $stmt = $this->verbindung->prepare('SELECT FluessigeMittel FROM team WHERE Teamcode = ?;');
         $stmt->bind_param('s', $teamcode);
@@ -56,6 +56,16 @@ class DBclass {
         } else {
             return false;
         }
+    }
+
+    function payTaxes($teamcode, $summe)
+    {
+        $funds = $this->getLiquidFundsByTeamCode($teamcode);
+        $newFunds = $funds - $summe;
+
+        $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = (?) WHERE Teamcode = (?)");
+        $stmt->bind_param("is", $newFunds, $teamcode);
+        $stmt->execute();
     }
 
 
