@@ -43,6 +43,22 @@ class DBclass {
     }
 
 
+    public function getLiquidFundsByTeamCode($teamcode)
+    {
+        $stmt = $this->verbindung->prepare('SELECT FluessigeMittel FROM team WHERE Teamcode = ?;');
+        $stmt->bind_param('s', $teamcode);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+        if ($details != NULL) {
+            return $details["FluessigeMittel"];
+        } else {
+            return false;
+        }
+    }
+
+
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax
 
     //Registriert den User in den usertable

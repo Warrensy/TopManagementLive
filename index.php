@@ -31,6 +31,7 @@
                     case 'leaveTeam': include "redirect/leaveTeam.php"; break;
                     case 'idle': include "redirect/idle.html"; break;
                     case 'materialOrder': include "redirect/MaterialOrder.html"; break;
+                    case 'liquidFunds': include "redirect/liquidFunds.php"; break;
                     case 'taxes': include "redirect/taxes.html"; break;
                     default: include "redirect/team.php";
                 }
