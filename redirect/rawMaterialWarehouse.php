@@ -6,7 +6,7 @@
 </div>
 <div class="row justify-content-center">
 <?php $rawMaterial = $db->getRawMaterial($_SESSION["Team"])?>
-    <table class="table-dark table-bordered table-responsive-sm">
+    <table class="table-dark table-bordered">
         <tr>
             <th class="tablepadding">Base</th>
             <td class="tablepadding"><?php echo $rawMaterial["RohBase"] ?></td>
