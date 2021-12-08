@@ -33,6 +33,7 @@
                     case 'materialOrder': include "redirect/MaterialOrder.html"; break;
                     case 'liquidFunds': include "redirect/liquidFunds.php"; break;
                     case 'taxes': include "redirect/taxes.html"; break;
+                    case 'taxesLogic': include "redirect/taxesLogic.php"; break;
                     default: include "redirect/team.php";
                 }
             }
