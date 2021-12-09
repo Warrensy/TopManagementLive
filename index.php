@@ -46,7 +46,10 @@
           <a class="nav-link" href="index.php?site=taxes">Steuern Zahlen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
+          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=productWarehouse">Produkte</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=team">Team</a>
@@ -73,6 +76,8 @@
                     case 'taxes': include "redirect/taxes.html"; break;
                     case 'taxesLogic': include "redirect/taxesLogic.php"; break;
                     case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
+                    case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
+
                     default: include "redirect/team.php";
                 }
               }
