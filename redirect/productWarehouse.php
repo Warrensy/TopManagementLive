@@ -2,7 +2,7 @@
     <img id="logo" src="img/Logo.png">
 </div>   
 <div class="row justify-content-center">
-    <h1>Materiallager</h1>
+    <h1>Produktlager</h1>
 </div>
 <div class="row justify-content-center">
 <?php $products = $db->getProducts($_SESSION["Team"])?>
