@@ -42,6 +42,21 @@ class DBclass {
         return $newTeamCode;
     }
 
+    function joinTeam($teamcode){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `team` WHERE `Teamcode` = (?)");
+        $stmt->bind_param("s", $teamcode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if($result->num_rows == 0) {
+            return false;
+        }
+        else{
+            return true;
+        } 
+    }
+
     function getRawMaterial($teamCode){
         $stmt = $this->verbindung->prepare("SELECT * FROM `materiallager` WHERE `Teamcode` = (?)" );
         $stmt->bind_param("s", $teamCode);

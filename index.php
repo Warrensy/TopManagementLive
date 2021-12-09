@@ -65,6 +65,7 @@
             else {
                 switch($_GET['site']) {
                     case 'joinTeam': include "redirect/joinTeam.html"; break;
+                    case 'joinTeamLogic': include "redirect/joinTeamLogic.php"; break;
                     case 'createTeam': include "redirect/createTeam.html"; break;
                     case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
                     case 'displayTeamCode': include "redirect/displayTeamCode.php"; break;
