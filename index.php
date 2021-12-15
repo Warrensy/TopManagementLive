@@ -57,6 +57,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=production">Produktion</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=contract">Contract</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -82,6 +85,7 @@
                     case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                     case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
                     case 'production' : include "redirect/production.html"; break;
+                    case 'contract' : include "redirect/contract.html"; break;
 
                     default: include "redirect/team.php";
                 }

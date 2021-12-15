@@ -39,3 +39,59 @@ button {
 .tablepadding{
     padding: 50px;
 }
+
+.border-all{
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    background-color: white;
+}
+
+.border-open-top{
+    border-color: black;
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    background-color: white;
+}
+
+.border-open-bottom{
+    border-color: black;
+    border-width: 2px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    background-color: white;
+}
+
+.background-yearly-contracting{
+    background-color: skyblue;
+}
+
+.background-spot{
+    background-color: darkcyan;
+}
+
+.background-europa{
+    background-color: yellow;
+    text-align: right;
+}
+
+.background-amerika{
+    background-color: orange;
+    text-align: right;
+}
+
+.background-asien{
+    background-color: red;
+    text-align: right;
+}
+
+.background-row1{
+    background-color: lightsteelblue;
+}
+
+.background-row2{
+    background-color: steelblue;
+}
