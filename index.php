@@ -68,28 +68,43 @@
             <?php
             if(!isset($_GET['site'])) //ist das if() nicht redundant mit dem default weiter unten?
                 include "redirect/team.php"; 
-            else {
+            else 
+            {
+              if(isset($_SESSION['Team']))
+              {
                 switch($_GET['site']) {
-                    case 'joinTeam': include "redirect/joinTeam.html"; break;
-                    case 'joinTeamLogic': include "redirect/joinTeamLogic.php"; break;
-                    case 'createTeam': include "redirect/createTeam.html"; break;
-                    case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
-                    case 'displayTeamCode': include "redirect/displayTeamCode.php"; break;
-                    case 'leaveTeam': include "redirect/leaveTeam.php"; break;
-                    case 'idle': include "redirect/idle.html"; break;
-                    case 'materialOrder': include "redirect/MaterialOrder.html"; break;
-                    case 'materialOrderLogic': include "redirect/materialOrderLogic.php"; break;
-                    case 'liquidFunds': include "redirect/liquidFunds.php"; break;
-                    case 'taxes': include "redirect/taxes.html"; break;
-                    case 'taxesLogic': include "redirect/taxesLogic.php"; break;
-                    case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
-                    case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
-                    case 'production' : include "redirect/production.html"; break;
-                    case 'contract' : include "redirect/contract.html"; break;
-
-                    default: include "redirect/team.php";
+                  case 'joinTeam': include "redirect/joinTeam.html"; break;
+                  case 'joinTeamLogic': include "redirect/joinTeamLogic.php"; break;
+                  case 'createTeam': include "redirect/createTeam.html"; break;
+                  case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
+                  case 'displayTeamCode': include "redirect/displayTeamCode.php"; break;
+                  case 'leaveTeam': include "redirect/leaveTeam.php"; break;
+                  case 'idle': include "redirect/idle.html"; break;
+                  case 'materialOrder': include "redirect/MaterialOrder.html"; break;
+                  case 'materialOrderLogic': include "redirect/materialOrderLogic.php"; break;
+                  case 'liquidFunds': include "redirect/liquidFunds.php"; break;
+                  case 'taxes': include "redirect/taxes.html"; break;
+                  case 'taxesLogic': include "redirect/taxesLogic.php"; break;
+                  case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
+                  case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
+                  case 'production' : include "redirect/production.html"; break;
+                  case 'contract' : include "redirect/contract.html"; break;
+                  
+                  default: include "redirect/team.php";
                 }
               }
+              else
+              {
+                switch($_GET['site']) {
+                  case 'joinTeam': include "redirect/joinTeam.html"; break;
+                  case 'joinTeamLogic': include "redirect/joinTeamLogic.php"; break;
+                  case 'createTeam': include "redirect/createTeam.html"; break;
+                  case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
+
+                  default: include "redirect/team.php";
+                }
+              }
+            }
             ?>
         </div>
     </div>
