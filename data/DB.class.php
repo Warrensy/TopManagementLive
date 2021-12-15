@@ -113,11 +113,17 @@ class DBclass {
         $stmt->bind_param("is", $newFunds, $teamcode);
         $stmt->execute();
     }
+
     function addMaterials($team, $base, $plus, $max)
     {
         $stmt = $this->verbindung->prepare("UPDATE materiallager SET AusstehendRohMax = (?), AusstehendRohBase = (?), AusstehendRohPlus = (?) WHERE Teamcode = (?)");
         $stmt->bind_param("iiis",$max, $base, $plus , $team);
         $stmt->execute();
+    }
+
+    function LoadLane($team, $lane)
+    {
+        $stmt = $this->verbindung->prepare("");
     }
 
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax

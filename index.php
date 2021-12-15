@@ -54,13 +54,16 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=team">Team</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=production">Produktion</a>
+        </li>
       </ul>
     </div>
   </nav>
     <div class="container-fluid">
         <div class="container">
             <?php
-            if(!isset($_GET['site']))
+            if(!isset($_GET['site'])) //ist das if() nicht redundant mit dem default weiter unten?
                 include "redirect/team.php"; 
             else {
                 switch($_GET['site']) {
@@ -78,6 +81,7 @@
                     case 'taxesLogic': include "redirect/taxesLogic.php"; break;
                     case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                     case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
+                    case 'production' : include "redirect/production.html"; break;
 
                     default: include "redirect/team.php";
                 }
