@@ -121,9 +121,38 @@ class DBclass {
         $stmt->execute();
     }
 
-    function LoadLane($team, $lane)
+    function loadLane($team, $lane)
     {
-        $stmt = $this->verbindung->prepare("");
+        $stmt = $this->verbindung->prepare("SELECT * FROM maschinenzuteam WHERE Teamcode = ? AND lane = ?;");
+        $stmt->bind_param("si",$team, $lane);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
+    function getProduction($MaschinenID)
+    {
+        $stmt = $this->verbindung->prepare("SELECT * FROM aktuelleproduktion WHERE MaschinenID = ?;");
+        $stmt->bind_param("i",$MaschinenID);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
     }
 
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax

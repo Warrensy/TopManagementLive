@@ -87,7 +87,7 @@
                   case 'taxesLogic': include "redirect/taxesLogic.php"; break;
                   case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                   case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
-                  case 'production' : include "redirect/production.html"; break;
+                  case 'production' : include "redirect/production.php"; break;
                   case 'contract' : include "redirect/contract.html"; break;
                   
                   default: include "redirect/team.php";
