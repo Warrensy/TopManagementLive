@@ -174,7 +174,7 @@ class DBclass {
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $details = $result;
+        $details = $result->fetch_array();
 
 
         if ($details != NULL) {
@@ -182,6 +182,20 @@ class DBclass {
         } else {
             return false;
         }
+    }
+
+    function buyMachine($machine, $team, $cost, $lane)
+    {
+        $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?)  WHERE Teamcode = (?)");
+        $stmt->bind_param("is", $cost,$team);
+        $stmt->execute();
+
+        //add machine
+        //Erwerbsquartal noch Logik einbauen
+        $quartal = 1;
+        $stmt = $this->verbindung->prepare("INSERT INTO `maschinenzuteam` (`Maschinentyp`,`Teamcode`,`Erwerbsquartal`,`lane`) VALUES (?,?,?,?)");
+        $stmt->bind_param("ssii", $machine, $team, $quartal, $lane);
+        $stmt->execute();
     }
 
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax

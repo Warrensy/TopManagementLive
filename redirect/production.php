@@ -30,9 +30,13 @@
             {
               echo '<p class="card-text">';
                 if($prod1 == false)
+                {
                   echo "Waiting for assignment";
+                }
                 else
+                {
                   echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Currently in Production';
+                }
               echo '</p>';
             }
           ?>

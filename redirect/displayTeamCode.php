@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title text-center" style="font-weight:bold;">
                     <?php
-                        echo $_SESSION["Team"];
+                        echo "Ihr Teamcode ist: {$_SESSION["Team"]}";
                     ?>
                 </h5>
             </div>
