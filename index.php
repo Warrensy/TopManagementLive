@@ -92,6 +92,7 @@
                   case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
                   case 'production' : include "redirect/production.php"; break;
                   case 'contract' : include "redirect/contract.html"; break;
+                  case 'lane' : include "redirect/lane.php"; break;
                   
                   default: include "redirect/team.php";
                 }

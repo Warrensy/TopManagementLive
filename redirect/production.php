@@ -13,7 +13,7 @@
     $prod4 = $db->getProduction($lane4["MaschinenID"]);
 ?>
 <div class="container-fluid">
-  <a href="index.php?site=team">
+  <a href="index.php?site=lane&lane=1">
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">Production Lane 1</h5>
@@ -27,18 +27,20 @@
           </h6>
           <?php
             if($lane1 != false)
+            {
               echo '<p class="card-text">';
                 if($prod1 == false)
                   echo "Waiting for assignment";
                 else
                   echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Currently in Production';
               echo '</p>';
+            }
           ?>
         </div>
     </div>
   </a>
   <br>
-  <a href="index.php?site=team">
+  <a href="index.php?site=lane&lane=2">
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">Production Lane 2</h5>
@@ -65,7 +67,7 @@
     </div>
   </a>
   <br>
-  <a href="index.php?site=team">
+  <a href="index.php?site=lane&lane=3">
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">Production Lane 3</h5>
@@ -92,7 +94,7 @@
     </div>
   </a>
   <br>
-  <a href="index.php?site=team">
+  <a href="index.php?site=lane&lane=4">
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">Production Lane 4</h5>
