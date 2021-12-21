@@ -155,6 +155,22 @@ class DBclass {
         }
     }
 
+    function getContractByID($contractID){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `auftrag` WHERE `AuftragNr` = (?)" );
+        $stmt->bind_param("s", $contractID);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax
 
     //Registriert den User in den usertable
