@@ -73,6 +73,22 @@ class DBclass {
         }
     }
 
+    function getContractByID($contractID){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `auftrag` WHERE `AuftragNr` = (?)" );
+        $stmt->bind_param("s", $contractID);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
     function getProducts($teamCode){
         $stmt = $this->verbindung->prepare("SELECT * FROM `produktlager` WHERE `Teamcode` = (?)" );
         $stmt->bind_param("s", $teamCode);
@@ -82,6 +98,19 @@ class DBclass {
         $details = $result->fetch_array();
 
 
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
+    function getRandomOffers(){
+        $stmt = $this->verbindung->prepare("SELECT * FROM anfragen ORDER BY rand() LIMIT 3" );
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result;
         if ($details != NULL) {
             return $details;
         } else {
@@ -145,23 +174,7 @@ class DBclass {
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $details = $result->fetch_array();
-
-
-        if ($details != NULL) {
-            return $details;
-        } else {
-            return false;
-        }
-    }
-
-    function getContractByID($contractID){
-        $stmt = $this->verbindung->prepare("SELECT * FROM `auftrag` WHERE `AuftragNr` = (?)" );
-        $stmt->bind_param("s", $contractID);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-        $details = $result->fetch_array();
+        $details = $result;
 
 
         if ($details != NULL) {

@@ -1,6 +1,4 @@
-<div class="row justify-content-center">            
-    <img id="logo" src="img/Logo.png">
-</div>
+
 
 <?php $contract = $db->getContractByID(69)?>
 

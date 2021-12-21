@@ -60,6 +60,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=contract">Contract</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -93,7 +96,8 @@
                   case 'production' : include "redirect/production.php"; break;
                   case 'lane' : include "redirect/lane.php"; break;
                   case 'contract' : include "redirect/contract.php"; break;
-                  
+                  case 'spotmarket' : include "redirect/spotmarket.php"; break; 
+
                   default: include "redirect/team.php";
                 }
               }
