@@ -1,7 +1,4 @@
 <div class="container-fluid">
-      
-
-
     <div class="row justify-content-center"> 
     <table class="table-dark table-bordered">
         <tr>
