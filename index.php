@@ -105,6 +105,11 @@
                 }
               }
             }
+            if((isset($_GET['site']) && isset($_SESSION['Team'])) && ($_GET['site'] == 'materialOrder' || $_GET['site'] == 'rawMaterialWarehouse' || $_GET['site'] == 'production'))
+            {
+              include "redirect/quarterButton.php";
+            }
+
             ?>
         </div>
     </div>
