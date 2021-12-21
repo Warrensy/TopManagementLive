@@ -1,7 +1,4 @@
 <div class="row justify-content-center">
-    <img id="logo" src="img/Logo.png">
-</div>
-<div class="row justify-content-center">
     <h1>Anfragen</h1>
 </div>
 <div class="row justify-content-center">
