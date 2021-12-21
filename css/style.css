@@ -95,3 +95,11 @@ button {
 .background-row2{
     background-color: steelblue;
 }
+
+.code{
+    width: 400px;
+}
+
+.border{
+    size: 10px;
+}

@@ -63,6 +63,9 @@
       </ul>
     </div>
   </nav>
+  <div class="row justify-content-center">            
+    <img id="logo" src="img/Logo.png">
+  </div>
     <div class="container-fluid">
         <div class="container">
             <?php

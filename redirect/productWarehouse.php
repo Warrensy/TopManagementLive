@@ -1,6 +1,4 @@
-<div class="row justify-content-center">
-    <img id="logo" src="img/Logo.png">
-</div>   
+   
 <div class="row justify-content-center">
     <h1>Produktlager</h1>
 </div>
