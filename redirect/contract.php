@@ -9,21 +9,26 @@
             <tr></tr>
         </form>
     </table> -->
-    
-        
+    <div class ="row">
+        <div class="col-3"></div>
+        <div class="col-6">
             <div class="row border-open-bottom">
                 <div class="col-7">Auftrag Nr.</div>
                 <div class="col"><?php echo $contract["AuftragNr"] ?></div>
             </div>
         </div>
-    
-        
-            <div class="row border-all">
+    </div>
+
+    <div class ="row">
+        <div class ="col-1"></div>
+        <div class="col-10 border-all">
+            <div class="row">
                 <div class="col-3">Firma:</div>
                 <div class="col">Lorem ipsum</div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class ="col-1"></div>
         <div class ="col-10 border-open-top">
