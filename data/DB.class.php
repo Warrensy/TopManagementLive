@@ -234,6 +234,48 @@ class DBclass {
         
     }
 
+    function startProduction($machine, $produkt, $anzahl, $quartal, $team)
+    {
+        $stmt = $this->verbindung->prepare("INSERT INTO `aktuelleproduktion` (`MaschinenID`,`Zielprodukt`,`Anzahl`,`FertigstellungQuartal`) VALUES (?,?,?,?)");
+        $stmt->bind_param("isii", $machine, $produkt, $anzahl, $quartal);
+        $stmt->execute();        
+
+        switch($produkt)
+        {
+            case 'Base':
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohBase = RohBase - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$anzahl, $team);
+                $stmt->execute();
+
+                $preis = $anzahl * 1;
+                $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$preis, $team);
+                $stmt->execute();
+                break;
+            case 'Plus':
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohPlus = RohPlus - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$anzahl, $team);
+                $stmt->execute();
+
+                $preis = $anzahl * 2;
+                $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$preis, $team);
+                $stmt->execute();
+                break;
+            case 'Max':
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohMax = RohMax - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$anzahl, $team);
+                $stmt->execute();
+
+                $preis = $anzahl * 3;
+                $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$preis, $team);
+                $stmt->execute();
+                break;
+        }
+
+    }
+
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax
 
     //Registriert den User in den usertable

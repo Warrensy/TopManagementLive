@@ -14,7 +14,7 @@
     <p>Sie besitzen an dieser Position noch keine Maschine</p>
     <p>Möchten Sie eine neue für diese Lane kaufen ?</p>
     <form method="POST" action="index.php?site=laneLogic" class="container">
-        <input type="radio" name="radio" value="flex" id="flex" <?php if($money < 10){echo 'disabled'; $disabled++;}?>>
+        <input type="radio" required  name="radio" value="flex" id="flex" <?php if($money < 10){echo 'disabled'; $disabled++;}?>>
         <label for="flex" <?php if($money < 10){echo 'class="grey"';}?>>Flex-Maschine (Preis 10 M)<?php if($money < 10){echo ' - nicht genug flüssige Mittel';}?></label>
         <br>
         <input type="radio" name="radio" value="conti" id="conti" <?php if($money < 20){echo 'disabled'; $disabled++;}?>>
@@ -32,21 +32,20 @@
     {   
   ?>
     <p>Was möchten Sie an dieser Maschine produzieren?</p>
+    <p>(Bitte stellen Sie eigenständig sicher, dass Sie genügend Material, bzw. Flüssige Mittel besitzen, um die gewünschte Produktion zu starten))</p>
     <form method="POST" action="index.php?site=laneLogic" class="container">
-        <input type="radio" name="radio" value="base" id="base">
-        <label for="base">Base - Produkt (1M pro Stück)</label>
+        <input type="radio" name="radio" value="base" id="baseRadio" required >
+        <label for="baseRadio">Base - Produkt (1M pro Stück)</label>
         <br>
-        <input type="radio" name="radio" value="flex" id="flex">
-        <label for="flex">Flex-Maschine (Preis 10 M)</label>
+        <input type="radio" name="radio" value="plus" id="plusRadio">
+        <label for="plusRadio">Plus - Produkt (2M pro Stück)</label>
         <br>
-        <input type="radio" name="radio" value="plus" id="plus">
-        <label for="plus">Plus - Produkt (2M pro Stück)</label>
-        <br>
-        <input type="radio" name="radio" value="max" id="max">
-        <label for="max">Max - Produkt (3M pro Stück)</label>
+        <input type="radio" name="radio" value="max" id="maxRadio">
+        <label for="maxRadio">Max - Produkt (3M pro Stück)</label>
         <br>
         <span>Menge:</span>
-        <input type="number" min="0" placeholder="0" name="menge">
+        <input type="number" min="0" placeholder="0" name="menge" required>
+        <br>
         <br>
         <input type="submit" value="Produzieren" name="produce">
     </form>   
