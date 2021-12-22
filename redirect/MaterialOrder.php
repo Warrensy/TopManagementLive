@@ -28,3 +28,9 @@
         </form>
     </table>
 </div> 
+<?php
+if(isset($_GET['materialAdded']) && $_GET['materialAdded'] == "true")
+{
+    echo "<div class='alert alert-light' role='alert'>Material wurde im Lager aufgenommen</div>";
+}
+?>
