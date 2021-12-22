@@ -3,7 +3,8 @@
     <table class="table-dark table-bordered">
         <tr>
             <th class="tablepadding">Flüssige Mittel: </th>
-            <td class="tablepadding"><?php echo $db->getLiquidFundsByTeamCode($_SESSION["Team"]) ?></td>
+            <td class="tablepadding">
+                <h5><?php echo $db->getLiquidFundsByTeamCode($_SESSION["Team"]) ?></h5></td>
         </tr>
     </table>
     </div>
