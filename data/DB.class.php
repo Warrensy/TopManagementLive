@@ -200,6 +200,23 @@ class DBclass {
         }
     }
 
+    function getQuartalByTeam($team)
+    {
+        $stmt = $this->verbindung->prepare("SELECT AktuellesQuartal FROM team WHERE Teamcode = (?)");
+        $stmt->bind_param("s", $team);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details["AktuellesQuartal"];
+        } else {
+            return false;
+        }
+    }
+
     function buyMachine($machine, $team, $cost, $lane)
     {
         $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?)  WHERE Teamcode = (?)");
@@ -208,7 +225,7 @@ class DBclass {
 
         //add machine
         //Erwerbsquartal noch Logik einbauen
-        $quartal = 1;
+        $quartal = $this->getQuartalByTeam($team);
         $stmt = $this->verbindung->prepare("INSERT INTO `maschinenzuteam` (`Maschinentyp`,`Teamcode`,`Erwerbsquartal`,`lane`) VALUES (?,?,?,?)");
         $stmt->bind_param("ssii", $machine, $team, $quartal, $lane);
         $stmt->execute();
@@ -234,8 +251,21 @@ class DBclass {
         
     }
 
-    function startProduction($machine, $produkt, $anzahl, $quartal, $team)
+    function startProduction($machine, $produkt, $anzahl, $team, $maschinenTyp)
     {
+        $oldQuartal = $this->getQuartalByTeam($team);
+
+        
+        if($maschinenTyp == "Flex")
+        {
+            $quartal = $oldQuartal + 2;
+        }
+        else
+        {
+            $quartal = $oldQuartal + 1;
+        }
+        
+
         $stmt = $this->verbindung->prepare("INSERT INTO `aktuelleproduktion` (`MaschinenID`,`Zielprodukt`,`Anzahl`,`FertigstellungQuartal`) VALUES (?,?,?,?)");
         $stmt->bind_param("isii", $machine, $produkt, $anzahl, $quartal);
         $stmt->execute();        
@@ -275,6 +305,8 @@ class DBclass {
         }
 
     }
+
+
 }
 
 ?>

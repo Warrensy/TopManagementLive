@@ -30,9 +30,9 @@
     {
       switch($_POST["radio"])
       {
-        case 'base': $db->startProduction($lane["MaschinenID"], "Base", $_POST["menge"], 1, $_SESSION["Team"]); break; //quartal hardgecoded auf 1
-        case 'plus': $db->startProduction($lane["MaschinenID"], "Plus", $_POST["menge"], 1, $_SESSION["Team"]); break;
-        case 'max': $db->startProduction($lane["MaschinenID"], "Max", $_POST["menge"], 1, $_SESSION["Team"]); break;
+        case 'base': $db->startProduction($lane["MaschinenID"], "Base", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break; //quartal hardgecoded auf 1
+        case 'plus': $db->startProduction($lane["MaschinenID"], "Plus", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break;
+        case 'max': $db->startProduction($lane["MaschinenID"], "Max", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break;
       }
     }
 
