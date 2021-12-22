@@ -12,9 +12,6 @@
     {
         $team = $_SESSION["Team"];
         $db->acceptMaterials($team);
-        header('Location: index.php?site=rawMaterialWarehouse');
+        header('Location: index.php?site=materialOrder&materialAdded=true');
     }
-       
-    
-
 ?>
