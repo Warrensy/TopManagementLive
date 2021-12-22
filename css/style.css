@@ -111,3 +111,7 @@ button {
 .margin-bottom{
     margin-bottom:5%;
 }
+
+.row-height{
+    height: 50px;
+}
