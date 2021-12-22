@@ -9,9 +9,12 @@
         header('Location: index.php?site=materialOrder');
     }
     else if(isset($_POST["materialAccept"]))
-    (
-        $db->acceptMaterials();
+    {
+        $team = $_SESSION["Team"];
+        $db->acceptMaterials($team);
         header('Location: index.php?site=rawMaterialWarehouse');
-    )
+    }
+       
+    
 
 ?>

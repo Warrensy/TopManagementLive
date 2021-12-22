@@ -197,6 +197,26 @@ class DBclass {
         $stmt->bind_param("ssii", $machine, $team, $quartal, $lane);
         $stmt->execute();
     }
+    function acceptMaterials($team)
+    {
+        $stmt = $this->verbindung->prepare("SELECT * FROM materiallager WHERE Teamcode = (?) ");
+        $stmt->bind_param("s", $team);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+        $baseAdd = $details["AusstehendRohBase"];
+        $plusAdd =  $details["AusstehendRohPlus"];
+        $maxAdd =  $details["AusstehendRohMax"];
+         
+        $stmt = $this->verbindung->prepare("UPDATE materiallager SET AusstehendRohMax = 0,AusstehendRohPlus = 0, AusstehendRohBase = 0  WHERE Teamcode = (?) ");
+        $stmt->bind_param("s", $team);
+        $stmt->execute();
+
+        $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohMax = RohMax + (?), RohBase = RohBase + (?), RohPlus = RohPlus + (?) WHERE Teamcode = (?)");
+        $stmt->bind_param("iiis",$maxAdd, $baseAdd, $plusAdd , $team);
+        $stmt->execute();
+        
+    }
 
 /* Alte Datenbank Aufrufe als Referenzwert für Syntax
 
