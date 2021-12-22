@@ -105,12 +105,12 @@ class DBclass {
         }
     }
 
-    function getRandomOffers(){
-        $stmt = $this->verbindung->prepare("SELECT * FROM anfragen ORDER BY rand() LIMIT 3" );
+    function getActiveInquiry(){
+        $stmt = $this->verbindung->prepare("SELECT * FROM anfragen WHERE active = 1" );
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $details = $result;
+        $details = $result->fetch_array();
         if ($details != NULL) {
             return $details;
         } else {
@@ -118,9 +118,48 @@ class DBclass {
         }
     }
 
+    function createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode) { //anker
+        $stmt = $this->verbindung->prepare("INSERT INTO `angebote` (`Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Teamcode`) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssiiiii",$region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode);
+        $stmt->execute();
+    }
+
+    function getOffers() {
+        $stmt = $this->verbindung->prepare("SELECT * FROM angebote WHERE active = 0" );
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if($result != NULL) {
+            return $result;
+        } else {
+            return false; 
+        }
+    }
+
+    function getOffersCount() {
+        $stmt = $this->verbindung->prepare("SELECT COUNT(AngebotNr) AS rowcount FROM angebote WHERE active = 0" );
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        $details = $result->fetch_array(); 
+        if($details != NULL) {
+            return $details;
+        } else {
+            return false; 
+        }
+    }
+
+    function setBestOffer($offerid) {
+        $stmt = $this->verbindung->prepare("UPDATE angebote SET active = 1 WHERE AngebotNr = (?)");
+        $stmt->bind_param("i", $offerid);
+        $stmt->execute();
+    }
+
     function getLiquidFundsByTeamCode($teamcode)
     {
         $stmt = $this->verbindung->prepare('SELECT FluessigeMittel FROM team WHERE Teamcode = ?;');
+
         $stmt->bind_param('s', $teamcode);
         $stmt->execute();
         $result = $stmt->get_result();

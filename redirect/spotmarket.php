@@ -3,37 +3,21 @@
 </div>
 <div class="row justify-content-center">
 
-    <?php $result = $db->getRandomOffers(); ?>
+    <?php $result = $db->getActiveInquiry(); ?>
     <table class="table-dark table-bordered">
-        <?php
-        for ($i = 0; $i < 3; $i++) {
-            $array = $result->fetch_array();
-        ?>
+
 
             <tr>
-                <th class="tablepadding">Anfrage <?php echo $i + 1; ?></th>
-                <td class="tablepadding"><?php echo $array["Produkt"]; echo " x"; echo $array["Menge"]; echo " "; echo $array["AnfrageID"];?></td>
+                <th class="tablepadding">Anfrage</th>
+                <td class="tablepadding"><?php echo $result["Produkt"]; echo " x"; echo $result["Menge"]; echo " ";?></td>
             </tr>
-
-        <?php
-        }
-        ?>
 
     </table>
 </div>
 
-<form method="POST" action="index.php?site=spotmarketLogic">
+<div class="row justify-content-center">
+<form method="POST" action="index.php?site=spotmarketLogic&produkt=<?php echo $result["Produkt"]; echo '&menge=';echo $result["Menge"]; ?>">
 
-<div class="col-sm-12">
-<tr>
-    <b><label for="formControlRange">Angebot auswählen</label>
-</tr>
-</div>
-<div class="col-sm-12">
-<tr>
-    <input min="0" required name="angebot" type="number" id="formControlRange" onInput="$('#angebot').html($(this).val())">
-</tr>
-</div>
 <div class="col-sm-12">
 <tr>
     <b><label for="formControlRange">Preis</label>
@@ -67,7 +51,8 @@
 <div class="col-sm-12">
 <tr>
     <br>
-    <input type="submit" class="btn btn-success" value="Speichern" name ="Speichern" ID = "Speichern">
+    <input type="submit" class="btn btn-success" value="AnfrageSpeichern" name ="AnfrageSpeichern" ID = "AnfrageSpeichern">
 </tr>
 </div>
 </form>
+</div>
