@@ -11,37 +11,61 @@
     {
     $disabled = 0;
   ?>
-  
-      <p>Sie besitzen an dieser Position noch keine Maschine</p>
-      <p>Möchten Sie eine neue für diese Lane kaufen ?</p>
-      <form method="POST" action="index.php?site=laneLogic" class="container">
-          <input type="radio" name="radio" value="flex" id="flex" <?php if($money < 10){echo 'disabled'; $disabled++;}?>>
-          <label for="flex" <?php if($money < 10){echo 'class="grey"';}?>>Flex-Maschine (Preis 10 M)<?php if($money < 10){echo ' - nicht genug flüssige Mittel';}?></label>
-          <br>
-          <input type="radio" name="radio" value="conti" id="conti" <?php if($money < 20){echo 'disabled'; $disabled++;}?>>
-          <label for="conti" <?php if($money < 20){echo 'class="grey"';}?>>Conti-Maschine (Preis 20 M)<?php if($money < 20){echo ' - nicht genug flüssige Mittel';}?></label>
-          <br>
-          <input type="radio" name="radio" value="power" id="power" <?php if($money < 30){echo 'disabled'; $disabled++;}?>>
-          <label for="power" <?php if($money < 30){echo 'class="grey"';}?>>Power-Maschine (Preis 30 M)<?php if($money < 30){echo ' - nicht genug flüssige Mittel';}?></label>
-          <br>
-          <input type="submit" value="Bestellen" name="buyMachine" <?php if($disabled == 3){echo 'disabled';}?>>
-      </form>
+    <p>Sie besitzen an dieser Position noch keine Maschine</p>
+    <p>Möchten Sie eine neue für diese Lane kaufen ?</p>
+    <form method="POST" action="index.php?site=laneLogic" class="container">
+        <input type="radio" name="radio" value="flex" id="flex" <?php if($money < 10){echo 'disabled'; $disabled++;}?>>
+        <label for="flex" <?php if($money < 10){echo 'class="grey"';}?>>Flex-Maschine (Preis 10 M)<?php if($money < 10){echo ' - nicht genug flüssige Mittel';}?></label>
+        <br>
+        <input type="radio" name="radio" value="conti" id="conti" <?php if($money < 20){echo 'disabled'; $disabled++;}?>>
+        <label for="conti" <?php if($money < 20){echo 'class="grey"';}?>>Conti-Maschine (Preis 20 M)<?php if($money < 20){echo ' - nicht genug flüssige Mittel';}?></label>
+        <br>
+        <input type="radio" name="radio" value="power" id="power" <?php if($money < 30){echo 'disabled'; $disabled++;}?>>
+        <label for="power" <?php if($money < 30){echo 'class="grey"';}?>>Power-Maschine (Preis 30 M)<?php if($money < 30){echo ' - nicht genug flüssige Mittel';}?></label>
+        <br>
+        <input type="submit" value="Bestellen" name="buyMachine" <?php if($disabled == 3){echo 'disabled';}?>>
+    </form>
+
+  <?php
+    }
+    else if($prod == false)
+    {   
+  ?>
+    <p>Was möchten Sie an dieser Maschine produzieren?</p>
+    <form method="POST" action="index.php?site=laneLogic" class="container">
+        <input type="radio" name="radio" value="base" id="base">
+        <label for="base">Base - Produkt (1M pro Stück)</label>
+        <br>
+        <input type="radio" name="radio" value="flex" id="flex">
+        <label for="flex">Flex-Maschine (Preis 10 M)</label>
+        <br>
+        <input type="radio" name="radio" value="plus" id="plus">
+        <label for="plus">Plus - Produkt (2M pro Stück)</label>
+        <br>
+        <input type="radio" name="radio" value="max" id="max">
+        <label for="max">Max - Produkt (3M pro Stück)</label>
+        <br>
+        <span>Menge:</span>
+        <input type="number" min="0" placeholder="0" name="menge">
+        <br>
+        <input type="submit" value="Produzieren" name="produce">
+    </form>   
+
 
   <?php
     }
     else
     {
-      echo 'hier kommt die Produktion hin';
   ?>
-
+    <p>Diese Maschine produziert derzeit!</p>  
+    <p>Derzeit werden <?php echo $prod["Anzahl"]; echo " Stück von Produkt "; echo $prod["Zielprodukt"];?> produziert</p>  
+    
 
 
 
   <?php
     }
   ?>
-
-
 
 </div>
 

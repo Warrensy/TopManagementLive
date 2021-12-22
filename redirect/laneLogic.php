@@ -13,7 +13,6 @@
       }
     }
     
-    
     if (isset($_SESSION['whichLane'])) 
     {
       header("Location: index.php?site=lane&lane={$_SESSION['whichLane']}");
@@ -21,8 +20,6 @@
       exit;
     }
   }
-
-  echo 'you bought a machine';
 
 ?>
 
