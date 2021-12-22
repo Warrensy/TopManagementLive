@@ -184,6 +184,22 @@ class DBclass {
         }
     }
 
+    function getActiveYearlyContracts()
+    {
+        $stmt = $this->verbindung->prepare("SELECT AuftragNr FROM auftrag WHERE Aktiv = 1;");
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result;
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
     function buyMachine($machine, $team, $cost, $lane)
     {
         $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?)  WHERE Teamcode = (?)");

@@ -63,6 +63,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -98,6 +101,7 @@
                   case 'contract' : include "redirect/contract.php"; break;
                   case 'spotmarket' : include "redirect/spotmarket.php"; break; 
                   case 'laneLogic' : include "redirect/laneLogic.php"; break; 
+                  case 'yearlyContracting' : include "redirect/yearlyContracting.php"; break; 
 
                   default: include "redirect/team.php";
                 }
