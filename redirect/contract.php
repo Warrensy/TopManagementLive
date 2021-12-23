@@ -1,6 +1,6 @@
 
 
-<?php $contract = $db->getContractByID(69)?>
+<?php $contract = $db->getContractByID(70)?>
 
 <div class="justify-content-center">
     <!--<table class="center">
@@ -9,7 +9,7 @@
             <tr></tr>
         </form>
     </table> -->
-    <div class ="row row-height">
+    <div class ="row">
         <div class="col-3"></div>
         <div class="col-6">
             <div class="row border-open-bottom row-height">
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class ="row row-height">
+    <div class ="row">
         <div class ="col-1"></div>
         <div class="col-10 border-all">
             <div class="row row-height">
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="row row-height">
+    <div class="row">
         <div class ="col-1"></div>
         <div class ="col-10 border-open-top">
             <div class="row row-height">
@@ -74,7 +74,7 @@
             </div>
         </div>       
     </div>
-    <div class ="row row-height">
+    <div class ="row">
         <div class="col-1"></div>
         <div class="col-10 border-open-top" style="background-color: grey; text-align: center;">
             <div class="row row-height">
@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <div class ="row row-height">
+    <div class ="row">
         <div class="col-1"></div>
         <div class="col-10 border-open-top">
             <div class="row row-height">
