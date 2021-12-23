@@ -189,6 +189,19 @@ class DBclass {
         $stmt->execute();
     }
 
+    function setContractFalse($contractID)
+    {
+        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 0 WHERE AuftragNr = (?)");
+        $stmt->bind_param("i", $contractID);
+        $stmt->execute();
+    }
+
+    function transferContractToTeam($team, $contractID, $delivery, $payment){
+        $stmt = $this->verbindung->prepare("INSERT INTO `auftragzuteam` (`AuftragNr`, `Teamcode`, `FinalZahlungsziel`, `FinalLiefertermin`) VALUES (?,?,?,?)");
+        $stmt->bind_param("isii", $contractID, $team, $payment, $delivery);
+        $stmt->execute();
+    }
+
     function loadLane($team, $lane)
     {
         $stmt = $this->verbindung->prepare("SELECT * FROM maschinenzuteam WHERE Teamcode = ? AND lane = ?;");

@@ -107,6 +107,7 @@
                   case 'yearlyContracting' : include "redirect/yearlyContracting.php"; break; 
                   case 'spotmarketLogic' : include "redirect/spotmarketLogic.php"; break; 
                   case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
+                  case 'yearlyContractingLogic' : include "redirect/yearlyContractingLogic.php"; break;
 
                   default: include "redirect/team.php";
                 }
