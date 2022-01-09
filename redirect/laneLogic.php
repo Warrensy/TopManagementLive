@@ -30,7 +30,7 @@
     {
       switch($_POST["radio"])
       {
-        case 'base': $db->startProduction($lane["MaschinenID"], "Base", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break; //quartal hardgecoded auf 1
+        case 'base': $db->startProduction($lane["MaschinenID"], "Base", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break;
         case 'plus': $db->startProduction($lane["MaschinenID"], "Plus", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break;
         case 'max': $db->startProduction($lane["MaschinenID"], "Max", $_POST["menge"], $_SESSION["Team"], $lane["Maschinentyp"]); break;
       }
@@ -43,6 +43,17 @@
       exit;
     }
 
+  }
+
+  if(isset($_POST["complete"])){
+    $db->putToWarehouse($_SESSION["Team"], $_SESSION['whichLane']);
+
+    if (isset($_SESSION['whichLane'])) 
+    {
+      header("Location: index.php?site=lane&lane={$_SESSION['whichLane']}");
+      unset($_SESSION["whichLane"]);
+      exit;
+    }
   }
 
 ?>

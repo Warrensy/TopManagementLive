@@ -11,6 +11,9 @@
     $prod3 = $db->getProduction($lane3["MaschinenID"]);
   if($lane4 != false)
     $prod4 = $db->getProduction($lane4["MaschinenID"]);
+
+  $quartal = $db->getQuartalByTeam($_SESSION["Team"]);
+
 ?>
 <div class="container-fluid">
   <a href="index.php?site=lane&lane=1">
@@ -35,7 +38,14 @@
                 }
                 else
                 {
-                  echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Currently in Production';
+                  if($quartal >= $prod1["FertigstellungQuartal"])
+                  {
+                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                  }
+                  else
+                  {
+                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Currently in Production';
+                  }
                 }
               echo '</p>';
             }
@@ -60,10 +70,21 @@
             if($lane2 != false)
             {
               echo '<p class="card-text">';
-              if($prod2 == false)
-                echo "Waiting for assignment";
-              else
-                echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Currently in Production';
+                if($prod2 == false)
+                {
+                  echo "Waiting for assignment";
+                }
+                else
+                {
+                  if($quartal >= $prod2["FertigstellungQuartal"])
+                  {
+                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                  }
+                  else
+                  {
+                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Currently in Production';
+                  }
+                }
               echo '</p>';
             }
           ?>
@@ -87,10 +108,21 @@
             if($lane3 != false)
             {
               echo '<p class="card-text">';
-              if($prod3 == false)
-                echo "Waiting for assignment";
-              else
-                echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Currently in Production';
+                if($prod3 == false)
+                {
+                  echo "Waiting for assignment";
+                }
+                else
+                {
+                  if($quartal >= $prod3["FertigstellungQuartal"])
+                  {
+                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                  }
+                  else
+                  {
+                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Currently in Production';
+                  }
+                }
               echo '</p>';
             }
           ?>
@@ -114,10 +146,21 @@
             if($lane4 != false)
             {
               echo '<p class="card-text">';
-              if($prod4 == false)
-                echo "Waiting for assignment";
-              else
-                echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Currently in Production';
+                if($prod4 == false)
+                {
+                  echo "Waiting for assignment";
+                }
+                else
+                {
+                  if($quartal >= $prod4["FertigstellungQuartal"])
+                  {
+                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                  }
+                  else
+                  {
+                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Currently in Production';
+                  }
+                }
               echo '</p>';
             }
           ?>

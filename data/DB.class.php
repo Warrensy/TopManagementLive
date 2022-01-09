@@ -423,7 +423,37 @@ class DBclass {
         $stmt->execute();
     }
 
+    function putToWarehouse($team, $lane)
+    {
+        $machine = $this->loadLane($team, $lane);        
+        $prod = $this->getProduction($machine["MaschinenID"]);
 
+        //delete Production
+        $stmt = $this->verbindung->prepare("DELETE FROM aktuelleproduktion WHERE ProdID = ?");
+        $stmt->bind_param("i",$prod["ProdID"]);
+        $stmt->execute();
+
+        //add finished products to warehouse
+        switch($prod["Zielprodukt"])
+        {
+            case 'Base':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Base = Base + (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$prod["Anzahl"], $team);
+                $stmt->execute();   
+                break;
+            case 'Plus':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Plus = Plus + (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$prod["Anzahl"], $team);
+                $stmt->execute();  
+                break;
+            case 'Max':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET `Max` = `Max` + (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$prod["Anzahl"], $team);
+                $stmt->execute();  
+                break;
+        }
+
+    }
 
 }
 

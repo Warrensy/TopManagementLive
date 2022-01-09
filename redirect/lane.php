@@ -4,6 +4,7 @@
     $prod = $db->getProduction($lane["MaschinenID"]);
   $money = $db->getLiquidFundsByTeamCode($_SESSION["Team"]);
   $_SESSION["whichLane"] = $_GET["lane"];
+  $quartal = $db->getQuartalByTeam($_SESSION["Team"]);
 ?>
 <div class="container-fluid">
   <?php
@@ -50,6 +51,18 @@
         <input type="submit" value="Produzieren" name="produce">
     </form>   
 
+
+  <?php
+    }
+    else if ($quartal >= $prod["FertigstellungQuartal"])
+    {
+  ?>
+    <p>Die Produktion ist fertig!</p>  
+    <p>Es wurden <?php echo $prod["Anzahl"]; echo " Stück von Produkt "; echo $prod["Zielprodukt"];?> produziert</p> 
+    <p>Drücken Sie den Knopf um die Produkte ins Produktlager zu schicken!</p>  
+    <form method="POST" action="index.php?site=laneLogic" class="container">
+        <input type="submit" value="Produktion fertigstellen" name="complete">
+    </form> 
 
   <?php
     }
