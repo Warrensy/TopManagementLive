@@ -238,7 +238,7 @@ class DBclass {
 
     function getActiveYearlyContracts()
     {
-        $stmt = $this->verbindung->prepare("SELECT AuftragNr FROM auftrag WHERE Aktiv = 1;");
+        $stmt = $this->verbindung->prepare("SELECT AuftragNr FROM auftrag WHERE Aktiv = 1");
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -250,6 +250,14 @@ class DBclass {
         } else {
             return false;
         }
+    }
+
+    function setActiveContracts(){
+        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 0");
+        $stmt->execute();
+        //                                                                            change 4 to number of teams +1
+        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 1 ORDER BY rand() LIMIT 4");
+        $stmt->execute();
     }
 
     function getQuartalByTeam($team)

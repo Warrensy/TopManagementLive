@@ -1,6 +1,4 @@
-
-
-<?php $contract = $db->getContractByID(70)?>
+<?php $contract = $db->getContractByID(69)?>
 
 <div class="justify-content-center">
     <!--<table class="center">
