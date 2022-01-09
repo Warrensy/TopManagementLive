@@ -3,11 +3,30 @@
 </div>
 <div class="row justify-content-center">
 
-    <?php $offers = $db->getOffers();
+    <?php
+    $offers = $db->getOffers();
     $offersbackup = $db->getOffers();
     $rowcount = $db->getOffersCount();
     ?>
 
+<?php
+
+if (isset($_GET['bestoffer'])) {
+    $admininput = $_GET['bestoffer'];
+
+
+    for ($i = 0; $i < $admininput; $i++) {
+        $array2 = $offersbackup->fetch_array();
+    }
+
+    if($array2 != false) {
+        $db->setBestOffer($array2["AngebotNr"]);
+        $db->deleteOtherOffers(); 
+    }
+    header('Location: index.php?site=adminOfferManager');
+}
+
+?>
 
     <table class="table-dark table-bordered">
 
@@ -59,20 +78,3 @@
     </div>
 </form>
 </div
-
-<?php
-
-if (isset($_GET['bestoffer'])) {
-    $admininput = $_GET['bestoffer'];
-
-
-    for ($i = 0; $i < $admininput; $i++) {
-        $array2 = $offersbackup->fetch_array();
-    }
-
-    if($array2 != false) {
-        $db->setBestOffer($array2["AngebotNr"]);
-    }
-}
-
-?>

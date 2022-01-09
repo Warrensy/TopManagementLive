@@ -73,7 +73,7 @@ class DBclass {
         }
     }
 
-    function getContractByID($contractID){
+    function getContractByID($contractID){ 
         $stmt = $this->verbindung->prepare("SELECT * FROM `auftrag` WHERE `AuftragNr` = (?)" );
         $stmt->bind_param("s", $contractID);
         $stmt->execute();
@@ -137,6 +137,34 @@ class DBclass {
         }
     }
 
+
+
+    function getActiveOffersByTeamCode($teamcode) {
+        $stmt = $this->verbindung->prepare("SELECT * FROM angebote WHERE active = 1 AND Teamcode = (?)" );
+        $stmt->bind_param("i", $teamcode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if($result != NULL) {
+            return $result;
+        } else {
+            return false; 
+        }
+    }
+
+    function getContractsByTeamCode($teamcode) {
+        $stmt = $this->verbindung->prepare("SELECT * FROM auftrag JOIN auftragzuteam ON auftrag.AuftragNr=auftragzuteam.AuftragNr WHERE Teamcode = (?)" );
+        $stmt->bind_param("i", $teamcode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if($result != NULL) {
+            return $result;
+        } else {
+            return false; 
+        }
+    }
+
     function getOffersCount() {
         $stmt = $this->verbindung->prepare("SELECT COUNT(AngebotNr) AS rowcount FROM angebote WHERE active = 0" );
         $stmt->execute();
@@ -153,6 +181,11 @@ class DBclass {
     function setBestOffer($offerid) {
         $stmt = $this->verbindung->prepare("UPDATE angebote SET active = 1 WHERE AngebotNr = (?)");
         $stmt->bind_param("i", $offerid);
+        $stmt->execute();
+    }
+
+    function deleteOtherOffers() {
+        $stmt = $this->verbindung->prepare("DELETE FROM angebote WHERE active = 0");
         $stmt->execute();
     }
 
@@ -365,6 +398,31 @@ class DBclass {
         }
 
     }
+
+    function getMPPs($team)
+    {
+        $stmt = $this->verbindung->prepare("SELECT * FROM team WHERE Teamcode=(?)");
+        $stmt->bind_param("s", $team);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
+    function setMPPs($europa, $asien, $amerika, $team)
+    {
+        $stmt = $this->verbindung->prepare("UPDATE team SET europa_mpp = ?, asien_mpp = ?, amerika_mpp = ? WHERE Teamcode=(?)");
+        $stmt->bind_param("iiis",$europa, $asien, $amerika, $team);
+        $stmt->execute();
+    }
+
 
 
 }
