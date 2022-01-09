@@ -70,7 +70,10 @@
         <a class="nav-link" href="index.php?site=adminOfferManager">AdminOfferManager</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="index.php?site=adminControls">AdminControls</a>
+          <a class="nav-link" href="index.php?site=adminControls">AdminControls</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
         </li>
       </ul>
     </div>
@@ -112,6 +115,8 @@
                   case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
                   case 'yearlyContractingLogic' : include "redirect/yearlyContractingLogic.php"; break;
                   case 'adminControls' : include "redirect/adminControls.php"; break;
+                  case 'mpp' : include "redirect/mpp.php"; break;
+
                   default: include "redirect/team.php";
                 }
               }
