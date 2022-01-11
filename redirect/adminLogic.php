@@ -9,7 +9,7 @@
   if(isset($_POST["accept"])){
     $db->setActiveContracts($_SESSION["Game"]);
 
-    header("Location: index.php?site=adminControls&game='$gameid'");
+    header("Location: index.php?site=adminControls");
     exit;
   }
 ?>
