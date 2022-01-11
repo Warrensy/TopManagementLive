@@ -1,8 +1,8 @@
-<!--
-<form  method="post" action=<?php /*$db->setActiveContracts() */?>>
+
+<form  method="post" action="index.php?site=adminLogic">
     <input class="col btn btn-success"   type="submit" value="Yearly Contracts mischen" name ="accept" ID = "accept">
 </form>
--->
+
 <form  method="post" action="index.php?site=adminLogic">
     <input class="col btn btn-warning" type="submit" value="Create new Game" name ="createGame">
 </form>
