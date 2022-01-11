@@ -292,12 +292,29 @@ class DBclass {
         }
     }
 
-    function setActiveContracts(){
-        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 0");
+    function setActiveContracts($gameid){
+        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 0"); 
         $stmt->execute();
-        //                                                                            change 4 to number of teams +1
-        $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 1 ORDER BY rand() LIMIT 4");
+        
+        $numberofteams = $this->getTeamsInGame($gameid);
+
+        for($i = 0; $i < $numberofteams + 1; $i++) 
+        {
+            $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 1 WHERE Aktiv = 0 ORDER BY rand() LIMIT 1");
+            $stmt->execute();
+        }
+    }
+
+
+    function getTeamsInGame($gameid) {
+        $stmt = $this->verbindung->prepare("SELECT COUNT(gameid) AS gid FROM team WHERE gameid = (?)");
+        $stmt->bind_param("i", $gameid);
         $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
+
+        return $details["gid"];
     }
 
     function getQuartalByTeam($team)

@@ -21,9 +21,6 @@
         $zahlungsziel = 1;
         $liefertermin = 1;
         $aktiv = 0; 
-
-
-        echo $preis, $zahlungsziel, $liefertermin, $produkt, $menge;
         
         $db->createContract($kategorie, $region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $aktiv);
 
