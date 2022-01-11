@@ -15,7 +15,7 @@
         $plus = $_POST["plus"];
         $max = $_POST["max"];
         
-        $answer = $db->createTeam($mittel, $base, $plus, $max);
+        $answer = $db->createTeam($mittel, $base, $plus, $max, $_SESSION["Game"]);
 
         $_SESSION["Team"] = $answer;
         header('Location: index.php?site=displayTeamCode');

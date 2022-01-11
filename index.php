@@ -78,6 +78,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=joinGame">joinGame</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -121,6 +124,9 @@
                   case 'adminCreateContract' : include "redirect/adminCreateContract.html"; break;
                   case 'adminCreateContractLogic' : include "redirect/adminCreateContractLogic.php"; break;
                   case 'mpp' : include "redirect/mpp.php"; break;
+                  case 'adminLogic' : include "redirect/adminLogic.php"; break;
+                  case 'leaveGame' : include "redirect/leaveGame.php"; break;
+                  case 'joinGame' : include "redirect/joinGame.php"; break;
 
                   default: include "redirect/team.php";
                 }
@@ -132,6 +138,9 @@
                   case 'joinTeamLogic': include "redirect/joinTeamLogic.php"; break;
                   case 'createTeam': include "redirect/createTeam.html"; break;
                   case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
+                  case 'joinGame' : include "redirect/joinGame.php"; break;
+                  case 'adminControls' : include "redirect/adminControls.php"; break;
+                  case 'adminLogic' : include "redirect/adminLogic.php"; break;
 
                   default: include "redirect/team.php";
                 }

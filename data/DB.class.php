@@ -9,7 +9,7 @@ class DBclass {
     }
 
     //erstellt Teamcode, erstellt die zugehörigen Tabellen in der Datenbank, und gebt den Teamcode zurück
-    function createTeam($mittel, $base, $plus, $max){
+    function createTeam($mittel, $base, $plus, $max, $gameid){
         //if Teamcode already exists, retry until a unique one is generated
         while(1)
         {
@@ -27,8 +27,8 @@ class DBclass {
             } 
         }
 
-        $stmt = $this->verbindung->prepare("INSERT INTO `team` (`Teamcode`,`FluessigeMittel`) VALUES (?,?)");
-        $stmt->bind_param("si", $newTeamCode,$mittel);
+        $stmt = $this->verbindung->prepare("INSERT INTO `team` (`Teamcode`,`FluessigeMittel`,`gameid`) VALUES (?,?,?)");
+        $stmt->bind_param("sis", $newTeamCode,$mittel,$gameid);
         $stmt->execute();
 
         $stmt = $this->verbindung->prepare("INSERT INTO `materiallager` (`Teamcode`,`RohMax`,`RohPlus`,`RohBase`) VALUES (?,?,?,?)");
@@ -498,6 +498,52 @@ class DBclass {
     }
 
 
+    function AddSpotmarketContract($material,$menge)
+    {
+        $stmt = $this->verbindung->prepare("INSERT INTO anfragen (Menge,Produkt) VALUES (?,?)");
+        $stmt->bind_param("is", $material,$menge);
+        $stmt->execute();
+    }
+
+    function createGame(){
+        //if Gamecode already exists, retry until a unique one is generated
+        while(1)
+        {
+            $newGameCode = mt_rand(10000,99999);
+            $stmt = $this->verbindung->prepare("SELECT * FROM `game` WHERE `gameid` = (?)");
+            $stmt->bind_param("s", $newGameCode);
+            $stmt->execute();
+    
+            $result = $stmt->get_result();
+    
+            //Überprüft wie viele Ergebnisse mit dem value gefunden wurden
+            //Wenn kein Ergebnis ==> Code ist verfügbar und Schleife kann verlassen werden
+            if($result->num_rows == 0) {
+                break;
+            } 
+        }
+
+        $stmt = $this->verbindung->prepare("INSERT INTO `game` (`gameid`) VALUES (?)");
+        $stmt->bind_param("s", $newGameCode);
+        $stmt->execute();
+
+        return $newGameCode;
+    }
+
+    function joinGame($gamecode){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `game` WHERE `gameid` = (?)");
+        $stmt->bind_param("s", $gamecode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if($result->num_rows == 0) {
+            return false;
+        }
+        else{
+            return true;
+        } 
+    }
 }
 
 ?>

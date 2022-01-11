@@ -39,6 +39,16 @@
                         </td>
                     </tr>';
             }
+
+            if(isset($_SESSION["Game"])){
+                echo'<tr>
+                        <td>
+                            <a href="?site=leaveGame">
+                                <button type="button" class="btn btn-primary">Game verlassen</button>
+                            </a> 
+                        </td>
+                    </tr>';
+            }
         ?>
     </table>
 </div>
