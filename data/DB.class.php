@@ -455,6 +455,27 @@ class DBclass {
 
     }
 
+    function sellMachine($team, $lane, $price)
+    {
+        $machine = $this->loadLane($team, $lane);        
+        $prod = $this->getProduction($machine["MaschinenID"]);
+
+        //delete Production
+        $stmt = $this->verbindung->prepare("DELETE FROM aktuelleproduktion WHERE ProdID = ?");
+        $stmt->bind_param("i",$prod["ProdID"]);
+        $stmt->execute();
+
+        //delete Machine
+        $stmt = $this->verbindung->prepare("DELETE FROM maschinenzuteam WHERE MaschinenID = ?");
+        $stmt->bind_param("i",$machine["MaschinenID"]);
+        $stmt->execute();
+
+        //add flüssige mittel
+        $stmt = $this->verbindung->prepare("UPDATE team SET `FluessigeMittel` = `FluessigeMittel` + (?) WHERE Teamcode = (?)");
+        $stmt->bind_param("ii", $price, $team);
+        $stmt->execute();
+    }
+
 }
 
 ?>

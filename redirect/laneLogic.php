@@ -56,5 +56,16 @@
     }
   }
 
+  if(isset($_POST["sell"])){
+    $db->sellMachine($_SESSION["Team"], $_SESSION['whichLane'], $_POST["sellPrice"]);
+
+    if (isset($_SESSION['whichLane'])) 
+    {
+      header("Location: index.php?site=lane&lane={$_SESSION['whichLane']}");
+      unset($_SESSION["whichLane"]);
+      exit;
+    }
+  }
+
 ?>
 

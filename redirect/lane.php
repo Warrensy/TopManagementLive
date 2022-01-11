@@ -5,7 +5,17 @@
   $money = $db->getLiquidFundsByTeamCode($_SESSION["Team"]);
   $_SESSION["whichLane"] = $_GET["lane"];
   $quartal = $db->getQuartalByTeam($_SESSION["Team"]);
-?>
+  $max = 0;
+  if($lane != false)
+  {
+    switch($lane["Maschinentyp"])
+    {
+      case 'Flex': $max = 2; break;
+      case 'Conti': $max = 4; break;
+      case 'Power': $max = 8; break;
+    }
+  }
+    ?>
 <div class="container-fluid">
   <?php
     if($lane == false)
@@ -45,7 +55,7 @@
         <label for="maxRadio">Max - Produkt (3M pro Stück)</label>
         <br>
         <span>Menge:</span>
-        <input type="number" min="0" placeholder="0" name="menge" required>
+        <input type="number" min="0" max="<?php echo $max; ?>" placeholder="0" name="menge" required>
         <br>
         <br>
         <input type="submit" value="Produzieren" name="produce">
@@ -77,6 +87,24 @@
 
   <?php
     }
+
+    if($lane != false)
+    {
+  ?>
+
+    <br>
+    <h3>Maschine verkaufen</h3>
+    <p>Achtung! Wenn sie eine Maschine verkaufen, werden laufende Produktionen abgebrochen und die Materialien gehen verloren!</p> 
+    <p>Bitte geben Sie den Verkaufswert der Maschine ein (siehe Handbuch)</p>  
+    <form method="POST" action="index.php?site=laneLogic" class="container">
+        <input type="input" name="sellPrice" placeholder="0" required >
+        <input type="submit" value="Maschine verkaufen" name="sell">
+    </form> 
+      
+
+  <?php
+    }
+
   ?>
 
 </div>
