@@ -205,13 +205,20 @@ class DBclass {
         }
     }
 
-    function payTaxes($teamcode, $summe)
+    function transferMoney($teamcode, $summe, $teamid)
     {
         $funds = $this->getLiquidFundsByTeamCode($teamcode);
-        $newFunds = $funds - $summe;
+        $newFundsOwnTeam = $funds - $summe;
+
+        $funds = $this->getLiquidFundsByTeamCode($teamid);
+        $newFundsOtherTeam = $funds + $summe;
 
         $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = (?) WHERE Teamcode = (?)");
-        $stmt->bind_param("is", $newFunds, $teamcode);
+        $stmt->bind_param("is", $newFundsOwnTeam, $teamcode);
+        $stmt->execute();
+
+        $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = (?) WHERE Teamcode = (?)");
+        $stmt->bind_param("is", $newFundsOtherTeam, $teamid);
         $stmt->execute();
     }
 

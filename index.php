@@ -43,7 +43,7 @@
           <a class="nav-link" href="index.php?site=liquidFunds">Geld</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=taxes">Steuern Zahlen</a>
+          <a class="nav-link" href="index.php?site=transfer">Geld Überweisen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
@@ -104,8 +104,8 @@
                   case 'materialOrder': include "redirect/MaterialOrder.php"; break;
                   case 'materialOrderLogic': include "redirect/materialOrderLogic.php"; break;
                   case 'liquidFunds': include "redirect/liquidFunds.php"; break;
-                  case 'taxes': include "redirect/taxes.html"; break;
-                  case 'taxesLogic': include "redirect/taxesLogic.php"; break;
+                  case 'transfer': include "redirect/transfer.html"; break;
+                  case 'transferLogic': include "redirect/transferLogic.php"; break;
                   case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                   case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
                   case 'production' : include "redirect/production.php"; break;
