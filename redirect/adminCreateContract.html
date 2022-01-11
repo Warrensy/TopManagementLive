@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <table>
+        <div class="col-sm-12">
+        <tr>
+            <h1>Contract erstellen</h1>
+        </tr>  
+        </div>
+        
+        <form method="POST" action="index.php?site=adminCreateContractLogic">
+
+            <div class="col-sm-12">
+            <tr>
+                <b><label for="formControlRange">Produkt</label>
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <input name="produkt" id="formControlRange" onInput="$('#produkt').html($(this).val())">
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <b><label for="formControlRange">Menge</label>
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <input min="0" required name="menge" type="number" id="formControlRange" onInput="$('#menge').html($(this).val())">
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <b><label for="formControlRange">Preis</label>
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <input min="0" required name="preis" type="number" id="formControlRange" onInput="$('#preis').html($(this).val())">
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <b><label for="formControlRange">Zahlungsziel</label>
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <input min="0" required name="zahlungsziel" type="number" id="formControlRange" onInput="$('#zahlungsziel').html($(this).val())">
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <b><label for="formControlRange">Liefertermin</label>
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <input min="0" required name="mittel" type="number" id="formControlRange" onInput="$('#liefertermin').html($(this).val())">
+            </tr>
+            </div>
+            <div class="col-sm-12">
+            <tr>
+                <br>
+                <input type="submit" class="btn btn-success" value="ContractSpeichern" name ="ContractSpeichern" ID = "ContractSpeichern">
+            </tr>
+            </div>
+        </form>
+    </table>
+</div> 
+

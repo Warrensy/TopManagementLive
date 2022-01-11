@@ -118,7 +118,7 @@ class DBclass {
         }
     }
 
-    function createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode) { //anker
+    function createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode) {
         $stmt = $this->verbindung->prepare("INSERT INTO `angebote` (`Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Teamcode`) 
         VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssiiiii",$region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode);
@@ -482,6 +482,15 @@ class DBclass {
         $stmt->bind_param("s", $gameid);
         $stmt->execute();
     }
+
+    function createContract($kategorie, $region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $aktiv) {
+        $stmt = $this->verbindung->prepare("INSERT INTO `auftrag` (`Kategorie`, `Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Aktiv`) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssiiiii", $kategorie, $region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $aktiv);
+        $stmt->execute();
+    }
+
+
 }
 
 ?>

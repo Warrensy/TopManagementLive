@@ -73,6 +73,9 @@
           <a class="nav-link" href="index.php?site=adminControls">AdminControls</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
         </li>
       </ul>
@@ -115,6 +118,8 @@
                   case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
                   case 'yearlyContractingLogic' : include "redirect/yearlyContractingLogic.php"; break;
                   case 'adminControls' : include "redirect/adminControls.php"; break;
+                  case 'adminCreateContract' : include "redirect/adminCreateContract.html"; break;
+                  case 'adminCreateContractLogic' : include "redirect/adminCreateContractLogic.php"; break;
                   case 'mpp' : include "redirect/mpp.php"; break;
 
                   default: include "redirect/team.php";
