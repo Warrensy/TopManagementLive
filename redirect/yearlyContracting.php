@@ -5,10 +5,6 @@ while ($arrayRequests = $activeContracts->fetch_array()){
     $contract = $db->getContractByID($arrayRequests["AuftragNr"]); ?>
     <div class="justify-content-center margin-bottom">    
     <form method="POST" action="index.php?site=yearlyContractingLogic">
-        
-        
-
-
         <div class ="row">
             <div class="col-3"></div>
             <div class="col-6">

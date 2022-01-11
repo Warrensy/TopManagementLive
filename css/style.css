@@ -65,6 +65,15 @@ button {
     background-color: white;
 }
 
+.border-only-sides{
+    border-color: black;
+    border-width: 2px;
+    border-right-style: solid;
+    border-left-style: solid;
+    background-color: white;
+}
+}
+
 .background-yearly-contracting{
     background-color: skyblue;
 }
@@ -115,3 +124,8 @@ button {
 .row-height{
     height: 50px;
 }
+
+.padding-bottom{
+    padding-bottom: 20px;;
+}
+
