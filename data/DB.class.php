@@ -476,6 +476,12 @@ class DBclass {
         $stmt->execute();
     }
 
+    function NextQuarter($gameid)
+    {
+        $stmt = $this->verbindung->prepare("UPDATE team SET AktuellesQuartal = AktuellesQuartal + 1 WHERE gameid = (?)");
+        $stmt->bind_param("s", $gameid);
+        $stmt->execute();
+    }
 }
 
 ?>
