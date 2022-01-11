@@ -518,7 +518,7 @@ class DBclass {
     function AddSpotmarketContract($material,$menge)
     {
         $stmt = $this->verbindung->prepare("INSERT INTO anfragen (Menge,Produkt) VALUES (?,?)");
-        $stmt->bind_param("is", $material,$menge);
+        $stmt->bind_param("is", $menge, $material);
         $stmt->execute();
     }
 

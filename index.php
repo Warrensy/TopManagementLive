@@ -81,6 +81,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=joinGame">joinGame</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -127,7 +130,8 @@
                   case 'adminLogic' : include "redirect/adminLogic.php"; break;
                   case 'leaveGame' : include "redirect/leaveGame.php"; break;
                   case 'joinGame' : include "redirect/joinGame.php"; break;
-
+                  case 'adminSpotMarket' : include "redirect/adminSpotMarket.php"; break;
+                  case 'adminSpotMarketLogic' : include "redirect/adminSpotMarketLogic.php"; break;
                   default: include "redirect/team.php";
                 }
               }
@@ -141,6 +145,8 @@
                   case 'joinGame' : include "redirect/joinGame.php"; break;
                   case 'adminControls' : include "redirect/adminControls.php"; break;
                   case 'adminLogic' : include "redirect/adminLogic.php"; break;
+                  case 'adminSpotMarket' : include "redirect/adminSpotMarket.php"; break;
+                  case 'adminSpotMarketLogic' : include "redirect/adminSpotMarketLogic.php"; break;
 
                   default: include "redirect/team.php";
                 }
