@@ -19,7 +19,7 @@
             </tr>
             <br>
             <tr>
-                <td><input type="submit" class="btn btn-success" value="Speichern" name ="Speichern" ID = "Speichern"></td>
+                <td><input type="submit" class="btn btn-success" value="Bestellen" name ="Speichern" ID = "Speichern"></td>
             </tr>
             <br>
             <tr>
@@ -28,6 +28,10 @@
         </form>
     </table>
 </div> 
+
+<br>
+<p>[ACHTUNG]: Bitte das Material der alten Bestellung annehmen, bevor eine neue aufgegeben wird!</p>
+
 <?php
 if(isset($_GET['materialAdded']) && $_GET['materialAdded'] == "true")
 {
