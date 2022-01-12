@@ -186,15 +186,13 @@ class DBclass {
         $stmt->execute();
     }
 
-    function deleteFinishedOffer($offerid, $teamid) { //anker
+    function deleteFinishedOffer($offerid, $teamid) {
         $stmt = $this->verbindung->prepare("DELETE FROM angebote WHERE active = 1 AND Teamcode = (?) AND AngebotNr = (?) ");
         $stmt->bind_param("si", $teamid, $offerid);
         $stmt->execute();
     }
 
-    //DELETE FROM stack WHERE id IN(SELECT id FROM stack WHERE userid = @uid AND cardid = @cid LIMIT 1)
-
-    function deleteFinishedContract($contractid, $teamid) { //anker
+    function deleteFinishedContract($contractid, $teamid) {
         $stmt = $this->verbindung->prepare("DELETE FROM auftragzuteam WHERE Teamcode = (?) AND AuftragNr = (?) LIMIT 1");
         $stmt->bind_param("si", $teamid, $contractid);
         $stmt->execute();

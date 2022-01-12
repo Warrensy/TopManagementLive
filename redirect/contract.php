@@ -9,12 +9,7 @@
 ?>
 
 <div class="justify-content-center">
-    <!--<table class="center">
-        <form method="POST" action="index.php?site=acceptContractLogic">
-            <tr>Contract annehmen</tr>
-            <tr></tr>
-        </form>
-    </table> -->
+
     <form method="POST" action="index.php?site=contractLogic">
     <div class ="row">
         <div class="col-3"></div>
@@ -118,9 +113,6 @@
 <?php } ?>
 
 
-
-<!--<table class="table-dark table-bordered">-->
-
 <?php
     $activeoffers = $db->getActiveOffersByTeamCode($_SESSION["Team"]); 
 ?>
@@ -130,12 +122,6 @@
 ?>
 
 <div class="justify-content-center">
-    <!--<table class="center">
-        <form method="POST" action="index.php?site=acceptContractLogic">
-            <tr>Contract annehmen</tr>
-            <tr></tr>
-        </form>
-    </table> -->
     <form method="POST" action="index.php?site=contractLogic">
     <div class ="row">
         <div class="col-3"></div>
@@ -237,6 +223,3 @@
 <br>
 
 <?php } ?>
-
-
-<!--</table>-->
