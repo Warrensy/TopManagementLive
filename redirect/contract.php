@@ -15,6 +15,7 @@
             <tr></tr>
         </form>
     </table> -->
+    <form method="POST" action="index.php?site=contractLogic">
     <div class ="row">
         <div class="col-3"></div>
         <div class="col-6">
@@ -97,6 +98,19 @@
             </div>
         </div>
     </div>
+    <div class ="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row row-height">
+                    <input class="col btn btn-success" type="submit" value="Produkt ausliefern" name ="contractausliefern" ID = "contractausliefern">
+                    <input type="hidden" ID="AuftragNr" name="AuftragNr" value="<?=$contract["AuftragNr"] ?>">
+                    <input type="hidden" ID="Produkt" name="Produkt" value="<?=$contract["Produkt"] ?>">
+                    <input type="hidden" ID="Menge" name="Menge" value="<?=$contract["Menge"] ?>">
+                    <input type="hidden" ID="Preis" name="Preis" value="<?=$contract["Preis"] ?>">
+                </div>
+            </div>
+    </div>
+    </form>
 </div>
 
 <br>
@@ -122,6 +136,7 @@
             <tr></tr>
         </form>
     </table> -->
+    <form method="POST" action="index.php?site=contractLogic">
     <div class ="row">
         <div class="col-3"></div>
         <div class="col-6">
@@ -204,6 +219,19 @@
             </div>
         </div>
     </div>
+    <div class ="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row row-height">
+                    <input class="col btn btn-success" type="submit" value="Produkt ausliefern" name ="angebotausliefern" ID = "angebotausliefern">
+                    <input type="hidden" ID="AngebotNr" name="AngebotNr" value="<?=$activeoffer["AngebotNr"] ?>">
+                    <input type="hidden" ID="Produkt" name="Produkt" value="<?=$activeoffer["Produkt"] ?>">
+                    <input type="hidden" ID="Menge" name="Menge" value="<?=$activeoffer["Menge"] ?>">
+                    <input type="hidden" ID="Preis" name="Preis" value="<?=$activeoffer["Preis"] ?>">
+                </div>
+            </div>
+    </div>
+    </form>
 </div>
 
 <br>

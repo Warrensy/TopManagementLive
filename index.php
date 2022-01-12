@@ -109,6 +109,7 @@
                   case 'production' : include "redirect/production.php"; break;
                   case 'lane' : include "redirect/lane.php"; break;
                   case 'contract' : include "redirect/contract.php"; break;
+                  case 'contractLogic' : include "redirect/contractLogic.php"; break;
                   case 'spotmarket' : include "redirect/spotmarket.php"; break; 
                   case 'laneLogic' : include "redirect/laneLogic.php"; break; 
                   case 'yearlyContracting' : include "redirect/yearlyContracting.php"; break; 

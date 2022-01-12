@@ -186,6 +186,46 @@ class DBclass {
         $stmt->execute();
     }
 
+    function deleteFinishedOffer($offerid, $teamid) { //anker
+        $stmt = $this->verbindung->prepare("DELETE FROM angebote WHERE active = 1 AND Teamcode = (?) AND AngebotNr = (?) ");
+        $stmt->bind_param("si", $teamid, $offerid);
+        $stmt->execute();
+    }
+
+    function deleteFinishedContract($contractid, $teamid) { //anker
+        $stmt = $this->verbindung->prepare("DELETE FROM auftragzuteam WHERE Teamcode = (?) AND AuftragNr = (?) ");
+        $stmt->bind_param("si", $teamid, $contractid);
+        $stmt->execute();
+    }
+
+    function deleteProductFromStorage($teamid, $product, $amount) {
+
+        switch($product)
+        {
+            case 'Base':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Base = Base - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$amount, $teamid);
+                $stmt->execute();   
+                break;
+            case 'Plus':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Plus = Plus - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$amount, $teamid);
+                $stmt->execute();   
+                break;
+            case 'Max':
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET `Max` = `Max` - (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$amount, $teamid);
+                $stmt->execute();    
+                break;
+        }
+    }
+
+    function addMoney($teamid, $money) {
+        $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel + (?) WHERE Teamcode = (?)");
+        $stmt->bind_param("is",$money, $teamid);
+        $stmt->execute();   
+    }
+    
     function deleteOtherOffers() {
         $stmt = $this->verbindung->prepare("DELETE FROM angebote WHERE active = 0");
         $stmt->execute();
