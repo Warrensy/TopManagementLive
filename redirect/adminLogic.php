@@ -12,5 +12,11 @@
     header("Location: index.php?site=adminControls");
     exit;
   }
+  if(isset($_POST["nextQuarter"])){
+    $db->NextQuarter($_SESSION["Game"]);
+
+    header("Location: index.php?site=adminControls");
+    exit;
+  }
 ?>
 
