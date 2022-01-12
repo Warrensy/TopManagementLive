@@ -25,13 +25,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=team">Team</a>
+          </li>
           <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=idle">Aktion Erfolgreich</a>
+          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=materialOrder">Material Bestellen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=production">Produktion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=productWarehouse">Produkt Lager</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=liquidFunds">Geld</a>
@@ -40,43 +49,33 @@
           <a class="nav-link" href="index.php?site=transfer">Geld Überweisen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=market">Produkte traden</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=productWarehouse">Produkte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=team">Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=production">Produktion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=contract">Contract</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
+          <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="index.php?site=adminOfferManager">AdminOfferManager</a>
+          <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=adminControls">AdminControls</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
+          <a class="nav-link" href="index.php?site=market">B2B Markt</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
         </li>
       </ul>

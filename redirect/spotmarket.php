@@ -31,7 +31,14 @@
         </div>
         <div class="col-sm-12 background-row2 padding-bottom border-only-sides">
             <tr>
-                <input min="0" required name="zahlungsziel" type="number" id="formControlRange" onInput="$('#zahlungsziel').html($(this).val())">
+                <select onInput="$('#zahlungsziel').html($(this).val())" id="formControlRange" required name="zahlungsziel" class="form-select" aria-label="Default select example">
+                    <option value="90">90</option>
+                    <option value="180">180</option>
+                    <option value="270">270</option>
+                    <option value="360">360</option>
+                </select>
+                <!--<input min="0" required name="zahlungsziel" type="number" id="formControlRange" onInput="$('#zahlungsziel').html($(this).val())">-->
+            </tr>
             </tr>
         </div>
         <div class="col-sm-12 background-row1 border-only-sides">
@@ -41,7 +48,13 @@
         </div>
         <div class="col-sm-12 background-row1 padding-bottom border-open-top">
             <tr>
-                <input min="0" required name="liefertermin" type="number" id="formControlRange" onInput="$('#liefertermin').html($(this).val())">
+                <select onInput="$('#liefertermin').html($(this).val())" id="formControlRange" required name="liefertermin" class="form-select" aria-label="Default select example">
+                    <option value="90">90</option>
+                    <option value="180">180</option>
+                    <option value="270">270</option>
+                    <option value="360">360</option>
+                </select>
+                <!--<input min="0" required name="liefertermin" type="number" id="formControlRange" onInput="$('#liefertermin').html($(this).val())">-->
             </tr>
         </div>
         <div class="col-sm-12 ">
