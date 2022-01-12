@@ -264,6 +264,146 @@ class DBclass {
         $stmt->execute();
     }
 
+    function tradeProduct($teamcode, $base_plus_max, $summe, $teamid){  
+        switch($base_plus_max){
+            case 'Base':
+                $stmt = $this->verbindung->prepare("SELECT Base FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Base = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT Base FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Base = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            case 'Plus':
+                $stmt = $this->verbindung->prepare("SELECT Plus FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Plus = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT Plus FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET Plus = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            case 'Max':
+                $stmt = $this->verbindung->prepare("SELECT `Max` FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET `Max` = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT `Max` FROM `produktlager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE produktlager SET `Max` = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function tradeMaterial($teamcode, $base_plus_max, $summe, $teamid){  
+        switch($base_plus_max){
+            case 'Base':
+                $stmt = $this->verbindung->prepare("SELECT RohBase FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohBase = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT RohBase FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohBase = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            case 'Plus':
+                $stmt = $this->verbindung->prepare("SELECT RohPlus FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohPlus = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT RohPlus FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET RohPlus = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            case 'Max':
+                $stmt = $this->verbindung->prepare("SELECT `RohMax` FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamcode);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOwnTeam = $products[0] - $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET `RohMax` = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOwnTeam, $teamcode);
+                $stmt->execute();
+
+                $stmt = $this->verbindung->prepare("SELECT `RohMax` FROM `materiallager` WHERE `Teamcode` = (?)" );
+                $stmt->bind_param("s",$teamid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $products = $result->fetch_array();
+                $newProductsOtherTeam = $products[0] + $summe;
+                $stmt = $this->verbindung->prepare("UPDATE materiallager SET `RohMax` = (?) WHERE Teamcode = (?)");
+                $stmt->bind_param("is",$newProductsOtherTeam, $teamid);
+                $stmt->execute();
+                break;
+            default:
+                break;
+        }
+    }
+
     function addMaterials($team, $base, $plus, $max)
     {
         $stmt = $this->verbindung->prepare("UPDATE materiallager SET AusstehendRohMax = (?), AusstehendRohBase = (?), AusstehendRohPlus = (?) WHERE Teamcode = (?)");

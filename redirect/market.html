@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <form method="POST" action="index.php?site=marketLogic">
+            <div class="center">
+                <tr>
+                    <h1>Produkte oder Materialien handeln</h1>
+                </tr>        
+                <tr>
+                    <b><label for="product_material">Möchten Sie Produkte oder Materialien handeln?</label></b><br>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="radio" id="product" name="product_material" value="Product" checked>
+                        <label for="product">Produkt</label><br>
+                        <input type="radio" id="material" name="product_material" value="Material">
+                        <label for="material">Material</label><br>
+                    </th>   
+                </tr>
+                <tr>
+                    <b><label for="base_plus_max">Welches Material/Produkt wollen Sie handeln?</label></b><br>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="radio" id="base" name="base_plus_max" value="Base" checked>
+                        <label for="base">Base</label><br>
+                        <input type="radio" id="plus" name="base_plus_max" value="Plus">
+                        <label for="plus">Plus</label><br>
+                        <input type="radio" id="max" name="base_plus_max" value="Max">
+                        <label for="max">Max</label><br>
+                    </th>       
+                </tr>
+                <tr>
+                    <b><label for="summe">Wie viele Einheiten möchten Sie handeln?</label>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" name="summe" id="summe" class="form-control" aria-label="Summe">
+                    </th>   
+                </tr>
+                <tr>
+                    <b><label for="teamid">Geben Sie den TeamCode des Empfängers ein</label>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" name="teamid" id="teamid" class="form-control" aria-label="teamid">
+                    </th>       
+                </tr>
+            </div> 
+        <br>
+        <div class="row justify-content-center">
+            <input type="submit" class="btn btn-success" value="Handeln" name ="Handeln" ID = "Handeln" >
+        </div>
+        </form>
+</div>

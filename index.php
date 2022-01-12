@@ -40,6 +40,9 @@
           <a class="nav-link" href="index.php?site=transfer">Geld Überweisen</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="index.php?site=market">Produkte traden</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
         </li>
         <li class="nav-item">
@@ -104,6 +107,8 @@
                   case 'liquidFunds': include "redirect/liquidFunds.php"; break;
                   case 'transfer': include "redirect/transfer.html"; break;
                   case 'transferLogic': include "redirect/transferLogic.php"; break;
+                  case 'market': include "redirect/market.html"; break;
+                  case 'marketLogic': include "redirect/marketLogic.php"; break;
                   case 'rawMaterialWarehouse' : include "redirect/rawMaterialWarehouse.php"; break;
                   case 'productWarehouse' : include "redirect/productWarehouse.php"; break;
                   case 'production' : include "redirect/production.php"; break;
