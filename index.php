@@ -24,12 +24,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.php?site=joinTeam">Join Team <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=createTeam">Create Team</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
         </li>
@@ -77,9 +71,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=joinGame">joinGame</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
@@ -143,7 +134,7 @@
                   case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
                   case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
 
-                  default: include "redirect/team.php";
+                  default: include "redirect/adminLoginLogout.php";
                 }
               }
               else
