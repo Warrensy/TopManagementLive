@@ -1,5 +1,4 @@
 <?php
-
     //createTeamLogic
     if(isset($_POST["Submit"])){
         $code = $_POST["gamecode"];
@@ -14,7 +13,6 @@
         {
             //Vielleicht auf andere Seite mit Fehlermeldung rerouten ?
             echo 'Der gesuchte Gamecode existiert nicht !<br>Bitte fragen Sie den Admin nach einem korrekten Code!';
-            exit;
         }
     }
 ?>

@@ -83,6 +83,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
+          <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
         </li>
       </ul>
     </div>
@@ -121,17 +122,27 @@
                   case 'laneLogic' : include "redirect/laneLogic.php"; break; 
                   case 'yearlyContracting' : include "redirect/yearlyContracting.php"; break; 
                   case 'spotmarketLogic' : include "redirect/spotmarketLogic.php"; break; 
-                  case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
                   case 'yearlyContractingLogic' : include "redirect/yearlyContractingLogic.php"; break;
-                  case 'adminControls' : include "redirect/adminControls.php"; break;
-                  case 'adminCreateContract' : include "redirect/adminCreateContract.html"; break;
-                  case 'adminCreateContractLogic' : include "redirect/adminCreateContractLogic.php"; break;
                   case 'mpp' : include "redirect/mpp.php"; break;
-                  case 'adminLogic' : include "redirect/adminLogic.php"; break;
                   case 'leaveGame' : include "redirect/leaveGame.php"; break;
                   case 'joinGame' : include "redirect/joinGame.php"; break;
+                  case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
+                  default: include "redirect/team.php";
+
+                }
+              }
+              else if(isset($_SESSION["admin"]))//admin
+              {
+                switch($_GET['site']) {
                   case 'adminSpotMarket' : include "redirect/adminSpotMarket.php"; break;
                   case 'adminSpotMarketLogic' : include "redirect/adminSpotMarketLogic.php"; break;
+                  case 'adminControls' : include "redirect/adminControls.php"; break;
+                  case 'adminLogic' : include "redirect/adminLogic.php"; break;
+                  case 'adminCreateContract' : include "redirect/adminCreateContract.html"; break;
+                  case 'adminCreateContractLogic' : include "redirect/adminCreateContractLogic.php"; break;
+                  case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
+                  case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
+
                   default: include "redirect/team.php";
                 }
               }
@@ -143,12 +154,11 @@
                   case 'createTeam': include "redirect/createTeam.html"; break;
                   case 'createTeamLogic': include "redirect/createTeamLogic.php"; break;
                   case 'joinGame' : include "redirect/joinGame.php"; break;
-                  case 'adminControls' : include "redirect/adminControls.php"; break;
-                  case 'adminLogic' : include "redirect/adminLogic.php"; break;
-                  case 'adminSpotMarket' : include "redirect/adminSpotMarket.php"; break;
-                  case 'adminSpotMarketLogic' : include "redirect/adminSpotMarketLogic.php"; break;
+                  case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
+                  case 'leaveGame' : include "redirect/leaveGame.php"; break;
 
                   default: include "redirect/team.php";
+
                 }
               }
             }
