@@ -133,6 +133,9 @@
                   case 'adminCreateContractLogic' : include "redirect/adminCreateContractLogic.php"; break;
                   case 'adminOfferManager' : include "redirect/adminOfferManager.php"; break; 
                   case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
+                  case 'team' : include "redirect/team.php"; break;
+                  case 'leaveGame' : include "redirect/leaveGame.php"; break;
+                  case 'joinGame' : include "redirect/joinGame.php"; break;
 
                   default: include "redirect/adminLoginLogout.php";
                 }
