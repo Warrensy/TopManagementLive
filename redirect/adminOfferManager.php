@@ -4,9 +4,9 @@
 <div class="row justify-content-center">
 
     <?php
-    $offers = $db->getOffers();
-    $offersbackup = $db->getOffers();
-    $rowcount = $db->getOffersCount();
+    $offers = $db->getOffers($_SESSION["Game"]);
+    $offersbackup = $db->getOffers($_SESSION["Game"]);
+    $rowcount = $db->getOffersCount($_SESSION["Game"]);
     ?>
 
 <?php

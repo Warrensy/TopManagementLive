@@ -11,7 +11,7 @@
 
         echo $preis, $zahlungsziel, $liefertermin, $produkt, $menge;
         
-        $answer = $db->createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode);
+        $answer = $db->createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode, $_SESSION["Game"]);
 
         header('Location: index.php?site=idle');
     }
