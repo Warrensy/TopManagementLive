@@ -73,7 +73,7 @@ if (isset($_GET['bestoffer'])) {
     <div class="col-sm-12">
         <tr>
             <br>
-            <input type="submit" class="btn btn-success" value="Submit" name="SubmitBestOffer" ID="SubmitBestOffer">
+            <input type="submit" class="btn btn-success" value="Bestätigen" name="SubmitBestOffer" ID="SubmitBestOffer">
         </tr>
     </div>
 </form>

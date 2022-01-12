@@ -4,7 +4,7 @@
 </form>
 
 <form  method="post" action="index.php?site=adminLogic">
-    <input class="col btn btn-warning" type="submit" value="Create new Game" name ="createGame">
+    <input class="col btn btn-warning" type="submit" value="Neues Spiel Erstellen" name ="createGame">
 </form>
 <form  method="post" action="index.php?site=adminLogic">
     <input class="col btn btn-info" type="submit" value="Nächstes Quartal" name ="nextQuarter">

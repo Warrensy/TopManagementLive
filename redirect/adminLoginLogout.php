@@ -13,7 +13,7 @@
 
 ?>
 <form  method="post" action="index.php?site=adminLoginLogout">
-    <input class="col btn btn-warning"   type="submit" value="Logout as Admin" name ="logout">
+    <input class="col btn btn-warning"   type="submit" value="Admin Abmelden" name ="logout">
 </form>
 <?php
   }
@@ -22,7 +22,7 @@
 ?>
 
 <form  method="post" action="index.php?site=adminLoginLogout">
-    <input class="col btn btn-success" type="submit" value="Login as Admin" name ="login">
+    <input class="col btn btn-success" type="submit" value="Als Admin anmelden" name ="login">
 </form>
 
 <?php
