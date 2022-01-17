@@ -26,7 +26,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <li class="nav-item">
-            <a class="nav-link" href="index.php?site=team">Team</a>
+            <a class="nav-link" href="index.php?site=team">Team/Game</a>
           </li>
           <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
         </li>
@@ -83,6 +83,20 @@
   </nav>
   <div class="row justify-content-center">            
     <img id="logo" src="img/Logo.png">
+
+  </div>
+  <div id="qua">
+    <?php
+        if(isset($_SESSION["Team"]))
+        {
+          $q = $db->getQuartalByTeam($_SESSION["Team"]);
+    ?>
+
+          <span>Quartal: <?php echo $q; ?></span>
+
+    <?php
+        }
+    ?>
   </div>
     <div class="container-fluid">
         <div class="container">
