@@ -9,7 +9,6 @@
 
         $db->deleteFinishedOffer($angebotnr, $teamcode);
         $db->deleteProductFromStorage($teamcode, $produkt, $menge);
-        $db->addMoney($teamcode, $preis); 
 
         header('Location: index.php?site=contract');
     }
@@ -24,7 +23,7 @@
 
         $db->deleteFinishedContract($auftragnr, $teamcode);
         $db->deleteProductFromStorage($teamcode, $produkt, $menge);
-        $db->addMoney($teamcode, $preis); 
+    
 
         header('Location: index.php?site=contract');
     }
