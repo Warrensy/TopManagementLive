@@ -743,6 +743,23 @@ class DBclass {
             return true;
         } 
     }
+
+    function getQuartalFromGame($game){
+        $stmt = $this->verbindung->prepare("SELECT * FROM `team` WHERE `gameid` = (?) LIMIT 1");
+        $stmt->bind_param("s", $game);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if($result->num_rows == 0) {
+            return "ERROR, there exists no Team for the game currently";
+        }
+        else
+        {
+            $details = $result->fetch_array();
+            return $details["AktuellesQuartal"];
+        }
+    }
 }
 
 ?>
