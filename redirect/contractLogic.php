@@ -28,6 +28,22 @@
 
         header('Location: index.php?site=contract');
     }
+    if(isset($_POST["deletecontract"]))
+    {
+        $auftragnr = $_POST["AuftragNr"];
+        $teamcode = $_SESSION["Team"];
+
+        $db->deleteFinishedContract($auftragnr, $teamcode);
+        header('Location: index.php?site=contract');
+    }
+    if(isset($_POST["deleteangebot"]))
+    {
+        $angebotnr = $_POST["AngebotNr"];
+        $teamcode = $_SESSION["Team"];
+
+        $db->deleteFinishedOffer($angebotnr, $teamcode);
+        header('Location: index.php?site=contract');
+    }
 
 ?>
 
