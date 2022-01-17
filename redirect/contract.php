@@ -98,6 +98,7 @@
             <div class="col-6">
                 <div class="row row-height">
                     <input class="col btn btn-success" type="submit" value="Produkt ausliefern" name ="contractausliefern" ID = "contractausliefern">
+                    <input class="col btn btn-danger" type="submit" value="Vertrag Löschen" name ="deletecontract" ID = "deletecontract">
                     <input type="hidden" ID="AuftragNr" name="AuftragNr" value="<?=$contract["AuftragNr"] ?>">
                     <input type="hidden" ID="Produkt" name="Produkt" value="<?=$contract["Produkt"] ?>">
                     <input type="hidden" ID="Menge" name="Menge" value="<?=$contract["Menge"] ?>">
@@ -210,6 +211,7 @@
             <div class="col-6">
                 <div class="row row-height">
                     <input class="col btn btn-success" type="submit" value="Produkt ausliefern" name ="angebotausliefern" ID = "angebotausliefern">
+                    <input class="col btn btn-danger" type="submit" value="Vertrag Löschen" name ="deleteangebot" ID = "deleteangebot">
                     <input type="hidden" ID="AngebotNr" name="AngebotNr" value="<?=$activeoffer["AngebotNr"] ?>">
                     <input type="hidden" ID="Produkt" name="Produkt" value="<?=$activeoffer["Produkt"] ?>">
                     <input type="hidden" ID="Menge" name="Menge" value="<?=$activeoffer["Menge"] ?>">

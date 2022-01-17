@@ -48,12 +48,22 @@
         </div>
         <div class="col-sm-12 background-row1 padding-bottom border-open-top">
             <tr>
+            <?php if($result["liefertermin"] == NULL) 
+                { ?>
                 <select onInput="$('#liefertermin').html($(this).val())" id="formControlRange" required name="liefertermin" class="form-select" aria-label="Default select example">
                     <option value="90">90</option>
                     <option value="180">180</option>
                     <option value="270">270</option>
                     <option value="360">360</option>
                 </select>
+
+                <?php } else { ?>
+
+                <select onInput="$('#liefertermin').html($(this).val())" id="formControlRange" required name="liefertermin" class="form-select" aria-label="Default select example" readonly = "readonly">
+                    <option value="<?php echo $result["liefertermin"] ?>"> <?php echo $result["liefertermin"]; echo " (bereits fixiert)"; ?></option>
+                </select>
+
+                <?php } ?>
                 <!--<input min="0" required name="liefertermin" type="number" id="formControlRange" onInput="$('#liefertermin').html($(this).val())">-->
             </tr>
         </div>
