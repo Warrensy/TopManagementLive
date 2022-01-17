@@ -49,6 +49,9 @@
           <a class="nav-link" href="index.php?site=transfer">Flüssige Mittel Überweisen</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="index.php?site=claim">Forderungen</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
         </li> 
         <li class="nav-item">
@@ -136,6 +139,8 @@
                   case 'leaveGame' : include "redirect/leaveGame.php"; break;
                   case 'joinGame' : include "redirect/joinGame.php"; break;
                   case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
+                  case 'claim' : include "redirect/claim.php"; break;
+                  case 'claimLogic' : include "redirect/claimLogic.php"; break;
                   default: include "redirect/team.php";
 
                 }

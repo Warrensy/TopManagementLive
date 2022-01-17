@@ -138,8 +138,6 @@ class DBclass {
         }
     }
 
-
-
     function getActiveOffersByTeamCode($teamcode) {
         $stmt = $this->verbindung->prepare("SELECT * FROM angebote WHERE active = 1 AND Teamcode = (?)" );
         $stmt->bind_param("i", $teamcode);
@@ -758,6 +756,34 @@ class DBclass {
         {
             $details = $result->fetch_array();
             return $details["AktuellesQuartal"];
+        }
+    }
+
+
+    function continueClaims($teamcode, $contracts, $offers){
+        while($contract = $contracts->fetch_array()){
+            if($contract["FinalZahlungsziel"] <= 90){
+                $this->addMoney($teamcode, $contract["Preis"]);
+                $this->deleteFinishedContract($contract["AuftragNr"], $teamcode);
+            }
+            else{
+                $newGoal = $contract["FinalZahlungsziel"] - 90;
+                $stmt = $this->verbindung->prepare("UPDATE auftragzuteam SET FinalZahlungsziel = (?) WHERE AuftragNr = (?)");
+                $stmt->bind_param("ii", $newGoal, $contract["AuftragNr"]);
+                $stmt->execute();
+            }
+        }
+        while($offer = $offers->fetch_array()){
+            if($offer["Zahlungsziel"] <= 90){
+                $this->addMoney($teamcode, $offer["Preis"]);
+                $this->deleteFinishedOffer($offer["AngebotNr"], $teamcode);
+            }
+            else{
+                $newGoal = $offer["Zahlungsziel"] - 90;
+                $stmt = $this->verbindung->prepare("UPDATE angebote SET Zahlungsziel = (?) WHERE AngebotNr = (?)");
+                $stmt->bind_param("ii", $newGoal, $offer["AngebotNr"]);
+                $stmt->execute();
+            }
         }
     }
 }
