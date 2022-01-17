@@ -84,19 +84,18 @@
   <div class="row justify-content-center">            
     <img id="logo" src="img/Logo.png">
 
-  </div>
-  <div id="qua">
-    <?php
-        if(isset($_SESSION["Team"]))
-        {
-          $q = $db->getQuartalByTeam($_SESSION["Team"]);
-    ?>
+    <div id="qua">
+      <?php
+          if(isset($_SESSION["Team"]))
+          {
+            $q = $db->getQuartalByTeam($_SESSION["Team"]);
+      ?>
 
-          <span>Quartal: <?php echo $q; ?></span>
-
-    <?php
-        }
-    ?>
+              <span class="">Quartal: <?php echo $q; ?></span>
+              <?php
+          }
+          ?>
+    </div>
   </div>
     <div class="container-fluid">
         <div class="container">
