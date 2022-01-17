@@ -8,8 +8,6 @@
         $zahlungsziel = $_POST["zahlungsziel"];
         $liefertermin = $_POST["liefertermin"];
         $teamcode = $_SESSION["Team"];
-
-        echo $preis, $zahlungsziel, $liefertermin, $produkt, $menge;
         
         $answer = $db->createOffer($region, $produkt, $menge, $preis, $zahlungsziel, $liefertermin, $teamcode, $_SESSION["Game"]);
 
