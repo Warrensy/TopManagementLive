@@ -31,7 +31,7 @@
           <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Roh Materialien</a>
+          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Materialien Lager</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=materialOrder">Material Bestellen</a>
@@ -43,14 +43,14 @@
           <a class="nav-link" href="index.php?site=productWarehouse">Produkt Lager</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=liquidFunds">Geld</a>
+          <a class="nav-link" href="index.php?site=liquidFunds">Flüssige Mittel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?site=transfer">Geld Überweisen</a>
+          <a class="nav-link" href="index.php?site=transfer">Flüssige Mittel Überweisen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
-        </li>
+        </li> 
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
         </li>

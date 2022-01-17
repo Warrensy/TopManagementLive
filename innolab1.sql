@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Dez 2021 um 23:49
--- Server-Version: 10.4.18-MariaDB
--- PHP-Version: 8.0.3
+-- Generation Time: Jan 13, 2022 at 02:21 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `innolab1`
+-- Database: `innolab1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `aktuelleproduktion`
+-- Table structure for table `aktuelleproduktion`
 --
 
 CREATE TABLE `aktuelleproduktion` (
@@ -36,16 +36,17 @@ CREATE TABLE `aktuelleproduktion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `aktuelleproduktion`
+-- Dumping data for table `aktuelleproduktion`
 --
 
 INSERT INTO `aktuelleproduktion` (`ProdID`, `MaschinenID`, `Zielprodukt`, `Anzahl`, `FertigstellungQuartal`) VALUES
-(1, 1, 'Plus', 2, 3);
+(1, 1, 'Plus', 2, 3),
+(4, 4, 'Base', 2, 3);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `anfragen`
+-- Table structure for table `anfragen`
 --
 
 CREATE TABLE `anfragen` (
@@ -56,24 +57,25 @@ CREATE TABLE `anfragen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `anfragen`
+-- Dumping data for table `anfragen`
 --
 
 INSERT INTO `anfragen` (`AnfrageID`, `Menge`, `Produkt`, `active`) VALUES
-(10, 1, 'Base', 0),
-(11, 2, 'Base', 0),
-(12, 3, 'Base', 0),
-(13, 1, 'Plus', 0),
-(14, 2, 'Plus', 1),
-(15, 3, 'Plus', 0),
-(16, 1, 'Max', 0),
-(17, 2, 'Max', 0),
-(18, 3, 'Max', 0);
+(19, 1, 'Base', 0),
+(20, 3, 'Base', 0),
+(21, 1, 'Base', 0),
+(22, 2, 'Base', 0),
+(23, 1, 'Plus', 0),
+(24, 1, 'Plus', 0),
+(25, 2, 'Base', 0),
+(26, 1, 'Plus', 0),
+(27, 1, 'Max', 0),
+(28, 2, 'Base', 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `angebote`
+-- Table structure for table `angebote`
 --
 
 CREATE TABLE `angebote` (
@@ -85,23 +87,22 @@ CREATE TABLE `angebote` (
   `Zahlungsziel` int(255) NOT NULL,
   `Liefertermin` int(255) NOT NULL,
   `Teamcode` int(255) NOT NULL,
-  `active` int(255) NOT NULL DEFAULT 0
+  `active` int(255) NOT NULL DEFAULT 0,
+  `gameid` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `angebote`
+-- Dumping data for table `angebote`
 --
 
-INSERT INTO `angebote` (`AngebotNr`, `Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Teamcode`, `active`) VALUES
-(1, 'Europa', 'Plus', 2, 4, 4, 4, 41854, 0),
-(2, 'Europa', 'Plus', 2, 23, 1, 2, 41854, 0),
-(4, 'Europa', 'Plus', 2, 55, 55, 55, 95816, 0),
-(5, 'Europa', 'Plus', 2, 88, 88, 88, 69064, 0);
+INSERT INTO `angebote` (`AngebotNr`, `Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Teamcode`, `active`, `gameid`) VALUES
+(6, 'Europa', 'Plus', 2, 2, 90, 90, 73238, 1, '11111'),
+(8, 'Europa', 'Plus', 2, 8888, 270, 180, 41912, 1, '11111');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `auftrag`
+-- Table structure for table `auftrag`
 --
 
 CREATE TABLE `auftrag` (
@@ -117,19 +118,33 @@ CREATE TABLE `auftrag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `auftrag`
+-- Dumping data for table `auftrag`
 --
 
 INSERT INTO `auftrag` (`AuftragNr`, `Kategorie`, `Region`, `Produkt`, `Menge`, `Preis`, `Zahlungsziel`, `Liefertermin`, `Aktiv`) VALUES
-(69, 'TESTKA', 'Europa', 'Base', 5, 15, 135, 1, 1);
+(80, NULL, 'Europa', 'Base', 2, 15, 90, 90, 0),
+(81, NULL, 'Europa', 'Base', 1, 7, 180, 270, 0),
+(82, NULL, 'Europa', 'Base', 2, 15, 90, 180, 0),
+(83, NULL, 'Europa', 'Base', 1, 8, 180, 360, 0),
+(84, NULL, 'Europa', 'Base', 1, 6, 180, 180, 0),
+(85, NULL, 'Europa', 'Base', 1, 67, 90, 360, 0),
+(86, NULL, 'Europa', 'Base', 3, 21, 270, 90, 0),
+(87, NULL, 'Europa', 'Base', 4, 28, 90, 180, 0),
+(88, NULL, 'Europa', 'Base', 3, 20, 180, 360, 0),
+(89, NULL, 'Europa', 'Base', 1, 11, 180, 360, 0),
+(90, NULL, 'Europa', 'Base', 2, 21, 90, 270, 0),
+(91, NULL, 'Europa', 'Base', 12, 17, 180, 270, 0),
+(92, NULL, 'Europa', 'Base', 1, 9, 90, 360, 0),
+(93, NULL, 'Europa', 'Base', 1, 9, 270, 270, 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `auftragzuteam`
+-- Table structure for table `auftragzuteam`
 --
 
 CREATE TABLE `auftragzuteam` (
+  `auftragzuteamid` int(11) NOT NULL,
   `AuftragNr` int(11) NOT NULL,
   `Teamcode` varchar(5) NOT NULL,
   `FinalZahlungsziel` int(3) NOT NULL,
@@ -139,7 +154,33 @@ CREATE TABLE `auftragzuteam` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `maschinentypen`
+-- Table structure for table `game`
+--
+
+CREATE TABLE `game` (
+  `gameid` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `game`
+--
+
+INSERT INTO `game` (`gameid`) VALUES
+('11111'),
+('16689'),
+('25661'),
+('33447'),
+('34695'),
+('42515'),
+('49152'),
+('50749'),
+('60148'),
+('88164');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maschinentypen`
 --
 
 CREATE TABLE `maschinentypen` (
@@ -147,7 +188,7 @@ CREATE TABLE `maschinentypen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `maschinentypen`
+-- Dumping data for table `maschinentypen`
 --
 
 INSERT INTO `maschinentypen` (`Maschinentypen`) VALUES
@@ -158,7 +199,7 @@ INSERT INTO `maschinentypen` (`Maschinentypen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `maschinenzuteam`
+-- Table structure for table `maschinenzuteam`
 --
 
 CREATE TABLE `maschinenzuteam` (
@@ -170,16 +211,17 @@ CREATE TABLE `maschinenzuteam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `maschinenzuteam`
+-- Dumping data for table `maschinenzuteam`
 --
 
 INSERT INTO `maschinenzuteam` (`MaschinenID`, `Maschinentyp`, `Teamcode`, `Erwerbsquartal`, `lane`) VALUES
-(1, 'Flex', '99001', 1, 1);
+(1, 'Flex', '99001', 1, 1),
+(4, 'Flex', '41912', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `materiallager`
+-- Table structure for table `materiallager`
 --
 
 CREATE TABLE `materiallager` (
@@ -193,28 +235,18 @@ CREATE TABLE `materiallager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `materiallager`
+-- Dumping data for table `materiallager`
 --
 
 INSERT INTO `materiallager` (`Teamcode`, `RohMax`, `RohPlus`, `RohBase`, `AusstehendRohMax`, `AusstehendRohPlus`, `AusstehendRohBase`) VALUES
-('28608', 5, 5, 5, 34, 23, 12),
-('41854', 1, 1, 1, 0, 0, 0),
-('57655', 5, 5, 5, 0, 0, 0),
-('58583', 5, 5, 5, 0, 0, 0),
-('69064', 1, 1, 1, 0, 0, 0),
-('69077', 30, 30, 30, 0, 0, 0),
-('71345', 2, 2, 2, 0, 0, 0),
-('76922', 5, 5, 5, 0, 0, 0),
-('78740', 5, 5, 5, 0, 0, 0),
-('79990', 1, 1, 1, 0, 0, 0),
-('89549', 5, 5, 5, 0, 0, 0),
-('95816', 3, 32, 23, 0, 0, 0),
+('41912', 11, 11, 9, 22, 22, 22),
+('73238', 20, 20, 20, 0, 0, 0),
 ('99001', 1, -1, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `produkte`
+-- Table structure for table `produkte`
 --
 
 CREATE TABLE `produkte` (
@@ -222,7 +254,7 @@ CREATE TABLE `produkte` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `produkte`
+-- Dumping data for table `produkte`
 --
 
 INSERT INTO `produkte` (`Produkt`) VALUES
@@ -233,7 +265,7 @@ INSERT INTO `produkte` (`Produkt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `produktlager`
+-- Table structure for table `produktlager`
 --
 
 CREATE TABLE `produktlager` (
@@ -244,61 +276,45 @@ CREATE TABLE `produktlager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `produktlager`
+-- Dumping data for table `produktlager`
 --
 
 INSERT INTO `produktlager` (`Teamcode`, `Max`, `Plus`, `Base`) VALUES
-('28608', 7, 3, 1),
-('41854', 0, 0, 0),
-('57655', 0, 0, 0),
-('58583', 0, 0, 0),
-('69064', 0, 0, 0),
-('69077', 0, 0, 0),
-('71345', 0, 0, 0),
-('76922', 0, 0, 0),
-('78740', 0, 0, 0),
-('79990', 0, 0, 0),
-('89549', 0, 0, 0),
-('95816', 0, 0, 0),
+('41912', -7, 0, -5),
+('73238', 0, 0, 0),
 ('99001', 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `team`
+-- Table structure for table `team`
 --
 
 CREATE TABLE `team` (
   `Teamcode` varchar(5) NOT NULL,
   `FluessigeMittel` int(5) NOT NULL DEFAULT 0,
-  `AktuellesQuartal` int(3) NOT NULL DEFAULT 1
+  `AktuellesQuartal` int(3) NOT NULL DEFAULT 1,
+  `europa_mpp` int(5) NOT NULL DEFAULT 0,
+  `asien_mpp` int(5) NOT NULL DEFAULT 0,
+  `amerika_mpp` int(5) NOT NULL DEFAULT 0,
+  `gameid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `team`
+-- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`Teamcode`, `FluessigeMittel`, `AktuellesQuartal`) VALUES
-('28608', 3, 1),
-('41854', 1, 1),
-('57655', 5, 1),
-('58583', 5, 1),
-('69064', 1, 1),
-('69077', 30, 1),
-('71345', 2, 1),
-('76922', 5, 1),
-('78740', 80, 1),
-('79990', 1, 1),
-('89549', 9, 1),
-('95816', 23, 1),
-('99001', 9986, 1);
+INSERT INTO `team` (`Teamcode`, `FluessigeMittel`, `AktuellesQuartal`, `europa_mpp`, `asien_mpp`, `amerika_mpp`, `gameid`) VALUES
+('41912', 2265, 1, 0, 0, 0, '11111'),
+('73238', 200, 1, 0, 0, 0, '11111'),
+('99001', 9986, 1, 0, 0, 0, '11111');
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `aktuelleproduktion`
+-- Indexes for table `aktuelleproduktion`
 --
 ALTER TABLE `aktuelleproduktion`
   ADD PRIMARY KEY (`ProdID`),
@@ -306,39 +322,46 @@ ALTER TABLE `aktuelleproduktion`
   ADD KEY `Zielprodukt` (`Zielprodukt`);
 
 --
--- Indizes für die Tabelle `anfragen`
+-- Indexes for table `anfragen`
 --
 ALTER TABLE `anfragen`
   ADD PRIMARY KEY (`AnfrageID`);
 
 --
--- Indizes für die Tabelle `angebote`
+-- Indexes for table `angebote`
 --
 ALTER TABLE `angebote`
   ADD PRIMARY KEY (`AngebotNr`);
 
 --
--- Indizes für die Tabelle `auftrag`
+-- Indexes for table `auftrag`
 --
 ALTER TABLE `auftrag`
   ADD PRIMARY KEY (`AuftragNr`),
   ADD KEY `Produkt` (`Produkt`);
 
 --
--- Indizes für die Tabelle `auftragzuteam`
+-- Indexes for table `auftragzuteam`
 --
 ALTER TABLE `auftragzuteam`
-  ADD PRIMARY KEY (`AuftragNr`,`Teamcode`),
-  ADD KEY `Teamcode` (`Teamcode`);
+  ADD PRIMARY KEY (`auftragzuteamid`),
+  ADD KEY `Teamcode` (`Teamcode`),
+  ADD KEY `AuftragNr` (`AuftragNr`);
 
 --
--- Indizes für die Tabelle `maschinentypen`
+-- Indexes for table `game`
+--
+ALTER TABLE `game`
+  ADD PRIMARY KEY (`gameid`);
+
+--
+-- Indexes for table `maschinentypen`
 --
 ALTER TABLE `maschinentypen`
   ADD PRIMARY KEY (`Maschinentypen`);
 
 --
--- Indizes für die Tabelle `maschinenzuteam`
+-- Indexes for table `maschinenzuteam`
 --
 ALTER TABLE `maschinenzuteam`
   ADD PRIMARY KEY (`MaschinenID`),
@@ -346,105 +369,118 @@ ALTER TABLE `maschinenzuteam`
   ADD KEY `Teamcode` (`Teamcode`);
 
 --
--- Indizes für die Tabelle `materiallager`
+-- Indexes for table `materiallager`
 --
 ALTER TABLE `materiallager`
   ADD PRIMARY KEY (`Teamcode`);
 
 --
--- Indizes für die Tabelle `produkte`
+-- Indexes for table `produkte`
 --
 ALTER TABLE `produkte`
   ADD PRIMARY KEY (`Produkt`);
 
 --
--- Indizes für die Tabelle `produktlager`
+-- Indexes for table `produktlager`
 --
 ALTER TABLE `produktlager`
   ADD PRIMARY KEY (`Teamcode`);
 
 --
--- Indizes für die Tabelle `team`
+-- Indexes for table `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`Teamcode`);
+  ADD PRIMARY KEY (`Teamcode`),
+  ADD KEY `gameid` (`gameid`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `aktuelleproduktion`
+-- AUTO_INCREMENT for table `aktuelleproduktion`
 --
 ALTER TABLE `aktuelleproduktion`
-  MODIFY `ProdID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ProdID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT für Tabelle `anfragen`
+-- AUTO_INCREMENT for table `anfragen`
 --
 ALTER TABLE `anfragen`
-  MODIFY `AnfrageID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `AnfrageID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT für Tabelle `angebote`
+-- AUTO_INCREMENT for table `angebote`
 --
 ALTER TABLE `angebote`
-  MODIFY `AngebotNr` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `AngebotNr` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT für Tabelle `auftrag`
+-- AUTO_INCREMENT for table `auftrag`
 --
 ALTER TABLE `auftrag`
-  MODIFY `AuftragNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `AuftragNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
--- AUTO_INCREMENT für Tabelle `maschinenzuteam`
+-- AUTO_INCREMENT for table `auftragzuteam`
+--
+ALTER TABLE `auftragzuteam`
+  MODIFY `auftragzuteamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `maschinenzuteam`
 --
 ALTER TABLE `maschinenzuteam`
-  MODIFY `MaschinenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MaschinenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `aktuelleproduktion`
+-- Constraints for table `aktuelleproduktion`
 --
 ALTER TABLE `aktuelleproduktion`
   ADD CONSTRAINT `aktuelleproduktion_ibfk_1` FOREIGN KEY (`Zielprodukt`) REFERENCES `produkte` (`Produkt`),
   ADD CONSTRAINT `aktuelleproduktion_ibfk_2` FOREIGN KEY (`MaschinenID`) REFERENCES `maschinenzuteam` (`MaschinenID`) ON DELETE CASCADE;
 
 --
--- Constraints der Tabelle `auftrag`
+-- Constraints for table `auftrag`
 --
 ALTER TABLE `auftrag`
   ADD CONSTRAINT `auftrag_ibfk_1` FOREIGN KEY (`Produkt`) REFERENCES `produkte` (`Produkt`);
 
 --
--- Constraints der Tabelle `auftragzuteam`
+-- Constraints for table `auftragzuteam`
 --
 ALTER TABLE `auftragzuteam`
   ADD CONSTRAINT `auftragzuteam_ibfk_1` FOREIGN KEY (`AuftragNr`) REFERENCES `auftrag` (`AuftragNr`) ON DELETE CASCADE,
   ADD CONSTRAINT `auftragzuteam_ibfk_2` FOREIGN KEY (`Teamcode`) REFERENCES `team` (`Teamcode`) ON DELETE CASCADE;
 
 --
--- Constraints der Tabelle `maschinenzuteam`
+-- Constraints for table `maschinenzuteam`
 --
 ALTER TABLE `maschinenzuteam`
   ADD CONSTRAINT `maschinenzuteam_ibfk_1` FOREIGN KEY (`Maschinentyp`) REFERENCES `maschinentypen` (`Maschinentypen`),
   ADD CONSTRAINT `maschinenzuteam_ibfk_2` FOREIGN KEY (`Teamcode`) REFERENCES `team` (`Teamcode`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `materiallager`
+-- Constraints for table `materiallager`
 --
 ALTER TABLE `materiallager`
   ADD CONSTRAINT `materiallager_ibfk_1` FOREIGN KEY (`Teamcode`) REFERENCES `team` (`Teamcode`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `produktlager`
+-- Constraints for table `produktlager`
 --
 ALTER TABLE `produktlager`
   ADD CONSTRAINT `produktlager_ibfk_1` FOREIGN KEY (`Teamcode`) REFERENCES `team` (`Teamcode`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `team`
+--
+ALTER TABLE `team`
+  ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`gameid`) REFERENCES `game` (`gameid`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
