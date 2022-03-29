@@ -60,7 +60,7 @@
         <div class="col-3"></div>
             <div class="col-6">
                 <div class="row row-height">
-                    <button class="col btn btn-success" type="submit" value="1" name ="continue" ID = "continue">HansPeterJohannesNumberOne</button>
+                    <button class="col btn btn-success" type="submit" value="1" name ="continue" ID = "continue">Forderungen Vorrücken</button>
                 </div>
             </div>
         </div>
