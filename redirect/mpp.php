@@ -13,8 +13,7 @@
 ?>
 
 <div class="row justify-content-center">
-    <h1>Marketpositionierungs</h1>
-    <h1>Punkte</h1>
+    <h1>Marketpositionierungs Punkte</h1>
 </div>
 <div class="row justify-content-center">
 <?php $products = $db->getMPPs($_SESSION["Team"])?>

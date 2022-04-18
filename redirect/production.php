@@ -19,7 +19,7 @@
   <a href="index.php?site=lane&lane=1">
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Production Lane 1</h5>
+          <h5 class="card-title">Fertigungs-Linie 1</h5>
           <h6 class="card-subtitle mb-2 text-muted">
           <?php
             if($lane1 == false)
@@ -34,17 +34,17 @@
               echo '<p class="card-text">';
                 if($prod1 == false)
                 {
-                  echo "Waiting for assignment";
+                  echo "Frei";
                 }
                 else
                 {
                   if($quartal >= $prod1["FertigstellungQuartal"])
                   {
-                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Produktion fertiggestellt, bitte in die Linie gehen und das fertige Produkt abholen';
                   }
                   else
                   {
-                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Currently in Production';
+                    echo $prod1["Anzahl"],' ', $prod1["Zielprodukt"],' - Produktion läuft';
                   }
                 }
               echo '</p>';
@@ -57,7 +57,7 @@
   <a href="index.php?site=lane&lane=2">
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Production Lane 2</h5>
+          <h5 class="card-title">Fertigungs-Linie 2</h5>
           <h6 class="card-subtitle mb-2 text-muted">
           <?php
             if($lane2 == false)
@@ -72,17 +72,17 @@
               echo '<p class="card-text">';
                 if($prod2 == false)
                 {
-                  echo "Waiting for assignment";
+                  echo "Frei";
                 }
                 else
                 {
                   if($quartal >= $prod2["FertigstellungQuartal"])
                   {
-                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Produktion fertiggestellt, bitte in die Linie gehen und das fertige Produkt abholen';
                   }
                   else
                   {
-                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Currently in Production';
+                    echo $prod2["Anzahl"],' ', $prod2["Zielprodukt"],' - Produktion läuft';
                   }
                 }
               echo '</p>';
@@ -95,7 +95,7 @@
   <a href="index.php?site=lane&lane=3">
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Production Lane 3</h5>
+          <h5 class="card-title">Fertigungs-Linie 3</h5>
           <h6 class="card-subtitle mb-2 text-muted">
           <?php
             if($lane3 == false)
@@ -110,17 +110,17 @@
               echo '<p class="card-text">';
                 if($prod3 == false)
                 {
-                  echo "Waiting for assignment";
+                  echo "Frei";
                 }
                 else
                 {
                   if($quartal >= $prod3["FertigstellungQuartal"])
                   {
-                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Produktion fertiggestellt, bitte in die Linie gehen und das fertige Produkt abholen';
                   }
                   else
                   {
-                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Currently in Production';
+                    echo $prod3["Anzahl"],' ', $prod3["Zielprodukt"],' - Produktion läuft';
                   }
                 }
               echo '</p>';
@@ -133,7 +133,7 @@
   <a href="index.php?site=lane&lane=4">
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Production Lane 4</h5>
+          <h5 class="card-title">Fertigungs-Linie 4</h5>
           <h6 class="card-subtitle mb-2 text-muted">
           <?php
             if($lane4 == false)
@@ -148,17 +148,17 @@
               echo '<p class="card-text">';
                 if($prod4 == false)
                 {
-                  echo "Waiting for assignment";
+                  echo "Frei";
                 }
                 else
                 {
                   if($quartal >= $prod4["FertigstellungQuartal"])
                   {
-                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Production complete, enter Lane to accept finished Products';
+                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Produktion fertiggestellt, bitte in die Linie gehen und das fertige Produkt abholen';
                   }
                   else
                   {
-                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Currently in Production';
+                    echo $prod4["Anzahl"],' ', $prod4["Zielprodukt"],' - Produktion läuft';
                   }
                 }
               echo '</p>';
