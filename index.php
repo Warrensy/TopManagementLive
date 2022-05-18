@@ -81,6 +81,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=HupsBoard">GameBoard</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -141,6 +144,7 @@
                   case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
                   case 'claim' : include "redirect/claim.php"; break;
                   case 'claimLogic' : include "redirect/claimLogic.php"; break;
+                  case 'HupsBoard' : include "hups-virtual-game/examples/hups.html"; break;
                   default: include "redirect/team.php";
 
                 }
@@ -159,6 +163,7 @@
                   case 'team' : include "redirect/team.php"; break;
                   case 'leaveGame' : include "redirect/leaveGame.php"; break;
                   case 'joinGame' : include "redirect/joinGame.php"; break;
+                  case 'HupsBoard' : include "hups-virtual-game/examples/hups.html"; break;
 
                   default: include "redirect/adminLoginLogout.php";
                 }
@@ -173,6 +178,7 @@
                   case 'joinGame' : include "redirect/joinGame.php"; break;
                   case 'adminLoginLogout' : include "redirect/adminLoginLogout.php"; break;
                   case 'leaveGame' : include "redirect/leaveGame.php"; break;
+                  case 'HupsBoard' : include "hups-virtual-game/examples/hups.html"; break;
 
                   default: include "redirect/team.php";
 
