@@ -95,9 +95,17 @@
           if(isset($_SESSION["Team"]))
           {
             $q = $db->getQuartalByTeam($_SESSION["Team"]);
+            $year = 1;
+
+            while($q > 4)
+            {
+              $q = $q - 4;
+              $year++;
+            }
       ?>
 
-              <span class="">Quartal: <?php echo $q; ?></span>
+              <span class="">Jahr <?php echo $year; ?></span>
+              <span class="">- Q<?php echo $q; ?></span>
               <?php
           }
           ?>
