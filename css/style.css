@@ -47,6 +47,13 @@ button {
     background-color: white;
 }
 
+.border-only-bottom{
+    border-color: black;
+    border-width: 2px;
+    border-bottom-style: solid;
+
+}
+
 .border-open-top{
     border-color: black;
     border-width: 2px;
@@ -72,7 +79,7 @@ button {
     border-left-style: solid;
     background-color: white;
 }
-}
+
 
 .background-yearly-contracting{
     background-color: skyblue;
@@ -105,6 +112,15 @@ button {
     background-color: steelblue;
 }
 
+.background-yellow{
+    background-color: #fff2cc;
+    font-weight: bold;
+}
+
+.background-white{
+    background-color: white;
+}
+
 .code{
     width: 400px;
 }
@@ -135,3 +151,6 @@ button {
     right: 0%;
 }
 
+.profitLossStyle{
+    padding-bottom: 1.5%;
+}
