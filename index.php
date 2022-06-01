@@ -89,7 +89,6 @@
   </nav>
   <div class="row justify-content-center">            
     <img id="logo" src="img/Logo.png">
-
     <div id="qua">
       <?php
           if(isset($_SESSION["Team"]))
@@ -103,9 +102,7 @@
               $year++;
             }
       ?>
-
-              <span class="">Jahr <?php echo $year; ?></span>
-              <span class="">- Q<?php echo $q; ?></span>
+              <span class="">Jahr<?php echo $year; ?> - Q <?php echo $q; ?></span>
               <?php
           }
           ?>
