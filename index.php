@@ -84,6 +84,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=HupsBoard">GameBoard</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -150,6 +153,7 @@
                   case 'claim' : include "redirect/claim.php"; break;
                   case 'claimLogic' : include "redirect/claimLogic.php"; break;
                   case 'HupsBoard' : include "hups-virtual-game/examples/hups.html"; break;
+                  case 'profitAndLoss' : include "redirect/profitAndLoss.php"; break;
                   default: include "redirect/team.php";
 
                 }
