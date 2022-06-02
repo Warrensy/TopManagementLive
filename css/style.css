@@ -153,4 +153,11 @@ button {
 
 .profitLossStyle{
     padding-bottom: 1.5%;
+    padding-left: 0px;
+}
+
+.border-only-left{
+    border-color: black;
+    border-width: 2px;
+    border-left-style: solid;
 }

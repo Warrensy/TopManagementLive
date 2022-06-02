@@ -75,14 +75,17 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
-        </li>
+        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=balance">Balance</a>
         </li>
       </ul>
     </div>
@@ -151,6 +154,7 @@
                   case 'claimLogic' : include "redirect/claimLogic.php"; break;
                   case 'profitAndLoss' : include "redirect/profitAndLoss.php"; break;
                   case 'profitAndLossLogic' : include "redirect/profitAndLossLogic.php"; break;
+                  case 'balance' : include "redirect/balance.php"; break;
                   default: include "redirect/team.php";
 
                 }
