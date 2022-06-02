@@ -130,6 +130,7 @@
                   case 'claimLogic' : include "redirect/claimLogic.php"; break;
                   case 'profitAndLoss' : include "redirect/profitAndLoss.php"; break;
                   case 'balance' : include "redirect/balance.php"; break;
+                  case 'wrongQuartal' : include "redirect/wrongQuartal.html"; break;
                   default: include "redirect/team.php";
 
                 }

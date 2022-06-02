@@ -1,3 +1,11 @@
+<?php
+    $q = $db->getQuartalByTeam($_SESSION["Team"]);
+    if($q % 4 != 0){
+        header("Location: index.php?site=wrongQuartal");
+        exit;
+    }
+?>
+
 <form method="POST">
     <div id="bilanzalert" class="alert alert-success text-center" role="alert">
       Aktion erfolgreich!
