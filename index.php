@@ -24,67 +24,43 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
           <li class="nav-item">
             <a class="nav-link" href="index.php?site=team">Team/Game</a>
-          </li>
-          <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
+            <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Materialien Lager</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=materialOrder">Material Bestellen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=production">Produktion</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=productWarehouse">Produkt Lager</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=liquidFunds">Flüssige Mittel</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=transfer">Flüssige Mittel Überweisen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=claim">Forderungen</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
-        </li> 
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=market">B2B Markt</a>
-        </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
+            <a class="nav-link" href="index.php?site=market">B2B Markt</a>
+            <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
+            </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
-        </li>
-        <li class="nav-item">
+          <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
           <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
-        </li>
-        <!--<li class="nav-item">
-          <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
-        </li>-->
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?site=balance">Balance</a>
         </li>
       </ul>

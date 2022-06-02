@@ -1,5 +1,9 @@
 <form method="POST">
 
+<div id="guvalert" class="alert alert-success text-center" role="alert">
+  Aktion erfolgreich!
+</div>
+
 <div class="container-fluid">
 <div class="row background-white" style="font-weight: bold; padding:1.5%;">Gewinn- und Verlustrechung</div>    
 <div class="row border-only-bottom background-white">
@@ -118,9 +122,11 @@
     <div>
         <input type="submit" class="btn btn-success" value="GuV Berechnen" name="GuVBerechnen" ID="GuVBerechnen">   
     </div>
-
 </div>
+</form>
 
+<form method="POST">
+        <input type="submit" class="btn btn-success" value="GuV Abschicken" name="submitGuV" ID="submitGuV">   
 </form>
 
 
@@ -137,6 +143,9 @@
 
         $bruttoergebnis = $_POST["umsatzerloese"] + $_POST["herstellungskosten"];
         $betriebsergebnis = $bruttoergebnis - $forschungundentwicklung - $verwaltung - $marketingundvertrieb + $sonstigeertraege - $abschreibung; 
+
+        $_SESSION["betriebsergebnis"] = $betriebsergebnis; 
+
         //betriebsergebnis
         ?>
         <script>
@@ -149,12 +158,44 @@
             document.getElementById("abschreibung").value = <?php echo $abschreibung; ?>;   
             document.getElementById("marketingundvertrieb").value = <?php echo $marketingundvertrieb; ?>;   
             document.getElementById("betriebsergebnis").innerHTML = <?php echo $betriebsergebnis; ?>;  
+
+            document.getElementById("submitGuV").style.display = "block"; 
+
         </script>
         <?php
 
+    } else {
+        ?>
+        <script>
+            document.getElementById("submitGuV").style.display = "none"; 
+        </script>
+        <?php
+    }
+?>
 
-        //header('Location: index.php?site=profitAndLoss');
+<?php
+    if(isset($_POST["submitGuV"])){
 
+        $be = $_SESSION["betriebsergebnis"];         
+
+        echo $be; 
+
+        $db->addMoney($_SESSION["Team"], $be);
+
+        ?>
+
+        <script>
+           document.getElementById("guvalert").style.display = "block"; 
+        </script>
+
+
+        <?php         
+    } else {
+        ?>
+        <script>
+            document.getElementById("guvalert").style.display = "none"; 
+        </script>
+        <?php
     }
 ?>
 
