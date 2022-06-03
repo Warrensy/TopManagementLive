@@ -19,7 +19,7 @@
             <div class="col-2" style="font-weight: bold; text-align: center;">Jahr 0</div>
             <div class="col-3 border-only-left" style="font-weight: bold;">Passiva</div>
             <div class="col-1"></div>
-            <div class="col-2 profitLossStyle"style="font-weight: bold;">Jahr 0</div>
+            <div class="col-2 profitLossStyle"style="font-weight: bold; text-align: center;">Jahr 0</div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Immaterielle Vermögensgegenstände</div>
