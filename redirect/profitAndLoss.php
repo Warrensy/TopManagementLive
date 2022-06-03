@@ -185,17 +185,12 @@
     if(isset($_POST["submitGuV"])){
 
         $be = $_SESSION["betriebsergebnis"];         
-
-        echo $be; 
-
         $db->addMoney($_SESSION["Team"], $be);
-
         ?>
 
         <script>
            document.getElementById("guvalert").style.display = "block"; 
         </script>
-
 
         <?php         
     } else {
