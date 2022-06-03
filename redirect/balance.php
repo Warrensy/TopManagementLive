@@ -16,80 +16,74 @@
     <div class="row border-only-bottom background-white">
             <div class="col-3 profitLossStyle" style="font-weight: bold;">Aktiva</div>
             <div class="col-1"></div>
-            <div class="col-1" style="font-weight: bold; text-align: center;">Jahr 0</div>
-            <div class="col-2"></div>
+            <div class="col-2" style="font-weight: bold; text-align: center;">Jahr 0</div>
             <div class="col-3 border-only-left" style="font-weight: bold;">Passiva</div>
             <div class="col-1"></div>
-            <div class="col-1 profitLossStyle"style="font-weight: bold;">Jahr 0</div>
+            <div class="col-2 profitLossStyle"style="font-weight: bold;">Jahr 0</div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Immaterielle Vermögensgegenstände</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="immaterielle" type="number" id="immaterielle" onInput="$('#immaterielle').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="immaterielle" type="number" id="immaterielle" onInput="$('#immaterielle').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
+            
             <div class="col-3 profitLossStyle border-only-left">Gezeichnetes Kapital</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="gezeichneteskapital" type="number" id="gezeichneteskapital" onInput="$('#gezeichneteskapital').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="gezeichneteskapital" type="number" id="gezeichneteskapital" onInput="$('#gezeichneteskapital').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Grundstücke</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="grundstücke" type="number" id="grundstücke" onInput="$('#grundstücke').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="grundstücke" type="number" id="grundstücke" onInput="$('#grundstücke').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left">Kapitalrücklage</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="kapitalruecklage" type="number" id="kapitalruecklage" onInput="$('#kapitalruecklage').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="kapitalruecklage" type="number" id="kapitalruecklage" onInput="$('#kapitalruecklage').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Gebäude</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="gebauude" type="number" id="gebauude" onInput="$('#gebauude').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="gebauude" type="number" id="gebauude" onInput="$('#gebauude').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left">Gewinnrücklage</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="gewinnruecklage" type="number" id="gewinnruecklage" onInput="$('#gewinnruecklage').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="gewinnruecklage" type="number" id="gewinnruecklage" onInput="$('#gewinnruecklage').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Technische Anlagen</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="anlagen" type="number" id="anlagen" onInput="$('#anlagen').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="anlagen" type="number" id="anlagen" onInput="$('#anlagen').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left border-only-bottom">Ergebnis nach Steuern</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+/-</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="steuern" type="number" id="steuern" onInput="$('#steuern').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="steuern" type="number" id="steuern" onInput="$('#steuern').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle border-only-bottom">Betriebs- und Geschäftsausstattung</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="BundG" type="number" id="BundG" onInput="$('#BundG').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="BundG" type="number" id="BundG" onInput="$('#BundG').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left background-yellow">Summe Eigenkapital</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div id="summeeigenkapital" class="col-1 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+            <div id="summeeigenkapital" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle background-yellow">Summe Anlagevermögen</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div id="summeanlage" class="col-1 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
-            <div class="col-2 profitLossStyle"></div>
+            <div id="summeanlage" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
             <div class="col-3 profitLossStyle border-only-left"></div>
         </div>
 
@@ -99,91 +93,83 @@
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Vorräte:</div>
             <div class="col-1 profitLossStyle"></div>
-            <div class="col-1 profitLossStyle" style="text-align: center;"></div>
-            <div class="col-2 profitLossStyle"></div>
+            <div class="col-2 profitLossStyle" style="text-align: center;"></div>
             <div class="col-3 profitLossStyle border-only-left">Rückstellungen</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="ruckstellung" type="number" id="ruckstellung" onInput="$('#ruckstellung').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="ruckstellung" type="number" id="ruckstellung" onInput="$('#ruckstellung').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Roh-, Hilfs- und Betriebsstoffe</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="rhb" type="number" id="rhb" onInput="$('#rhb').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="rhb" type="number" id="rhb" onInput="$('#rhb').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left">Finanzverbindlichkeiten</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="finanzverbindlichkeiten" type="number" id="finanzverbindlichkeiten" onInput="$('#finanzverbindlichkeiten').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="finanzverbindlichkeiten" type="number" id="finanzverbindlichkeiten" onInput="$('#finanzverbindlichkeiten').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Unfertige Erzeugnisse</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="unfertigeerzeugnisse" type="number" id="unfertigeerzeugnisse" onInput="$('#unfertigeerzeugnisse').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="unfertigeerzeugnisse" type="number" id="unfertigeerzeugnisse" onInput="$('#unfertigeerzeugnisse').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left">Verbindl. aus L&L</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="LL" type="number" id="LL" onInput="$('#LL').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="LL" type="number" id="LL" onInput="$('#LL').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Fertige Erzeugnisse</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="fertigeerzeugnisse" type="number" id="fertigeerzeugnisse" onInput="$('#fertigeerzeugnisse').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="fertigeerzeugnisse" type="number" id="fertigeerzeugnisse" onInput="$('#fertigeerzeugnisse').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left border-only-bottom">Sonstige Verbindlichk.</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="sonstverbindlichkeiten" type="number" id="sonstverbindlichkeiten" onInput="$('#sonstverbindlichkeiten').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="sonstverbindlichkeiten" type="number" id="sonstverbindlichkeiten" onInput="$('#sonstverbindlichkeiten').html($(this).val())">
             </div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle">Forderungen</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="forderungen" type="number" id="forderungen" onInput="$('#forderungen').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="forderungen" type="number" id="forderungen" onInput="$('#forderungen').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left background-yellow">Summe Fremdkapital</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div id="summefremdkapital" class="col-1 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+            <div id="summefremdkapital" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle border-only-bottom">Flüssige Mittel</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
-            <div class="col-1 border-only-bottom profitLossStyle" style="text-align: center;">
-                <input min="0" required name="fluessigemittel" type="number" id="fluessigemittel" onInput="$('#fluessigemittel').html($(this).val())">
+            <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
+                <input class="form-control" min="0" required name="fluessigemittel" type="number" id="fluessigemittel" onInput="$('#fluessigemittel').html($(this).val())">
             </div>
-            <div class="col-2 profitLossStyle"></div>
             <div class="col-3 profitLossStyle border-only-left"></div>
         </div>
         <div class="row background-white">
             <div class="col-3 profitLossStyle background-yellow border-only-bottom">Summe Umlaufverm.</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div id="summeumlaufverm" class="col-1 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
-            <div class="col-2 profitLossStyle"></div>
+            <div id="summeumlaufverm" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
             <div class="col-3 profitLossStyle border-only-left border-only-bottom"></div>
             <div class="col-1 profitLossStyle"></div>
-            <div class="col-1 border-only-bottom profitLossStyle border-only-bottom" style="text-align: center;"></div>
+            <div class="col-2 border-only-bottom profitLossStyle border-only-bottom" style="text-align: center;"></div>
         </div>
 
         <div class="row background-white">
             <div class="col-3 profitLossStyle background-yellow">Summe Aktiva</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div  id="summeaktiva" class="col-1 border-only-bottom profitLossStyle" style="text-align: center;"></div>
-            <div class="col-2 profitLossStyle"></div>
+            <div  id="summeaktiva" class="col-2 border-only-bottom profitLossStyle" style="text-align: center;"></div>
             <div class="col-3 profitLossStyle border-only-left background-yellow">Summe Passiva</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div id="summepassiva" class="col-1 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+            <div id="summepassiva" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
         </div>
 
         <div>

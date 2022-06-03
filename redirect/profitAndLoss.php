@@ -25,7 +25,7 @@
         <div class="col-5 profitLossStyle">Umsatzerlöse</div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-            <input min="0" required name="umsatzerloese" type="number" id="umsatzerloese" onInput="$('#umsatzerloese').html($(this).val())">
+            <input class="form-control" min="0" required name="umsatzerloese" type="number" id="umsatzerloese" onInput="$('#umsatzerloese').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -34,7 +34,7 @@
         <div class="col-5 border-only-bottom profitLossStyle">Herstellungskosten</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-        <input min="0" required name="herstellungskosten" type="number" id="herstellungskosten" onInput="$('#herstellungskosten').html($(this).val())">
+            <input class="form-control" min="0" required name="herstellungskosten" type="number" id="herstellungskosten" onInput="$('#herstellungskosten').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -50,7 +50,7 @@
         <div class="col-5 profitLossStyle">Forschung & Entwicklung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-            <input min="0" required name="forschungundentwicklung" type="number" id="forschungundentwicklung" onInput="$('#forschungundentwicklung').html($(this).val())">
+            <input class="form-control" min="0" required name="forschungundentwicklung" type="number" id="forschungundentwicklung" onInput="$('#forschungundentwicklung').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -59,7 +59,7 @@
         <div class="col-5 profitLossStyle">Verwaltung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-        <input min="0" required name="verwaltung" type="number" id="verwaltung" onInput="$('#verwaltung').html($(this).val())">
+            <input class="form-control" min="0" required name="verwaltung" type="number" id="verwaltung" onInput="$('#verwaltung').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -68,7 +68,7 @@
         <div class="col-5 profitLossStyle">Marketing & Vertrieb</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-            <input min="0" required name="marketingundvertrieb" type="number" id="marketingundvertrieb" onInput="$('#marketingundvertrieb').html($(this).val())">
+            <input class="form-control" min="0" required name="marketingundvertrieb" type="number" id="marketingundvertrieb" onInput="$('#marketingundvertrieb').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -77,7 +77,7 @@
         <div class="col-5 profitLossStyle">Sonstige betriebliche Erträge</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-            <input min="0" required name="sonstigeertraege" type="number" id="sonstigeertraege" onInput="$('#sonstigeertraege').html($(this).val())">
+            <input class="form-control" min="0" required name="sonstigeertraege" type="number" id="sonstigeertraege" onInput="$('#sonstigeertraege').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
@@ -86,7 +86,7 @@
         <div class="col-5 border-only-bottom profitLossStyle">Abschreibung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
-            <input min="0" required name="abschreibung" type="number" id="abschreibung" onInput="$('#abschreibung').html($(this).val())">
+            <input class="form-control" min="0" required name="abschreibung" type="number" id="abschreibung" onInput="$('#abschreibung').html($(this).val())">
         </div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">75</div>
