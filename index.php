@@ -62,6 +62,7 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
           <a class="nav-link" href="index.php?site=balance">Balance</a>
+          <a class="nav-link" href="index.php?site=verwaltung">Verwaltung</a>
         </li>
       </ul>
     </div>
@@ -131,6 +132,8 @@
                   case 'profitAndLoss' : include "redirect/profitAndLoss.php"; break;
                   case 'balance' : include "redirect/balance.php"; break;
                   case 'wrongQuartal' : include "redirect/wrongQuartal.html"; break;
+                  case 'verwaltung' : include "redirect/verwaltung.php"; break;
+                  case 'verwaltungLogic' : include "redirect/verwaltungLogic.php"; break;
                   default: include "redirect/team.php";
 
                 }
