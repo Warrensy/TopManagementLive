@@ -166,7 +166,7 @@
         <div class="row background-white">
             <div class="col-3 profitLossStyle background-yellow">Summe Aktiva</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-            <div  id="summeaktiva" class="col-2 border-only-bottom profitLossStyle" style="text-align: center;"></div>
+            <div  id="summeaktiva" class="col-2 background-yellow border-only-bottom profitLossStyle" style="text-align: center;"></div>
             <div class="col-3 profitLossStyle border-only-left background-yellow">Summe Passiva</div>
             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
             <div id="summepassiva" class="col-2 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
