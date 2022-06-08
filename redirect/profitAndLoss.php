@@ -20,81 +20,81 @@
         <div class="col-2" style="font-weight: bold; text-align: center;">Jahr 0</div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 profitLossStyle">Umsatzerlöse</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 profitLossStyle">Umsatzerlöse</div>
         <div class="col-1 profitLossStyle"></div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="umsatzerloese" type="number" id="umsatzerloese" onInput="$('#umsatzerloese').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 border-only-bottom profitLossStyle">Herstellungskosten</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 border-only-bottom profitLossStyle">Herstellungskosten</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="herstellungskosten" type="number" id="herstellungskosten" onInput="$('#herstellungskosten').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 background-yellow profitLossStyle">Bruttoergebnis</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 background-yellow profitLossStyle">Bruttoergebnis</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
         <div id="bruttoergebnis" class="col-2 background-yellow profitLossStyle" style="text-align: center;"></div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 profitLossStyle">Forschung & Entwicklung</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 profitLossStyle">Forschung & Entwicklung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="forschungundentwicklung" type="number" id="forschungundentwicklung" onInput="$('#forschungundentwicklung').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 profitLossStyle">Verwaltung</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 profitLossStyle">Verwaltung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="verwaltung" type="number" id="verwaltung" onInput="$('#verwaltung').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 profitLossStyle">Marketing & Vertrieb</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 profitLossStyle">Marketing & Vertrieb</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="marketingundvertrieb" type="number" id="marketingundvertrieb" onInput="$('#marketingundvertrieb').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 profitLossStyle">Sonstige betriebliche Erträge</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 profitLossStyle">Sonstige betriebliche Erträge</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="sonstigeertraege" type="number" id="sonstigeertraege" onInput="$('#sonstigeertraege').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 border-only-bottom profitLossStyle">Abschreibung</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 border-only-bottom profitLossStyle">Abschreibung</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">
             <input class="form-control" min="0" required name="abschreibung" type="number" id="abschreibung" onInput="$('#abschreibung').html($(this).val())">
         </div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 background-yellow profitLossStyle">Betriebsergebnis (EBIT)</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 background-yellow profitLossStyle">Betriebsergebnis (EBIT)</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
         <div id="betriebsergebnis" class="col-2 background-yellow border-only-bottom profitLossStyle" style="text-align: center;"></div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 border-only-bottom profitLossStyle">Zinsen</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 border-only-bottom profitLossStyle">Zinsen</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">(3)</div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 background-yellow profitLossStyle">Ergebnis vor Steuern (EBIT)</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 background-yellow profitLossStyle">Ergebnis vor Steuern (EBIT)</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
         <div class="col-2 background-yellow border-only-bottom profitLossStyle" style="text-align: center;">6</div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 border-only-bottom profitLossStyle">Steuern vom Ergebnis (1/3)</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 border-only-bottom profitLossStyle">Steuern vom Ergebnis (1/3)</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">-</div>
         <div class="col-2 border-only-bottom profitLossStyle" style="text-align: center;">(2)</div>
     </div>
     <div class="row background-white">
-        <div class="col-5 offset-2 background-yellow profitLossStyle">Ergebnis nach Steuern (EAT)</div>
+        <div style="word-wrap: break-word;" class="col-5 offset-2 background-yellow profitLossStyle">Ergebnis nach Steuern (EAT)</div>
         <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
         <div class="col-2 background-yellow border-only-bottom profitLossStyle" style="text-align: center;">4</div>
     </div>
