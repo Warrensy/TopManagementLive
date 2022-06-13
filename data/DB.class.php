@@ -472,6 +472,44 @@ class DBclass {
         }
     }
 
+    function getGuvEntriesByTeam($teamcode)
+    {
+        $stmt = $this->verbindung->prepare("SELECT * FROM guv WHERE teamcode = ?;");
+        $stmt->bind_param("s",$teamcode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result;
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
+    function getGuvCountByTeam($teamcode) {
+        $stmt = $this->verbindung->prepare("SELECT COUNT(guvID) AS guvid FROM guv WHERE teamcode = (?)" );
+        $stmt->bind_param("s", $teamcode);
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        $details = $result->fetch_array(); 
+        if($details != NULL) {
+            return $details;
+        } else {
+            return false; 
+        }
+    }
+
+    function addGuv($teamcode, $umsatzerloese, $herstellungskosten, $bruttoergebnis, $forschungundentwicklung, $verwaltung, $marketingundvertrieb, $sonstigeertraege, $abschreibung, $betriebsergebnis, $steuern, $ergebnisnachsteuern, $year) { //anker
+        $stmt = $this->verbindung->prepare("INSERT INTO `guv` (`teamcode`, `umsatzerloese`, `herstellungskosten`, `bruttoergebnis`, `forschungundentwicklung`, `verwaltung`, `marketingundvertrieb`, `sonstigeertraege`, `abschreibung`, `betriebsergebnis`, `steuern`, `ergebnisnachsteuern`, `year`) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssssss", $teamcode, $umsatzerloese, $herstellungskosten, $bruttoergebnis, $forschungundentwicklung, $verwaltung, $marketingundvertrieb, $sonstigeertraege, $abschreibung, $betriebsergebnis, $steuern, $ergebnisnachsteuern, $year);
+        $stmt->execute();
+    }
+
     function setActiveContracts($gameid){
         $stmt = $this->verbindung->prepare("UPDATE auftrag SET Aktiv = 0"); 
         $stmt->execute();
