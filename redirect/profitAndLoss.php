@@ -48,7 +48,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a<?php echo $i; ?>" aria-expanded="false" aria-controls="collapseTwo">
-                        Year #<?php echo $i + 1; ?>
+                        Year #<?php echo $guventry["year"]; ?>
                     </button>
                 </h2>
             </div>
@@ -143,13 +143,23 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
                             <div class="col-5 background-yellow profitLossStyle" style="text-align: left;"><?php echo $guventry["ergebnisnachsteuern"] ?></div> 
                         </div>
+
+                        <br>
+                        
+                        <form method="POST" action="index.php?site=profitAndLossLogic">
+                        <div>
+                            <input type="submit" class="btn btn-danger" value="GuV Löschen" name="GuVLöschen" ID="GuVLöschen">
+                            <input type="hidden" ID="guvID" name="guvID" value="<?=$guventry["guvID"] ?>">
+                        </div>
+                        </form>
+
                     </div>
 
 
                 </div>
             </div>
         </div>
-
+        
     <?php
     }
     ?>
@@ -163,7 +173,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
         <div class="row border-only-bottom background-white">
             <div class="text-center col-6 "></div>
             <div class="col-1"></div>
-            <div class="col-5" style="font-weight: bold; text-align: center;">Jahr 0</div>
+            <div class="col-5" style="font-weight: bold; text-align: center;">Jahr <?php echo $_SESSION["Year"];?></div>
         </div>
         <div class="row background-white">
             <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Umsatzerlöse</div>

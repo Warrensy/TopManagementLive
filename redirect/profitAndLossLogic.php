@@ -37,4 +37,12 @@
         header('Location: index.php?site=profitAndLoss');
 
     }
+
+    if(isset($_POST["GuVLöschen"]))
+    {
+        $db->deleteGuv($_POST["guvID"]); 
+
+        header('Location: index.php?site=profitAndLoss');
+    }
+
 ?>

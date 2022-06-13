@@ -503,10 +503,18 @@ class DBclass {
         }
     }
 
-    function addGuv($teamcode, $umsatzerloese, $herstellungskosten, $bruttoergebnis, $forschungundentwicklung, $verwaltung, $marketingundvertrieb, $sonstigeertraege, $abschreibung, $betriebsergebnis, $steuern, $ergebnisnachsteuern, $year) { //anker
+    function addGuv($teamcode, $umsatzerloese, $herstellungskosten, $bruttoergebnis, $forschungundentwicklung, $verwaltung, $marketingundvertrieb, $sonstigeertraege, $abschreibung, $betriebsergebnis, $steuern, $ergebnisnachsteuern, $year) {
         $stmt = $this->verbindung->prepare("INSERT INTO `guv` (`teamcode`, `umsatzerloese`, `herstellungskosten`, `bruttoergebnis`, `forschungundentwicklung`, `verwaltung`, `marketingundvertrieb`, `sonstigeertraege`, `abschreibung`, `betriebsergebnis`, `steuern`, `ergebnisnachsteuern`, `year`) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssssssssss", $teamcode, $umsatzerloese, $herstellungskosten, $bruttoergebnis, $forschungundentwicklung, $verwaltung, $marketingundvertrieb, $sonstigeertraege, $abschreibung, $betriebsergebnis, $steuern, $ergebnisnachsteuern, $year);
+        $stmt->execute();
+    }
+
+    //anker
+
+    function deleteGuv($guvid) {
+        $stmt = $this->verbindung->prepare("DELETE FROM guv WHERE guvID = (?)");
+        $stmt->bind_param("i", $guvid);
         $stmt->execute();
     }
 
