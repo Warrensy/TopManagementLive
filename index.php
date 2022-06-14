@@ -136,6 +136,7 @@
                   case 'profitAndLoss' : include "redirect/profitAndLoss.php"; break;
                   case 'profitAndLossLogic' : include "redirect/profitAndLossLogic.php"; break;
                   case 'balance' : include "redirect/balance.php"; break;
+                  case 'balanceLogic' : include "redirect/balanceLogic.php"; break;
                   case 'wrongQuartal' : include "redirect/wrongQuartal.html"; break;
                   case 'verwaltung' : include "redirect/verwaltung.php"; break;
                   case 'verwaltungLogic' : include "redirect/verwaltungLogic.php"; break;

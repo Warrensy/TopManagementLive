@@ -23,7 +23,7 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a<?php echo $i; ?>" aria-expanded="false" aria-controls="collapseTwo">
-                        Year #<?php echo $balanceentry["year"]; ?>
+                        Year #<?php echo $balanceentry["jahr"]; ?>
                     </button>
                 </h2>
             </div>
@@ -38,47 +38,47 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
         <div class="row border-only-bottom background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle" style="font-weight: bold;">Aktiva</div>
                 <div class="col-1"></div>
-                <div style="word-wrap: break-word;" class="text-center col-5" style="font-weight: bold; text-align: center;">Jahr 0</div>
+                <div style="word-wrap: break-word;" class="text-center col-5" style="font-weight: bold; text-align: center;">Jahr <?php echo $balanceentry["jahr"]; ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle ">Immaterielle Vermögensgegenstände</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["immaterials"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Grundstücke</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["grundstuecke"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gebäude</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["gebaeude"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Technische Anlagen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["technischeanlagen"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Betriebs- und Geschäftsausstattung</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["ausstattung"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Anlagevermögen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeanlage"] ?></div>
             </div>
 
             <div class="row background-white">
@@ -93,47 +93,47 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Roh-, Hilfs- und Betriebsstoffe</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["stoffe"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Unfertige Erzeugnisse</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["unfertige"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Fertige Erzeugnisse</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["fertige"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Forderungen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["forderungen"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Flüssige Mittel</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["fluessigemittel"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow border-only-bottom">Summe Umlaufverm.</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeumlaufverm" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeumlauf"] ?></div>
             </div>
 
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Aktiva</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div  id="summeaktiva" class="col-5 background-yellow border-only-bottom profitLossStyle" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["saummeaktiva"] ?></div>
             </div>
 
 
@@ -141,40 +141,40 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
         <div class="row border-only-bottom background-white mt-5">
                 <div style="word-wrap: break-word;" class="text-center col-6" style="font-weight: bold;">Passiva</div>
                 <div class="col-1"></div>
-                <div style="word-wrap: break-word;" class="text-center col-5 profitLossStyle"style="font-weight: bold; text-align: center;">Jahr 0</div>
+                <div style="word-wrap: break-word;" class="text-center col-5 profitLossStyle"style="font-weight: bold; text-align: center;">Jahr <?php echo $balanceentry["jahr"]; ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gezeichnetes Kapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["kapital"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Kapitalrücklage</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["kapitalrueck"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gewinnrücklage</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["gewinnrueck"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Ergebnis nach Steuern</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+/-</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["errgebnisnsteuern"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Eigenkapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeeigenkapital" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeigen"] ?></div>
             </div>
             <div class="row background-white">
             </div>
@@ -183,53 +183,48 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;"class="text-center col-6 profitLossStyle">Rückstellungen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["rueckstellungen"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Finanzverbindlichkeiten</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["finanzverb"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Verbindl. aus L&L</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["verbll"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Sonstige Verbindlichk.</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["verbsonst"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow border-only-bottom">Summe Fremdkapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summefremdkapital" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summefremd"] ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Passiva</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summepassiva" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: center;"></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summepassiv"] ?></div>
             </div>
 
-            <div>
-                <input type="submit" class="btn btn-success" value="Bilanz Berechnen" name="BilanzBerechnen" ID="BilanzBerechnen">   
-            </div>
-        </div>
-    </div>
 
                         <br>
 
                         <form method="POST" action="index.php?site=balanceLogic">
                             <div>
                                 <input type="submit" class="btn btn-danger" value="Balance Löschen" name="BalanceLöschen" ID="BalanceLöschen">
-                                <input type="hidden" ID="balanceID" name="balanceID" value="<?= $balanceentry["balanceID"] ?>">
+                                <input type="hidden" ID="balanceID" name="balanceID" value="<?= $balanceentry["balanceid"] ?>">
                             </div>
                         </form>
 
@@ -247,17 +242,14 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
 
     <br><br><br>
 
-    <form method="POST">
-    <div id="bilanzalert" class="alert alert-success text-center" role="alert">
-      Aktion erfolgreich!
-    </div>
+    <form method="POST" action="index.php?site=balanceLogic">
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row background-white" style="font-weight: bold; padding:1.5%;">Bilanz</div>    
         <div class="row border-only-bottom background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle" style="font-weight: bold;">Aktiva</div>
                 <div class="col-1"></div>
-                <div style="word-wrap: break-word;" class="text-center col-5" style="font-weight: bold; text-align: center;">Jahr 0</div>
+                <div style="word-wrap: break-word;" class="text-center col-5" style="font-weight: bold; text-align: center;">Jahr <?php echo $_SESSION["Year"]; ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle ">Immaterielle Vermögensgegenstände</div>
@@ -360,7 +352,7 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
         <div class="row border-only-bottom background-white mt-5">
                 <div style="word-wrap: break-word;" class="text-center col-6" style="font-weight: bold;">Passiva</div>
                 <div class="col-1"></div>
-                <div style="word-wrap: break-word;" class="text-center col-5 profitLossStyle"style="font-weight: bold; text-align: center;">Jahr 0</div>
+                <div style="word-wrap: break-word;" class="text-center col-5 profitLossStyle"style="font-weight: bold; text-align: center;">Jahr <?php echo $_SESSION["Year"]; ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gezeichnetes Kapital</div>
@@ -438,7 +430,7 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             </div>
 
             <div>
-                <input type="submit" class="btn btn-success" value="Bilanz Berechnen" name="BilanzBerechnen" ID="BilanzBerechnen">   
+                <input type="submit" class="btn btn-success" value="Bilanz Berechnen" name="BalanceBerechnen" ID="BalanceBerechnen">   
             </div>
         </div>
     </div>
