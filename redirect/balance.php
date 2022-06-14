@@ -5,28 +5,17 @@ if ($q % 4 != 0) {
     exit;
 }
 
-
-$guventries = $db->getGuvEntriesByTeam($_SESSION["Team"]);
-
-$guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
-
+$balanceentries = $db->getBalanceEntriesByTeam($_SESSION["Team"]);
+$balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
 
 ?>
 
-<!--
-<div id="guvalert" class="alert alert-success text-center" role="alert">
-    Aktion erfolgreich!
-</div>
--->
-
-
 <div class="accordion" id="accordionExample">
-
 
     <?php
 
-    for ($i = 0; $i < $guvcount["guvid"]; $i++) {
-        $guventry = $guventries->fetch_array();
+    for ($i = 0; $i < $balancecount["balanceid"]; $i++) {
+        $balanceentry = $balanceentries->fetch_array();
 
     ?>
 
@@ -34,13 +23,13 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a<?php echo $i; ?>" aria-expanded="false" aria-controls="collapseTwo">
-                        Year #<?php echo $guventry["year"]; ?>
+                        Year #<?php echo $balanceentry["year"]; ?>
                     </button>
                 </h2>
             </div>
-            <div id="a<?php echo $i; ?>" class="collapse <?php if ($i == (int)$guvcount["guvid"] - 1 && $_SESSION["uncollapse"] == 1) {
+            <div id="a<?php echo $i; ?>" class="collapse <?php if ($i == (int)$balancecount["balanceid"] - 1 && $_SESSION["uncollapseBalance"] == 1) {
                                                                 echo "show";
-                                                                $_SESSION["uncollapse"] = 0;
+                                                                $_SESSION["uncollapseBalance"] = 0;
                                                             } ?>" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
 
@@ -55,35 +44,35 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle ">Immaterielle Vermögensgegenstände</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="immaterielle" type="number" id="immaterielle" onInput="$('#immaterielle').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Grundstücke</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="grundstücke" type="number" id="grundstücke" onInput="$('#grundstücke').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gebäude</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="gebauude" type="number" id="gebauude" onInput="$('#gebauude').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Technische Anlagen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="anlagen" type="number" id="anlagen" onInput="$('#anlagen').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Betriebs- und Geschäftsausstattung</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="BundG" type="number" id="BundG" onInput="$('#BundG').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
@@ -104,35 +93,35 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Roh-, Hilfs- und Betriebsstoffe</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="rhb" type="number" id="rhb" onInput="$('#rhb').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Unfertige Erzeugnisse</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="unfertigeerzeugnisse" type="number" id="unfertigeerzeugnisse" onInput="$('#unfertigeerzeugnisse').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Fertige Erzeugnisse</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="fertigeerzeugnisse" type="number" id="fertigeerzeugnisse" onInput="$('#fertigeerzeugnisse').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Forderungen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="forderungen" type="number" id="forderungen" onInput="$('#forderungen').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Flüssige Mittel</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="fluessigemittel" type="number" id="fluessigemittel" onInput="$('#fluessigemittel').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
@@ -158,28 +147,28 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gezeichnetes Kapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="gezeichneteskapital" type="number" id="gezeichneteskapital" onInput="$('#gezeichneteskapital').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Kapitalrücklage</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="kapitalruecklage" type="number" id="kapitalruecklage" onInput="$('#kapitalruecklage').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Gewinnrücklage</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="gewinnruecklage" type="number" id="gewinnruecklage" onInput="$('#gewinnruecklage').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Ergebnis nach Steuern</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+/-</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="steuern" type="number" id="steuern" onInput="$('#steuern').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
@@ -194,28 +183,28 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                 <div style="word-wrap: break-word;"class="text-center col-6 profitLossStyle">Rückstellungen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="ruckstellung" type="number" id="ruckstellung" onInput="$('#ruckstellung').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Finanzverbindlichkeiten</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="finanzverbindlichkeiten" type="number" id="finanzverbindlichkeiten" onInput="$('#finanzverbindlichkeiten').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Verbindl. aus L&L</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="LL" type="number" id="LL" onInput="$('#LL').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle border-only-bottom">Sonstige Verbindlichk.</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">+</div>
                 <div class="col-5 border-only-bottom profitLossStyle" style="text-align: center;">
-                    <input class="form-control" min="0" required name="sonstverbindlichkeiten" type="number" id="sonstverbindlichkeiten" onInput="$('#sonstverbindlichkeiten').html($(this).val())">
+                    <input readonly class="form-control" min="0" required type="number" value="<?php echo $balanceentry["umsatzerloese"] ?>">
                 </div>
             </div>
             <div class="row background-white">
@@ -237,10 +226,10 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
 
                         <br>
 
-                        <form method="POST" action="index.php?site=profitAndLossLogic">
+                        <form method="POST" action="index.php?site=balanceLogic">
                             <div>
-                                <input type="submit" class="btn btn-danger" value="GuV Löschen" name="GuVLöschen" ID="GuVLöschen">
-                                <input type="hidden" ID="guvID" name="guvID" value="<?= $guventry["guvID"] ?>">
+                                <input type="submit" class="btn btn-danger" value="Balance Löschen" name="BalanceLöschen" ID="BalanceLöschen">
+                                <input type="hidden" ID="balanceID" name="balanceID" value="<?= $balanceentry["balanceID"] ?>">
                             </div>
                         </form>
 

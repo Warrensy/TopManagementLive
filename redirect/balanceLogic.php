@@ -2,25 +2,25 @@
     if(isset($_POST["BalanceBerechnen"]))
     {
 
-        $ImmaterielleVermögensgegenstände = $_POST["ImmaterielleVermögensgegenstände"];
-        $Grundstücke = $_POST["Grundstücke"];
-        $Gebäude = $_POST["Gebäude"];
-        $TechnischeAnlagen = $_POST["TechnischeAnlagen"];
-        $BetriebsundGeschäftsausstattung = $_POST["BetriebsundGeschäftsausstattung"];
-        $RohHilfsundBetriebsstoffe = $_POST["RohHilfsundBetriebsstoffe"];
-        $UnfertigeErzeugnisse = $_POST["UnfertigeErzeugnisse"];
-        $FertigeErzeugnisse = $_POST["FertigeErzeugnisse"];
-        $Forderungen = $_POST["Forderungen"];
-        $FlüssigeMittel = $_POST["FlüssigeMittel"];
+        $ImmaterielleVermögensgegenstände = $_POST["immaterielle"];
+        $Grundstücke = $_POST["grundstücke"];
+        $Gebäude = $_POST["gebauude"];
+        $TechnischeAnlagen = $_POST["anlagen"];
+        $BetriebsundGeschäftsausstattung = $_POST["BundG"];
+        $RohHilfsundBetriebsstoffe = $_POST["rhb"];
+        $UnfertigeErzeugnisse = $_POST["unfertigeerzeugnisse"];
+        $FertigeErzeugnisse = $_POST["fertigeerzeugnisse"];
+        $Forderungen = $_POST["forderungen"];
+        $FlüssigeMittel = $_POST["fluessigemittel"];
 
-        $GezeichnetesKapital = $_POST["GezeichnetesKapital"];
-        $Kapitalrücklage = $_POST["Kapitalrücklage"];
-        $Gewinnrücklage = $_POST["Gewinnrücklage"];
-        $ErgebnisnachSteuern = $_POST["ErgebnisnachSteuern"];
-        $Rückstellungen = $_POST["Rückstellungen"];
-        $Finanzverbindlichkeiten = $_POST["Finanzverbindlichkeiten"];
-        $VerbindlausLundL = $_POST["VerbindlausLundL"];
-        $SonstigeVerbindlichk = $_POST["SonstigeVerbindlichk"];
+        $GezeichnetesKapital = $_POST["gezeichneteskapital"];
+        $Kapitalrücklage = $_POST["kapitalruecklage"];
+        $Gewinnrücklage = $_POST["gewinnruecklage"];
+        $ErgebnisnachSteuern = $_POST["steuern"];
+        $Rückstellungen = $_POST["ruckstellung"];
+        $Finanzverbindlichkeiten = $_POST["finanzverbindlichkeiten"];
+        $VerbindlausLundL = $_POST["LL"];
+        $SonstigeVerbindlichk = $_POST["sonstverbindlichkeiten"];
 
         $SummeAnlagevermögen = $ImmaterielleVermögensgegenstände + $Grundstücke + $Gebäude + $TechnischeAnlagen + $BetriebsundGeschäftsausstattung;
         $SummeUmlaufverm = $RohHilfsundBetriebsstoffe + $UnfertigeErzeugnisse + $FertigeErzeugnisse + $Forderungen + $FlüssigeMittel;
