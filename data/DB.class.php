@@ -832,6 +832,53 @@ class DBclass {
             }
         }
     }
+    function getBalanceEntriesByTeam($teamcode)
+{
+    $stmt = $this->verbindung->prepare("SELECT * FROM balance WHERE teamid = ?;");
+    $stmt->bind_param("s",$teamcode);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $details = $result;
+
+
+    if ($details != NULL) {
+        return $details;
+    } else {
+        return false;
+    }
 }
+
+function getBalanceCountByTeam($teamcode) {
+    $stmt = $this->verbindung->prepare("SELECT COUNT(balanceid) AS balanceid FROM balance WHERE teamid = (?)" );
+    $stmt->bind_param("s", $teamcode);
+    $stmt->execute();
+    
+    $result = $stmt->get_result();
+    $details = $result->fetch_array(); 
+    if($details != NULL) {
+        return $details;
+    } else {
+        return false; 
+    }
+}
+
+function addBalance($team, $ImmaterielleVermögensgegenstände, $Grundstücke, $Gebäude, $TechnischeAnlagen, $BetriebsundGeschäftsausstattung, $SummeAnlagevermögen, $RohHilfsundBetriebsstoffe,$UnfertigeErzeugnisse ,$FertigeErzeugnisse ,$Forderungen ,$FlüssigeMittel, $SummeUmlaufverm,$SummeAktiva, $GezeichnetesKapital ,$Kapitalrücklage ,$Gewinnrücklage ,$ErgebnisnachSteuern, $SummeEigenkapital, $Rückstellungen ,$Finanzverbindlichkeiten ,$VerbindlausLundL ,$SonstigeVerbindlichk, $SummeFremdkapital, $SummePassiva,$year) {
+    $stmt = $this->verbindung->prepare("INSERT INTO `balance` (`balanceid`, `teamid`, `jahr`, `immaterials`, `grundstuecke`, `gebaeude`, `technischeanlagen`, `ausstattung`, `summeanlage`, `stoffe`, `unfertige`, `fertige`, `forderungen`, `fluessigemittel`, `summeumlauf`, `saummeaktiva`, `kapital`, `kapitalrueck`, `gewinnrueck`, `errgebnisnsteuern`, `summeigen`, `rueckstellungen`, `finanzverb`, `verbll`, `verbsonst`, `summefremd`, `summepassiv`)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssssssssssssssssssss",$team,$year, $ImmaterielleVermögensgegenstände, $Grundstücke, $Gebäude, $TechnischeAnlagen, $BetriebsundGeschäftsausstattung, $SummeAnlagevermögen, $RohHilfsundBetriebsstoffe,$UnfertigeErzeugnisse ,$FertigeErzeugnisse ,$Forderungen ,$FlüssigeMittel, $SummeUmlaufverm,$SummeAktiva, $GezeichnetesKapital ,$Kapitalrücklage ,$Gewinnrücklage ,$ErgebnisnachSteuern, $SummeEigenkapital, $Rückstellungen ,$Finanzverbindlichkeiten ,$VerbindlausLundL ,$SonstigeVerbindlichk, $SummeFremdkapital, $SummePassiva);
+    $stmt->execute();
+    
+}
+
+//anker
+
+function deleteBalance($balanceid) {
+    $stmt = $this->verbindung->prepare("DELETE FROM balance WHERE balanceid = (?)");
+    $stmt->bind_param("i", $balanceid);
+    $stmt->execute();
+}
+}
+
 
 ?>
