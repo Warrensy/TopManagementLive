@@ -78,7 +78,7 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Anlagevermögen</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeanlage"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["summeanlage"] ?></div>
             </div>
 
             <div class="row background-white">
@@ -127,13 +127,13 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow border-only-bottom">Summe Umlaufverm.</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeumlauf"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["summeumlauf"] ?></div>
             </div>
 
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Aktiva</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["saummeaktiva"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["saummeaktiva"] ?></div>
             </div>
 
 
@@ -174,7 +174,7 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Eigenkapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summeigen"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["summeigen"] ?></div>
             </div>
             <div class="row background-white">
             </div>
@@ -210,12 +210,12 @@ $balancecount = $db->getBalanceCountByTeam($_SESSION["Team"]);
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow border-only-bottom">Summe Fremdkapital</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summefremd"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["summefremd"] ?></div>
             </div>
             <div class="row background-white">
                 <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle background-yellow">Summe Passiva</div>
                 <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left;"><?php echo $balanceentry["summepassiv"] ?></div>
+                <div id="summeanlage" class="col-5 border-only-bottom profitLossStyle background-yellow" style="text-align: left; padding-left: 10px;"><?php echo $balanceentry["summepassiv"] ?></div>
             </div>
 
 

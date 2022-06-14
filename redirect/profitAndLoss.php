@@ -68,7 +68,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 background-yellow profitLossStyle">Bruttoergebnis</div>
                             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left;"><?php echo $guventry["bruttoergebnis"] ?></div>
+                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left; padding-left: 10px;"><?php echo $guventry["bruttoergebnis"] ?></div>
                         </div>
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 profitLossStyle">Forschung & Entwicklung</div>
@@ -108,7 +108,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 background-yellow profitLossStyle">Betriebsergebnis (EBIT)</div>
                             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left;"><?php echo $guventry["betriebsergebnis"] ?></div>
+                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left; padding-left: 10px;"><?php echo $guventry["betriebsergebnis"] ?></div>
                         </div>
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 border-only-bottom profitLossStyle">Zinsen</div>
@@ -118,7 +118,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 background-yellow profitLossStyle">Ergebnis vor Steuern (EBIT)</div>
                             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                            <div class="col-5 background-yellow border-only-bottom profitLossStyle" style="text-align: center;"></div>
+                            <div class="col-5 background-yellow border-only-bottom profitLossStyle" style="text-align: center; padding-left: 10px;"></div>
                         </div>
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 border-only-bottom profitLossStyle">Steuern vom Ergebnis (1/3)</div>
@@ -130,7 +130,7 @@ $guvcount = $db->getGuvCountByTeam($_SESSION["Team"]);
                         <div class="row background-white">
                             <div style="word-wrap: break-word;" class="text-center col-6 background-yellow profitLossStyle">Ergebnis nach Steuern (EAT)</div>
                             <div class="col-1 profitLossStyle" style="font-weight: bold; text-align: center;">=</div>
-                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left;"><?php echo $guventry["ergebnisnachsteuern"] ?></div>
+                            <div class="col-5 background-yellow profitLossStyle" style="text-align: left; padding-left: 10px;"><?php echo $guventry["ergebnisnachsteuern"] ?></div>
                         </div>
 
                         <br>
