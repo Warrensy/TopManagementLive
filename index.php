@@ -76,11 +76,11 @@
           {
             $q = $db->getQuartalByTeam($_SESSION["Team"]);
             $year = 1;
-            $_SESSION["Year"] = $year; 
 
-            if($q % 4 == 0) {
-              $year = $q / 4;
-              $q = $q - (($year-1)*4);
+            while($q > 4)
+            {
+              $q = $q - 4;
+              $year++;
             }
 
             $_SESSION["Year"] = $year; 
