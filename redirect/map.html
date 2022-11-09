@@ -17,6 +17,7 @@ canvas {
     width: 100%;
     height: 100%;
 }
+
 </style>
 </head>
 <body onload="start()">
@@ -26,8 +27,16 @@ var myGamePiece;
 var myObstacles = [];
 var myScore;
 const img = new Image(1,1);
-img.src = "img/map.png";
+// img.src = "img/map.png";
+</script>
 
+<img src="img/map.png" usemap="#image-map">
+
+<map name="image-map">
+        <area target="" alt="liquidFunds" title="liquidFunds" href="index.php?site=liquidFunds" coords="563,602,327,705" shape="rect">
+</map>
+
+<script>
 var canvas = document.createElement("canvas");
 var context = canvas.getContext("2d");
 function start() {
@@ -103,7 +112,3 @@ function getNumber(x) {
 
 
 </script>
-<br>
-
-</body>
-</html>
