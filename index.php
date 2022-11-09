@@ -20,56 +20,62 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=team">Team/Game</a>
-          <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Materialien Lager</a>
-          <a class="nav-link" href="index.php?site=materialOrder">Material Bestellen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=production">Produktion</a>
-          <a class="nav-link" href="index.php?site=productWarehouse">Produkt Lager</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=liquidFunds">Flüssige Mittel</a>
-          <a class="nav-link" href="index.php?site=transfer">Flüssige Mittel Überweisen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=claim">Forderungen</a>
-          <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
-          <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
+  <?php
+  if ($_GET['site'] != 'map') {
+  ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=team">Team/Game</a>
+            <a class="nav-link" href="index.php?site=displayTeamCode">Team Code Anzeigen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=rawMaterialWarehouse">Materialien Lager</a>
+            <a class="nav-link" href="index.php?site=materialOrder">Material Bestellen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=production">Produktion</a>
+            <a class="nav-link" href="index.php?site=productWarehouse">Produkt Lager</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=liquidFunds">Flüssige Mittel</a>
+            <a class="nav-link" href="index.php?site=transfer">Flüssige Mittel Überweisen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=claim">Forderungen</a>
+            <a class="nav-link" href="index.php?site=contract">Aktive Aufträge</a>
+            <a class="nav-link" href="index.php?site=yearlyContracting">Yearly Contracting</a>
 
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
-          <a class="nav-link" href="index.php?site=market">B2B Markt</a>
-          <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
-          <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
-          <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
-          <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
-          <a class="nav-link" href="index.php?site=balance">Balance</a>
-          <a class="nav-link" href="index.php?site=verwaltung">Verwaltung</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=spotmarket">Spotmarket</a>
+            <a class="nav-link" href="index.php?site=market">B2B Markt</a>
+            <a class="nav-link" href="index.php?site=adminSpotMarket">Add Spotmarket Contract</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
+            <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
+            <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
+            <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
+            <a class="nav-link" href="index.php?site=balance">Balance</a>
+            <a class="nav-link" href="index.php?site=verwaltung">Verwaltung</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <?php
+  }
+  ?>
   <div class="row justify-content-center">
     <img id="logo" src="img/Logo.png">
     <div id="qua">
@@ -214,25 +220,26 @@
             case 'verwaltungLogic':
               include "redirect/verwaltungLogic.php";
               break;
+            case 'map':
+              include "redirect/map.html";
+              break;
             default:
               include "redirect/team.php";
           }
+          if ($_GET['site'] != 'map') {
       ?>
-          <div class="container">
-
-            <div class="row">
-              <div class="col-md-4">
+            <div class="container">
+              <div class="row">
+                <div class="col-auto mr-auto"></div>
+                <div class="col-auto ">
+                  <a href="index.php?site=map">
+                    <button id="map_button" href="index.php?site=map" type="button" class="btn btn-secondary btn-sm">Spiel Anzeigen</button>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-auto mr-auto"></div>
-              <div class="col-auto ">
-                <a href="index.php?site=map">
-                  <button id="map_button" href="index.php?site=map" type="button" class="btn btn-secondary btn-sm">Spiel Anzeigen</button>
-                </a>
-              </div>
-            </div>
-        <?php
+      <?php
+          }
         } else if (isset($_SESSION["admin"])) //admin
         {
           switch ($_GET['site']) {
@@ -303,9 +310,9 @@
         }
       }
 
-        ?>
-          </div>
+      ?>
     </div>
+  </div>
   </div>
 
 
