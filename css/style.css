@@ -3,6 +3,16 @@ body
     background-color: #F5E4E5;
 }
 
+.pull-left {
+    float: left !important;
+  }
+
+#map_button
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .space
 {
     margin-top: 85px;
