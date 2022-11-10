@@ -1,7 +1,7 @@
 </div>
 </div>
 <div class="svg-wrapper">
-  <svg viewBox="0 0 1291 786" width="100%" height="100%" preserveAspectRatio="none">
+  <svg viewBox="0 0 2054 1255" width="100%" height="100%" preserveAspectRatio="none">
     <defs>
       <style>
         circle:hover {
@@ -15,15 +15,12 @@
             <rect x="800" y="800" opacity="1" width="50" height="50" />
           </a> -->
     <a xlink:href="index.php?site=materialOrder">
-      <circle cx="395" cy="438" r="30" opacity="0" />
+      <circle cx="635" cy="730" r="40" opacity="0" />
     </a>
     <a xlink:href="index.php?site=liquidFunds">
-      <circle cx="440" cy="557" r="30" opacity="0" />
+      <circle cx="715" cy="935" r="40" opacity="0" />
     </a>
-
   </svg>
-
-  <div class="svg-wrapper">
     <script>
 
 
@@ -55,27 +52,27 @@
         context.strokeStyle = '#003300';
         context.font = "20px Arial";
         //Fluessige Mittel
-        circleMaker(context, 440, 660);
+        circleMaker(context, 715, 1050);
         //Lieferung
-        circleMaker(context, 395, 540);
+        circleMaker(context, 635, 845);
         //Materiallager Top-Down
-        circleMaker(context, 350, 180);
-        circleMaker(context, 360, 275);
-        circleMaker(context, 375, 360);
-        //Production lanes top-down
-        circleMaker(context, 720, 138);
-        circleMaker(context, 717, 208);
-        circleMaker(context, 712, 280);
-        circleMaker(context, 707, 350);
-        //Fertigwarenlager top-down
-        circleMaker(context, 903, 205);
-        circleMaker(context, 893, 295);
-        circleMaker(context, 878, 385);
-        //Forderungen left-right
-        circleMaker(context, 600, 680);
-        circleMaker(context, 656, 688);
-        circleMaker(context, 713, 686);
-        circleMaker(context, 768, 673);
+        // circleMaker(context, 350, 180);
+        // circleMaker(context, 360, 275);
+        // circleMaker(context, 375, 360);
+        // //Production lanes top-down
+        // circleMaker(context, 720, 138);
+        // circleMaker(context, 717, 208);
+        // circleMaker(context, 712, 280);
+        // circleMaker(context, 707, 350);
+        // //Fertigwarenlager top-down
+        // circleMaker(context, 903, 205);
+        // circleMaker(context, 893, 295);
+        // circleMaker(context, 878, 385);
+        // //Forderungen left-right
+        // circleMaker(context, 600, 680);
+        // circleMaker(context, 656, 688);
+        // circleMaker(context, 713, 686);
+        // circleMaker(context, 768, 673);
 
       }
 
@@ -87,7 +84,7 @@
       function circleMaker(context, x, y) {
         context.fillStyle = 'green';
         context.beginPath();
-        context.arc(x, y, 25, 0, 2 * Math.PI);
+        context.arc(x, y, 35, 0, 2 * Math.PI);
         context.fill();
         context.stroke();
 
@@ -108,6 +105,5 @@
     </script>
     <br>
   </div>
-</div>
 <div class="container-fluid">
   <div class="container">
