@@ -75,7 +75,7 @@
       </div>
     </nav>
   <?php
-  }
+  
   ?>
   <div class="row justify-content-center">
     <img id="logo" src="img/Logo.png">
@@ -95,7 +95,7 @@
       ?>
         <span class="">Jahr <?php echo $year; ?> - Q<?php echo $q; ?></span>
       <?php
-      }
+      }}
       ?>
     </div>
   </div>
