@@ -5,11 +5,11 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="../scripts/jquery.rwdImageMaps.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="css/style.css" />
   <title>Top-Management-Live</title>
@@ -20,9 +20,9 @@
   ?>
 </head>
 
-<body>
+<body onload="start()">
   <?php
-  if ($_GET['site'] != 'map2') {
+  if ($_GET['site'] != 'map') {
   ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -221,19 +221,19 @@
             case 'verwaltungLogic':
               include "redirect/verwaltungLogic.php";
               break;
-            case 'map2':
-              include "redirect/map2.html";
+            case 'map':
+              include "redirect/map.html";
               break;
             default:
               include "redirect/team.php";
           }
-          if ($_GET['site'] != 'map2') {
+          if ($_GET['site'] != 'map') {
       ?>
             <div class="container">
               <div class="row">
                 <div class="col-auto mr-auto"></div>
                 <div class="col-auto ">
-                  <a href="index.php?site=map2">
+                  <a href="index.php?site=map">
                     <button id="map_button" type="button" class="btn btn-secondary btn-sm">Spiel Anzeigen</button>
                   </a>
                 </div>
@@ -313,7 +313,6 @@
 
       ?>
     </div>
-  </div>
   </div>
 
 
