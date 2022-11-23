@@ -22,6 +22,7 @@
 
 <body onload="start()">
   <?php
+  if (isset($_GET["site"])) {
   if ($_GET['site'] != 'map') {
   ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,12 +61,7 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
-            <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
-            <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
-            <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
             <a class="nav-link" href="index.php?site=balance">Balance</a>
@@ -95,7 +91,7 @@
       ?>
         <span class="">Jahr <?php echo $year; ?> - Q<?php echo $q; ?></span>
       <?php
-      }}
+      }}}
       ?>
     </div>
   </div>

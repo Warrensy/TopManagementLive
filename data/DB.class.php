@@ -245,7 +245,7 @@ class DBclass {
         }
     }
 
-    function transferMoney($teamcode, $summe, $teamid)
+    function transferMoney($teamcode, $summe, $teamid) //WER IS DO SO A HEISL 
     {
         $funds = $this->getLiquidFundsByTeamCode($teamcode);
         $newFundsOwnTeam = $funds - $summe;
