@@ -22,7 +22,7 @@
 
 <body onload="start()">
   <?php
-  if ($_GET['site'] != 'map') {
+  if (isset($_GET['site']) && $_GET['site'] != 'map' && $_GET['site'] != 'adminControls') {
   ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -61,41 +61,59 @@
             <a class="nav-link" href="index.php?site=mpp">MarketingPunkte</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
-            <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
-            <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
-            <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="index.php?site=profitAndLoss">GuV</a>
             <a class="nav-link" href="index.php?site=balance">Balance</a>
             <a class="nav-link" href="index.php?site=verwaltung">Verwaltung</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=adminControls">Admin Controls</a>
           </li>
         </ul>
       </div>
     </nav>
   <?php
-  
+  }
+  if (isset($_GET['site']) && $_GET['site'] == 'adminControls') {
+  ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?site=adminOfferManager">Admin Angebot Manager</a>
+            <a class="nav-link" href="index.php?site=adminCreateContract">adminCreateContract</a>
+            <a class="nav-link" href="index.php?site=adminLoginLogout">adminLoginLogout</a>
+            <a class="nav-link" href="index.php?site=index">Zurück</a>
+          </li></ul>
+      </div>
+    </nav>
+  <?php
+  }
   ?>
   <div class="row justify-content-center">
     <img id="logo" src="img/Logo.png">
     <div id="qua">
       <?php
-      if (isset($_SESSION["Team"])) {
-        $q = $db->getQuartalByTeam($_SESSION["Team"]);
-        $year = 1;
+      if (isset($_GET['site']) && $_GET['site'] == 'adminControls') {
+        if (isset($_SESSION["Team"])) {
+          $q = $db->getQuartalByTeam($_SESSION["Team"]);
+          $year = 1;
 
-        while ($q > 4) {
-          $q = $q - 4;
-          $year++;
+          while ($q > 4) {
+            $q = $q - 4;
+            $year++;
+          }
+
+          $_SESSION["Year"] = $year;
+
+        ?>
+          <span class="">Jahr <?php echo $year; ?> - Q<?php echo $q; ?></span>
+        <?php
         }
-
-        $_SESSION["Year"] = $year;
-
-      ?>
-        <span class="">Jahr <?php echo $year; ?> - Q<?php echo $q; ?></span>
-      <?php
-      }}
+      }
       ?>
     </div>
   </div>
