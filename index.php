@@ -240,7 +240,7 @@
               include "redirect/verwaltungLogic.php";
               break;
             case 'map':
-              include "redirect/map.html";
+              include "redirect/map.php";
               break;
             default:
               include "redirect/team.php";
