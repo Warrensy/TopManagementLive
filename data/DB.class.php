@@ -878,6 +878,12 @@ function deleteBalance($balanceid) {
     $stmt->bind_param("i", $balanceid);
     $stmt->execute();
 }
+
+function payMoney($teamid, $money) {
+    $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?) WHERE Teamcode = (?)");
+    $stmt->bind_param("is",$money, $teamid);
+    $stmt->execute();   
+}
 }
 
 

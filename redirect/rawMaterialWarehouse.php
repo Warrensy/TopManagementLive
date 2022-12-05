@@ -9,8 +9,12 @@
         <tr>
             <th class="tablepadding">Base</th>
             <td class="tablepadding">
-                <h6 class="text-center">Lagernd
+                <h6 class="text-center">Lagernd</h6>
                 <h5 class="text-center"><?php echo $rawMaterial["RohBase"] ?></h6></h5>
+            </td>
+            <td class="tablepadding">
+                <h6 class="text-center">Wert in M</h6>
+                <h5 class="text-center"><?php echo $rawMaterial["RohBase"]*2 ?></h6></h5>
             </td>
             <td class="tablepadding">
                 <h6 class="text-center">Bestellt</h6>
@@ -24,6 +28,10 @@
                 <h5 class="text-center"><?php echo $rawMaterial["RohPlus"] ?></h5>
             </td>
             <td class="tablepadding">
+                <h6 class="text-center">Wert in M</h6>
+                <h5 class="text-center"><?php echo $rawMaterial["RohPlus"]*3 ?></h6></h5>
+            </td>
+            <td class="tablepadding">
                 <h6 class="text-center">Bestellt</h6>
                 <h5 class="text-center"><?php echo $rawMaterial["AusstehendRohPlus"] ?></h5>
             </td>
@@ -33,6 +41,10 @@
             <td class="tablepadding">
                 <h6 class="text-center">Lagernd</h6>
                 <h5 class="text-center"><?php echo $rawMaterial["RohMax"] ?></h5>
+            </td>
+            <td class="tablepadding">
+                <h6 class="text-center">Wert in M</h6>
+                <h5 class="text-center"><?php echo $rawMaterial["RohMax"]*4 ?></h6></h5>
             </td>
             <td class="tablepadding">
                 <h6 class="text-center">Bestellt</h6>
