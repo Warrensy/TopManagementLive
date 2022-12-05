@@ -160,11 +160,57 @@
     function start() {
       console.log(canvas);
       setupCanvas();
+      loadImages();
     }
 
+    function loadImages() {
+
+      const lane1img = new Image(1000, 1000);
+      const lane2img = new Image(1000, 1000);
+      const lane3img = new Image(1000, 1000);
+      const lane4img = new Image(1000, 1000);
+
+      <?php
+      $result = $db->getMachinesByTeamId($_SESSION["Team"]);
+
+      if($result != false) {
+
+          while($res = $result->fetch_array()) {
+
+            switch ($res["lane"]) {
+              case 1:
+                ?>
+                  lane1img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+                  context.drawImage(lane1img, 805, 170, 280, 85);
+                  <?php
+                  break;
+              case 2:
+                ?>
+                  lane2img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+                  context.drawImage(lane2img, 805, 282, 280, 85);
+                  <?php
+                  break;
+              case 3:
+                ?>
+                  lane3img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+                  context.drawImage(lane3img, 805, 400, 280, 85);
+                  <?php
+                  break;
+              case 4:
+                ?>
+                  lane4img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+                  context.drawImage(lane4img, 805, 515, 280, 85);
+                  <?php
+                break;
+          }
+
+          }
+      }
+      
+      ?>
+    }
 
     function setupCanvas() {
-
 
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
@@ -190,30 +236,27 @@
       backcontext.fillStyle = 'black';
       backcontext.fillText("Back", 75 - 22, 175 + 6);
       //Fluessige Mittel
-      circleMaker(context, 715, 1050, "liquidFunds");
+      circleMaker(context, 715, 1050, "liquidFunds", "green");
       //Lieferung
-      circleMaker(context, 635, 845, "pendingMaterials");
+      circleMaker(context, 635, 845, "pendingMaterials", "steelblue");
       //Materiallager Top-Down
-      circleMaker(context, 550, 295, "rawMax");
-      circleMaker(context, 570, 440, "rawPlus");
-      circleMaker(context, 590, 580, "rawBase");
+      circleMaker(context, 550, 295, "rawMax", "steelblue");
+      circleMaker(context, 570, 440, "rawPlus", "steelblue");
+      circleMaker(context, 590, 580, "rawBase", "steelblue");
       //Production lanes top-down
-      circleMaker(context, 1150, 220, "lane1");
-      circleMaker(context, 1150, 330, "lane2");
-      circleMaker(context, 1140, 440, "lane3");
-      circleMaker(context, 1135, 555, "lane4");
+      circleMaker(context, 1150, 220, "lane1", "steelblue");
+      circleMaker(context, 1150, 330, "lane2", "steelblue");
+      circleMaker(context, 1140, 440, "lane3", "steelblue");
+      circleMaker(context, 1135, 555, "lane4", "steelblue");
       //Fertigwarenlager top-down
-      circleMaker(context, 1440, 335, "productMax");
-      circleMaker(context, 1420, 470, "productPlus");
-      circleMaker(context, 1400, 610, "productBase");
+      circleMaker(context, 1440, 335, "productMax", "steelblue");
+      circleMaker(context, 1420, 470, "productPlus", "steelblue");
+      circleMaker(context, 1400, 610, "productBase", "steelblue");
       //Forderungen left-right
-      circleMaker(context, 960, 1075, "claims90");
-      circleMaker(context, 1050, 1090, "claims180");
-      circleMaker(context, 1140, 1080, "claims270");
-      circleMaker(context, 1220, 1065, "claims360");
-
-      
-
+      circleMaker(context, 960, 1075, "claims90", "green");
+      circleMaker(context, 1050, 1090, "claims180", "green");
+      circleMaker(context, 1140, 1080, "claims270", "green");
+      circleMaker(context, 1220, 1065, "claims360", "green");
     }
 
     function clear() {
@@ -221,8 +264,8 @@
     }
 
 
-    function circleMaker(context, x, y, name) {
-      context.fillStyle = 'green';
+    function circleMaker(context, x, y, name, color) {
+      context.fillStyle = color;
       context.beginPath();
       context.arc(x, y, 35, 0, 2 * Math.PI);
       context.fill();

@@ -832,8 +832,7 @@ class DBclass {
             }
         }
     }
-    function getBalanceEntriesByTeam($teamcode)
-{
+function getBalanceEntriesByTeam($teamcode) {
     $stmt = $this->verbindung->prepare("SELECT * FROM balance WHERE teamid = ?;");
     $stmt->bind_param("s",$teamcode);
     $stmt->execute();
@@ -879,12 +878,26 @@ function deleteBalance($balanceid) {
     $stmt->execute();
 }
 
+function getMachinesByTeamId($teamid) {
+    $stmt = $this->verbindung->prepare("SELECT * FROM maschinenzuteam WHERE Teamcode = (?)");
+    $stmt->bind_param("i", $teamid);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    
+    if($result != NULL) {
+        return $result;
+    } else {
+        return false; 
+    }
+}
 function payMoney($teamid, $money) {
     $stmt = $this->verbindung->prepare("UPDATE team SET FluessigeMittel = FluessigeMittel - (?) WHERE Teamcode = (?)");
     $stmt->bind_param("is",$money, $teamid);
     $stmt->execute();   
 }
 }
+
 
 
 ?>

@@ -20,7 +20,7 @@
   ?>
 </head>
 
-<body onload="start()">
+<body onload="start()"> <!-- in map.php -->
   <?php
   if (!isset($_GET['site']) || (isset($_GET['site']) && $_GET['site'] != 'map' && $_GET['site'] != 'adminControls' && $_GET['site'] != 'adminOfferManager' && $_GET['site'] != 'adminCreateContract' && $_GET['site'] != 'adminLoginLogout')) {
   ?>
