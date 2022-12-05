@@ -141,6 +141,10 @@
     <a xlink:href="index.php?site=claim">
       <circle cx="1220" cy="1065" r="40" opacity="0" />
     </a>
+    <!--Back-->
+    <a xlink:href="index.php?">
+      <circle cx="75" cy="175" r="40" opacity="0" />
+    </a>
   </svg>
   <script>
     var myGamePiece;
@@ -151,6 +155,7 @@
 
     var canvas = document.createElement("canvas");
     var context = canvas.getContext("2d");
+    var backcontext = canvas.getContext("2d");
 
     function start() {
       console.log(canvas);
@@ -167,10 +172,23 @@
       frameNo = 0;
       //interval = setInterval(updateGameArea, 20);
       context.drawImage(img, 0, 0);
+      backcontext.drawImage(img, 0, 0);
       //context.fillStyle = 'green';
       context.lineWidth = 5;
       context.strokeStyle = '#003300';
       context.font = "20px Arial";
+
+      backcontext.lineWidth = 5;
+      backcontext.strokeStyle = '#003300';
+      backcontext.font = "20px Arial";
+      
+      backcontext.fillStyle = 'red';
+      backcontext.beginPath();
+      backcontext.arc(75, 175, 35, 0, 2 * Math.PI);
+      backcontext.fill();
+      backcontext.stroke();
+      backcontext.fillStyle = 'black';
+      backcontext.fillText("Back", 75 - 22, 175 + 6);
       //Fluessige Mittel
       circleMaker(context, 715, 1050, "liquidFunds");
       //Lieferung
@@ -194,6 +212,8 @@
       circleMaker(context, 1140, 1080, "claims270");
       circleMaker(context, 1220, 1065, "claims360");
 
+      
+
     }
 
     function clear() {
@@ -209,7 +229,9 @@
       context.stroke();
 
       context.fillStyle = 'black';
-      context.fillText(getNumber(name), x - 5.5, y + 6);
+      number = getNumber(name);
+      offsetX = number.toString().length  * 5.5;
+      context.fillText(number, x - offsetX , y + 6);
     }
 
     function getNumber(x) {
