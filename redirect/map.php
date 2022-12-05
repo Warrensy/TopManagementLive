@@ -1,5 +1,28 @@
 </div>
 </div>
+<div class="modal fade" id="fluessigeMittelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+      <div class="container-fluid">
+    <div class="row justify-content-center"> 
+    <table class="table-dark table-bordered">
+        <tr>
+            <th class="tablepadding">Flüssige Mittel: </th>
+            <td class="tablepadding">
+                <h5><?php echo $db->getLiquidFundsByTeamCode($_SESSION["Team"]) ?></h5></td>
+        </tr>
+    </table>
+    </div>
+
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="svg-wrapper">
   <svg viewBox="0 0 2054 1255" width="100%" height="100%" preserveAspectRatio="none">
     <defs>
@@ -17,9 +40,10 @@
     <a xlink:href="index.php?site=materialOrder">
       <circle cx="635" cy="845" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=liquidFunds">
+    <a data-toggle="modal" data-target="#fluessigeMittelModal">
       <circle cx="715" cy="1050" r="40" opacity="0" />
     </a>
+    
     <!-- Materiallager Top-Down-->
     <a xlink:href="index.php?site=rawMaterialWarehouse">
       <circle cx="550" cy="295" r="40" opacity="0" />
