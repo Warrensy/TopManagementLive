@@ -6,12 +6,12 @@
         $max = $_POST["MaxOrder"];
         $team = $_SESSION["Team"];
         $answer = $db->addMaterials($team, $base, $plus, $max);
-        header('Location: index.php?site=materialOrder');
+        header('Location: index.php?site=map');
     }
     else if(isset($_POST["materialAccept"]))
     {
         $team = $_SESSION["Team"];
         $db->acceptMaterials($team);
-        header('Location: index.php?site=materialOrder&materialAdded=true');
+        header('Location: index.php?site=map&materialAdded=true');
     }
 ?>

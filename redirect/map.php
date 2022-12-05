@@ -15,7 +15,57 @@
               </tr>
             </table>
           </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="LieferungModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="container-fluid">
+            <table class="center">
+              <form method="POST" action="index.php?site=materialOrderLogic">
+                <tr>
+                  <h1 class="text-center">Material Bestellen</h1>
+                </tr>
+                <tr>
+                  <b><label for="form-control">Base</label>
+                    <input class="form-control" name="BaseOrder" type="" placeholder="0">
+                </tr>
+                <tr>
+                  <b><label for="form-control">Plus</label>
+                    <input class="form-control" name="PlusOrder" type="" placeholder="0">
+                </tr>
+                <tr>
+                  <b><label for="form-control">Max</label>
+                    <input class="form-control" name="MaxOrder" type="" placeholder="0" min="2">
+                </tr>
+                <br>
+                <tr>
+                  <td><input type="submit" class="btn btn-success" value="Bestellen" name="Speichern" ID="Speichern"></td>
+                </tr>
+                <br>
+                <tr>
+                  <td><input type="submit" class="btn btn-success" value="Material Annehmen" name="materialAccept" ID="materialAccept"></td>
+                </tr>
+              </form>
+            </table>
+          </div>
 
+          <br>
+          <p>[ACHTUNG]: Bitte das Material der alten Bestellung annehmen, bevor eine neue aufgegeben wird!</p>
+
+          <?php
+          if (isset($_GET['materialAdded']) && $_GET['materialAdded'] == "true") {
+            echo "<div class='alert alert-light' role='alert'>Material wurde im Lager aufgenommen</div>";
+          }
+          ?>
         </div>
       </div>
       <div class="modal-footer">
@@ -38,7 +88,7 @@
     <!-- <a xlink:href="https://de.wikipedia.org/wiki/George_Washington">
             <rect x="800" y="800" opacity="1" width="50" height="50" />
           </a> -->
-    <a xlink:href="index.php?site=materialOrder">
+    <a data-toggle="modal" data-target="#LieferungModal">
       <circle cx="635" cy="845" r="40" opacity="0" />
     </a>
     <a data-toggle="modal" data-target="#fluessigeMittelModal">
