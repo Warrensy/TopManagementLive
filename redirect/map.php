@@ -142,7 +142,7 @@
       <circle cx="1220" cy="1065" r="40" opacity="0" />
     </a>
     <!--Back-->
-    <a xlink:href="index.php?">
+    <a xlink:href="index.php?site=index">
       <circle cx="75" cy="175" r="40" opacity="0" />
     </a>
   </svg>
