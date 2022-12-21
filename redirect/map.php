@@ -89,7 +89,13 @@
             <rect x="800" y="800" opacity="1" width="50" height="50" />
           </a> -->
     <a data-toggle="modal" data-target="#LieferungModal">
-      <circle cx="635" cy="845" r="40" opacity="0" />
+      <circle cx="512" cy="924" r="40" opacity="0" />
+    </a>
+    <a data-toggle="modal" data-target="#LieferungModal">
+      <circle cx="633" cy="853" r="40" opacity="0" />
+    </a>
+    <a data-toggle="modal" data-target="#LieferungModal">
+      <circle cx="747" cy="883" r="40" opacity="0" />
     </a>
     <a data-toggle="modal" data-target="#fluessigeMittelModal">
       <circle cx="715" cy="1050" r="40" opacity="0" />
@@ -97,13 +103,22 @@
 
     <!-- Materiallager Top-Down-->
     <a xlink:href="index.php?site=rawMaterialWarehouse">
-      <circle cx="550" cy="295" r="40" opacity="0" />
+      <circle cx="532" cy="302" r="30" opacity="0" />
     </a>
     <a xlink:href="index.php?site=rawMaterialWarehouse">
-      <circle cx="570" cy="440" r="40" opacity="0" />
+      <circle cx="585" cy="285" r="30" opacity="0" />
     </a>
     <a xlink:href="index.php?site=rawMaterialWarehouse">
-      <circle cx="590" cy="580" r="40" opacity="0" />
+      <circle cx="550" cy="445" r="30" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=rawMaterialWarehouse">
+      <circle cx="604" cy="431" r="30" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=rawMaterialWarehouse">
+      <circle cx="572" cy="580" r="30" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=rawMaterialWarehouse">
+      <circle cx="625" cy="567" r="30" opacity="0" />
     </a>
     <!-- Production Lanes Top-Down -->
     <a xlink:href="index.php?site=production">
@@ -238,11 +253,16 @@
       //Fluessige Mittel
       circleMaker(context, 715, 1050, "liquidFunds", "green");
       //Lieferung
-      circleMaker(context, 635, 845, "pendingMaterials", "steelblue");
+      circleMaker(context, 514, 924, "pendingMaterialsPlus", "green");
+      circleMaker(context, 633, 853, "pendingMaterialsMax", "green");
+      circleMaker(context, 747, 883, "pendingMaterialsBase", "green");
       //Materiallager Top-Down
-      circleMaker(context, 550, 295, "rawMax", "steelblue");
-      circleMaker(context, 570, 440, "rawPlus", "steelblue");
-      circleMaker(context, 590, 580, "rawBase", "steelblue");
+      circleMakerSmol(context, 532, 302, "rawMax", "steelblue");
+      circleMakerSmol(context, 585, 285, "rawMaxMVal", "green");
+      circleMakerSmol(context, 550, 445, "rawPlus", "steelblue");
+      circleMakerSmol(context, 604, 431, "rawPlusMVal", "green");
+      circleMakerSmol(context, 572, 580, "rawBase", "steelblue");
+      circleMakerSmol(context, 625, 567, "rawBaseMVal", "green");
       //Production lanes top-down
       circleMaker(context, 1150, 220, "lane1", "steelblue");
       circleMaker(context, 1150, 330, "lane2", "steelblue");
@@ -277,6 +297,19 @@
       context.fillText(number, x - offsetX , y + 6);
     }
 
+    function circleMakerSmol(context, x, y, name, color) {
+      context.fillStyle = color;
+      context.beginPath();
+      context.arc(x, y, 25, 0, 2 * Math.PI);
+      context.fill();
+      context.stroke();
+
+      context.fillStyle = 'black';
+      number = getNumber(name);
+      offsetX = number.toString().length  * 5.5;
+      context.fillText(number, x - offsetX , y + 6);
+    }
+
     function getNumber(x) {
       number = 0;
 
@@ -287,11 +320,20 @@
         case "rawMax":
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohMax"] ?>;
           break;
+        case "rawMaxMVal":
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohMax"]*4 ?>;
+          break;
         case "rawPlus":
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohPlus"] ?>;
           break;
+        case "rawPlusMVal":
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohPlus"]*3 ?>;
+          break;
         case "rawBase":
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohBase"] ?>;
+          break;
+        case "rawBaseMVal":
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohBase"]*2 ?>;
           break;
         case "productMax":
           number = <?php echo $db->getProducts($_SESSION["Team"])["Max"] ?>;
@@ -302,12 +344,21 @@
         case "productBase":
           number = <?php echo $db->getProducts($_SESSION["Team"])["Base"] ?>;
           break;
-        case "pendingMaterials":
+        case "pendingMaterialsBase":
           <?php
-          $allMaterials = $db->getRawMaterial($_SESSION["Team"]);
-          $materialSum = (int)$allMaterials["AusstehendRohMax"] + (int)$allMaterials["AusstehendRohPlus"] + (int)$allMaterials["AusstehendRohBase"]; ?>
-          number = <?php echo $materialSum ?>;
+          $allMaterials = $db->getRawMaterial($_SESSION["Team"]); ?>
+          number = <?php echo (int)$allMaterials["AusstehendRohBase"] ?>;
           break;
+        case "pendingMaterialsMax":
+          <?php
+          $allMaterials = $db->getRawMaterial($_SESSION["Team"]); ?>
+          number = <?php echo (int)$allMaterials["AusstehendRohMax"] ?>;
+          break;
+        case "pendingMaterialsPlus":
+          <?php
+          $allMaterials = $db->getRawMaterial($_SESSION["Team"]); ?>
+          number = <?php echo (int)$allMaterials["AusstehendRohPlus"] ?>;
+          break;  
         case "claims90":
           <?php
           $claims90 = 0;
