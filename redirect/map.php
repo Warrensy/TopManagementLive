@@ -177,6 +177,7 @@
       setupCanvas();
       loadImages();
       setupMachineContent();
+      highlightSetup();
     }
 
     function loadImages() {
@@ -189,40 +190,39 @@
       <?php
       $result = $db->getMachinesByTeamId($_SESSION["Team"]);
 
-      if($result != false) {
+      if ($result != false) {
 
-          while($res = $result->fetch_array()) {
+        while ($res = $result->fetch_array()) {
 
-            switch ($res["lane"]) {
-              case 1:
-                ?>
-                  lane1img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-                  context.drawImage(lane1img, 805, 170, 280, 85);
-                  <?php
-                  break;
-              case 2:
-                ?>
-                  lane2img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-                  context.drawImage(lane2img, 805, 282, 280, 85);
-                  <?php
-                  break;
-              case 3:
-                ?>
-                  lane3img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-                  context.drawImage(lane3img, 805, 400, 280, 85);
-                  <?php
-                  break;
-              case 4:
-                ?>
-                  lane4img.src ="img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-                  context.drawImage(lane4img, 805, 515, 280, 85);
-                  <?php
-                break;
+          switch ($res["lane"]) {
+            case 1:
+      ?>
+              lane1img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+              context.drawImage(lane1img, 805, 170, 280, 85);
+            <?php
+              break;
+            case 2:
+            ?>
+              lane2img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+              context.drawImage(lane2img, 805, 282, 280, 85);
+            <?php
+              break;
+            case 3:
+            ?>
+              lane3img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+              context.drawImage(lane3img, 805, 400, 280, 85);
+            <?php
+              break;
+            case 4:
+            ?>
+              lane4img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
+              context.drawImage(lane4img, 805, 515, 280, 85);
+      <?php
+              break;
           }
-
-          }
+        }
       }
-      
+
       ?>
     }
 
@@ -243,7 +243,7 @@
       backcontext.lineWidth = 5;
       backcontext.strokeStyle = '#003300';
       backcontext.font = "20px Arial";
-      
+
       backcontext.fillStyle = 'red';
       backcontext.beginPath();
       backcontext.arc(75, 175, 35, 0, 2 * Math.PI);
@@ -280,59 +280,145 @@
       circleMaker(context, 1220, 1065, "claims360", "green");
     }
 
+    function productionHiglight(context, x, y) {
+      context.fillStyle = "black"; 
+      context.beginPath();
+      context.rect(x, y, 52, 25);
+      context.stroke();
+    }
+
+    function highlightSetup() {
+      <?php
+      $production = $db->getCurrentProductionByTeamCode($_SESSION["Team"]);
+      
+      if ($production != false) {
+        while ($xyz = $production->fetch_array()) {
+          switch ($xyz["lane"]) {
+            case 1:
+              ?>
+              console.log($xyz["Zielprodukt"]);
+              productionHiglight(context, 808, 519);
+              if($xyz["Zielprodukt"] == "Base" )
+              {
+                productionHiglight(context, 808, 172);
+              }
+              if($xyz["Zielprodukt"] == "Max")
+              {
+                productionHiglight(context, 808, 200);
+              }
+              if($xyz["Zielprodukt"] == "Plus")
+              {
+                productionHiglight(context, 808, 228);
+              }
+            <?php
+              break;
+            case 2:
+            ?>
+              if($xyz['Zielprodukt'] == "Base" )
+              {
+                productionHiglight(context, 808, 285);
+              }
+              if($xyz['Zielprodukt'] == "Max")
+              {
+                productionHiglight(context, 808, 313);
+              }
+              if($xyz['Zielprodukt'] == "Plus")
+              {
+                productionHiglight(context, 808, 341);
+              }
+            <?php
+              break;
+            case 3:
+            ?>
+              if($xyz['Zielprodukt'] == "Base" )
+              {
+                productionHiglight(context, 808, 402);
+              }
+              if($xyz['Zielprodukt'] == "Max")
+              {
+                productionHiglight(context, 808, 430);
+              }
+              if($xyz['Zielprodukt'] == "Plus")
+              {
+                productionHiglight(context, 808, 458);
+              }
+            <?php
+              break;
+            case 4:
+            ?>
+              if($xyz['Zielprodukt'] == "Base" )
+              {
+                productionHiglight(context, 808, 519);
+              }
+              if($xyz['Zielprodukt'] == "Max")
+              {
+                productionHiglight(context, 808, 547);
+              }
+              if($xyz['Zielprodukt'] == "Plus")
+              {
+                productionHiglight(context, 808, 575);
+              }
+
+      <?php
+              break;
+          }
+        }
+      }
+      ?>
+    }
+
     function clear() {
       context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function setupMachineContent()  {
+    function setupMachineContent() {
       <?php
-        $production = $db->getCurrentProductionByTeamCode($_SESSION["Team"]);
+      $production = $db->getCurrentProductionByTeamCode($_SESSION["Team"]);
 
-        if($production != false) {
+      if ($production != false) {
 
-          while($xyz = $production->fetch_array()) {
+        while ($xyz = $production->fetch_array()) {
 
-            switch ($xyz["lane"]) {
-              case 1:
-                ?>
-                    machineCircleMaker(context, 1049, 217, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
-                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
-                  <?php
-                  break;
-              case 2:
-                ?>
-                    machineCircleMaker(context, 1049, 328, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
-                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
-                  <?php
-                  break;
-              case 3:
-                ?>
-                    machineCircleMaker(context, 1200, 447, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
-                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
-                  <?php
-                  break;
-              case 4:
-                ?>
-                    machineCircleMaker(context, 1200, 560, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
-                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
-                  <?php
-                break;
-            }
-
+          switch ($xyz["lane"]) {
+            case 1:
+      ?>
+              machineCircleMaker(context, 1050, 217, <?php echo $xyz["Anzahl"] ?>);
+              //hier code für text; Zugriff via $xyz["Zielprodukt"]
+            <?php
+              break;
+            case 2:
+            ?>
+              machineCircleMaker(context, 1050, 328, <?php echo $xyz["Anzahl"] ?>);
+              //hier code für text; Zugriff via $xyz["Zielprodukt"]
+            <?php
+              break;
+            case 3:
+            ?>
+              machineCircleMaker(context, 1050, 447, <?php echo $xyz["Anzahl"] ?>);
+              //hier code für text; Zugriff via $xyz["Zielprodukt"]
+            <?php
+              break;
+            case 4:
+            ?>
+              machineCircleMaker(context, 1050, 560, <?php echo $xyz["Anzahl"] ?>);
+              //hier code für text; Zugriff via $xyz["Zielprodukt"]
+      <?php
+              break;
           }
+        }
       }
-    
+
 
       ?>
     }
 
-    function machineCircleMaker(context, x, y, name, num) {
+    function machineCircleMaker(context, x, y, num) {
       context.beginPath();
       context.arc(x, y, 15, 0, 2 * Math.PI);
 
       number = num;
-      offsetX = number.toString().length  * 5.5;
-      context.fillText(number, x - offsetX , y + 6);
+      offsetX = number.toString().length * 5.5;
+      context.fillText(number, x - offsetX, y + 6);
     }
 
     function circleMaker(context, x, y, name, color) {
@@ -344,8 +430,8 @@
 
       context.fillStyle = 'black';
       number = getNumber(name);
-      offsetX = number.toString().length  * 5.5;
-      context.fillText(number, x - offsetX , y + 6);
+      offsetX = number.toString().length * 5.5;
+      context.fillText(number, x - offsetX, y + 6);
     }
 
     function circleMakerSmol(context, x, y, name, color) {
@@ -357,8 +443,8 @@
 
       context.fillStyle = 'black';
       number = getNumber(name);
-      offsetX = number.toString().length  * 5.5;
-      context.fillText(number, x - offsetX , y + 6);
+      offsetX = number.toString().length * 5.5;
+      context.fillText(number, x - offsetX, y + 6);
     }
 
     function getNumber(x) {
@@ -372,19 +458,19 @@
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohMax"] ?>;
           break;
         case "rawMaxMVal":
-          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohMax"]*4 ?>;
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohMax"] * 4 ?>;
           break;
         case "rawPlus":
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohPlus"] ?>;
           break;
         case "rawPlusMVal":
-          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohPlus"]*3 ?>;
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohPlus"] * 3 ?>;
           break;
         case "rawBase":
           number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohBase"] ?>;
           break;
         case "rawBaseMVal":
-          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohBase"]*2 ?>;
+          number = <?php echo $db->getRawMaterial($_SESSION["Team"])["RohBase"] * 2 ?>;
           break;
         case "productMax":
           number = <?php echo $db->getProducts($_SESSION["Team"])["Max"] ?>;
@@ -409,7 +495,7 @@
           <?php
           $allMaterials = $db->getRawMaterial($_SESSION["Team"]); ?>
           number = <?php echo (int)$allMaterials["AusstehendRohPlus"] ?>;
-          break;  
+          break;
         case "claims90":
           <?php
           $claims90 = 0;
