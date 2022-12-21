@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2022 at 02:46 PM
+-- Generation Time: Dec 21, 2022 at 03:49 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -142,7 +142,8 @@ INSERT INTO `auftrag` (`AuftragNr`, `Kategorie`, `Region`, `Produkt`, `Menge`, `
 (90, NULL, 'Europa', 'Base', 2, 21, 90, 270, 0),
 (91, NULL, 'Europa', 'Base', 12, 17, 180, 270, 0),
 (92, NULL, 'Europa', 'Base', 1, 9, 90, 360, 0),
-(93, NULL, 'Europa', 'Base', 1, 9, 270, 270, 1);
+(93, NULL, 'Europa', 'Base', 1, 9, 270, 270, 0),
+(94, 'TESTKA', 'Europa', 'Base', 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +178,10 @@ INSERT INTO `auftragzuteam` (`auftragzuteamid`, `AuftragNr`, `Teamcode`, `FinalZ
 (30, 82, '57926', 90, 180),
 (31, 84, '57926', 180, 180),
 (32, 89, '57926', 180, 360),
-(33, 91, '57926', 180, 270);
+(33, 91, '57926', 180, 270),
+(34, 93, '13106', 270, 270),
+(35, 83, '44579', 180, 360),
+(36, 93, '44579', 270, 270);
 
 -- --------------------------------------------------------
 
@@ -221,7 +225,8 @@ CREATE TABLE `balance` (
 
 INSERT INTO `balance` (`balanceid`, `teamid`, `jahr`, `immaterials`, `grundstuecke`, `gebaeude`, `technischeanlagen`, `ausstattung`, `summeanlage`, `stoffe`, `unfertige`, `fertige`, `forderungen`, `fluessigemittel`, `summeumlauf`, `saummeaktiva`, `kapital`, `kapitalrueck`, `gewinnrueck`, `errgebnisnsteuern`, `summeigen`, `rueckstellungen`, `finanzverb`, `verbll`, `verbsonst`, `summefremd`, `summepassiv`) VALUES
 (2, '72339', 1, 7, 7, 7, 7, 7, 35, 7, 7, 7, 7, 7, 35, 70, 7, 7, 7, 7, 28, 7, 7, 7, 7, 28, 56),
-(4, '72339', 2, 7, 7, 7, 7, 7, 35, 7, 7, 7, 7, 7, 35, 70, 7, 7, 7, 7, 28, 7, 7, 7, 7, 28, 56);
+(4, '72339', 2, 7, 7, 7, 7, 7, 35, 7, 7, 7, 7, 7, 35, 70, 7, 7, 7, 7, 28, 7, 7, 7, 7, 28, 56),
+(5, '57926', 1, 4, 4, 4, 4, 4, 20, 4, 4, 4, 4, 4, 20, 40, 4, 4, 4, 4, 16, 4, 4, 4, 4, 16, 32);
 
 -- --------------------------------------------------------
 
@@ -240,7 +245,9 @@ CREATE TABLE `game` (
 INSERT INTO `game` (`gameid`) VALUES
 ('11111'),
 ('24706'),
+('44280'),
 ('46829'),
+('47274'),
 ('49715'),
 ('50702'),
 ('57997'),
@@ -278,7 +285,8 @@ CREATE TABLE `guv` (
 INSERT INTO `guv` (`guvID`, `teamcode`, `umsatzerloese`, `herstellungskosten`, `bruttoergebnis`, `forschungundentwicklung`, `verwaltung`, `marketingundvertrieb`, `sonstigeertraege`, `abschreibung`, `betriebsergebnis`, `steuern`, `ergebnisnachsteuern`, `year`) VALUES
 (49, '72339', 7, 7, 14, 7, 7, 7, 7, 7, -7, 7, -14, 1),
 (51, '72339', 7, 7, 14, 7, 7, 7, 7, 7, -7, 7, -14, 2),
-(53, '72339', 7, 7, 14, 7, 7, 7, 7, 7, -7, 7, -14, 3);
+(53, '72339', 7, 7, 14, 7, 7, 7, 7, 7, -7, 7, -14, 3),
+(54, '57926', 62, 25, 87, 4, 2, 1, 81, 321, -160, 2, -162, 1);
 
 -- --------------------------------------------------------
 
@@ -326,7 +334,8 @@ INSERT INTO `maschinenzuteam` (`MaschinenID`, `Maschinentyp`, `Teamcode`, `Erwer
 (9, 'Flex', '42582', 1, 1),
 (10, 'Flex', '98249', 1, 1),
 (11, 'Flex', '81668', 1, 1),
-(12, 'Flex', '57926', 1, 1);
+(12, 'Flex', '57926', 1, 1),
+(13, 'Flex', '57926', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -349,25 +358,33 @@ CREATE TABLE `materiallager` (
 --
 
 INSERT INTO `materiallager` (`Teamcode`, `RohMax`, `RohPlus`, `RohBase`, `AusstehendRohMax`, `AusstehendRohPlus`, `AusstehendRohBase`) VALUES
+('13106', 1, 1, 1, 0, 0, 0),
 ('15405', 2, 2, 2, 0, 0, 0),
 ('16617', 0, 101, 10, 0, 0, 0),
 ('17050', 23, 23, 23, 2, 22, 2),
+('27997', 1, 1, 1, 0, 0, 0),
 ('28574', 12, 12, 10, 0, 0, 0),
 ('33258', 1, 1, 1, 0, 0, 0),
 ('41912', 11, 11, 9, 22, 22, 22),
 ('42582', 1, 1, 1, 0, 0, 0),
+('44579', 165, 165, 165, 0, 0, 0),
 ('44788', 11, 11, 9, 0, 0, 0),
 ('49633', 41, 12, 12, 0, 0, 0),
 ('50628', 2, 2, 2, 0, 0, 0),
 ('53253', 1, 1, 1, 0, 0, 0),
+('53663', 1, 1, 1, 0, 0, 0),
 ('57926', 1, 1, -1, 0, 0, 0),
+('57960', 2, 2, 2, 0, 0, 0),
 ('60897', 1, 1, 1, 0, 0, 0),
 ('63672', 10, 13, 6, 0, 0, 0),
+('65331', 1, 1, 1, 0, 0, 0),
 ('71991', 20, 20, 20, 0, 0, 0),
 ('72339', 111, 111, 111, 0, 0, 0),
 ('73238', 20, 20, 20, 0, 0, 0),
 ('81668', 22, 20, 22, 0, 0, 0),
 ('93539', 1, 1, 1, 0, 0, 0),
+('95061', 116, 116, 116, 5, 5, 5),
+('95942', 100, 100, 100, 5, 5, 5),
 ('98249', 10, 10, 10, 0, 0, 0),
 ('99001', 1, -1, 1, 0, 0, 0);
 
@@ -408,25 +425,33 @@ CREATE TABLE `produktlager` (
 --
 
 INSERT INTO `produktlager` (`Teamcode`, `Max`, `Plus`, `Base`) VALUES
+('13106', 0, 0, 0),
 ('15405', 0, 0, 0),
 ('16617', 0, 0, 0),
 ('17050', 0, 0, -12),
+('27997', 0, 0, 0),
 ('28574', 0, 0, 0),
 ('33258', 0, 0, 0),
 ('41912', -7, 0, -5),
 ('42582', 0, 0, 0),
+('44579', 0, 0, 0),
 ('44788', 0, 0, 0),
 ('49633', 0, 0, -4),
 ('50628', 0, 0, 0),
 ('53253', 0, 0, 0),
+('53663', 0, 0, 0),
 ('57926', 0, 0, 0),
+('57960', 0, 0, 0),
 ('60897', 0, 0, 0),
 ('63672', 0, 0, -1),
+('65331', 0, 0, 0),
 ('71991', 0, 0, 0),
 ('72339', 0, 0, 0),
 ('73238', 0, 0, 0),
 ('81668', 0, 0, 0),
 ('93539', 0, 0, 0),
+('95061', 0, 0, 0),
+('95942', 0, 0, 0),
 ('98249', 0, 0, 0),
 ('99001', 0, 0, 0);
 
@@ -451,25 +476,33 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`Teamcode`, `FluessigeMittel`, `AktuellesQuartal`, `europa_mpp`, `asien_mpp`, `amerika_mpp`, `gameid`) VALUES
-('15405', 195, 3, 10, 0, 0, '24706'),
+('13106', 1, 1, 0, 0, 0, '11111'),
+('15405', 155800, 3, 10, 0, 0, '24706'),
 ('16617', 78, 3, 7, 0, 0, '11111'),
 ('17050', 428, 4, 70, 40, 10, '49715'),
+('27997', 1, 1, 0, 0, 0, '11111'),
 ('28574', 121, 3, 0, 0, 0, '11111'),
 ('33258', 12, 2, 0, 0, 0, '49715'),
 ('41912', 2243, 3, 0, 0, 0, '11111'),
 ('42582', 4990, 1, 0, 0, 0, '61660'),
+('44579', 11, 2, 0, 0, 0, '44280'),
 ('44788', 200, 2, 0, 0, 0, '49715'),
 ('49633', 113, 3, 0, 0, 0, '24706'),
 ('50628', 222, 2, 0, 0, 0, '49715'),
 ('53253', 1, 1, 0, 0, 0, '49715'),
-('57926', 61, 1, 0, 0, 0, '61660'),
+('53663', 1, 1, 0, 0, 0, '11111'),
+('57926', 551, 4, 0, 0, 0, '61660'),
+('57960', 22, 2, 0, 0, 0, '44280'),
 ('60897', 1, 1, 0, 0, 0, '63056'),
 ('63672', 134, 3, 0, 0, 0, '50702'),
+('65331', 1, 1, 0, 0, 0, '11111'),
 ('71991', 100, 4, 0, 0, 0, '49715'),
-('72339', 111, 12, 0, 0, 0, '57997'),
+('72339', 111, 5, 0, 0, 0, '57997'),
 ('73238', 200, 3, 0, 0, 0, '11111'),
 ('81668', 2299, 1, 0, 0, 0, '49715'),
 ('93539', 1, 3, 0, 0, 0, '11111'),
+('95061', -44505, 2, 0, 0, 0, '44280'),
+('95942', 900, 1, 0, 0, 0, '11111'),
 ('98249', 40, 1, 0, 0, 0, '63056'),
 ('99001', 9986, 1, 0, 0, 0, '63056');
 
@@ -597,31 +630,31 @@ ALTER TABLE `angebote`
 -- AUTO_INCREMENT for table `auftrag`
 --
 ALTER TABLE `auftrag`
-  MODIFY `AuftragNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `AuftragNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `auftragzuteam`
 --
 ALTER TABLE `auftragzuteam`
-  MODIFY `auftragzuteamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `auftragzuteamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `balance`
 --
 ALTER TABLE `balance`
-  MODIFY `balanceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `balanceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `guv`
 --
 ALTER TABLE `guv`
-  MODIFY `guvID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `guvID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `maschinenzuteam`
 --
 ALTER TABLE `maschinenzuteam`
-  MODIFY `MaschinenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `MaschinenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
