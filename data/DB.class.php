@@ -896,6 +896,21 @@ function payMoney($teamid, $money) {
     $stmt->bind_param("is",$money, $teamid);
     $stmt->execute();   
 }
+
+function getCurrentProductionByTeamCode($teamcode) {
+    $stmt = $this->verbindung->prepare("SELECT * FROM aktuelleproduktion JOIN maschinenzuteam ON aktuelleproduktion.MaschinenID=maschinenzuteam.MaschinenID WHERE Teamcode = (?)" );
+    $stmt->bind_param("i", $teamcode);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if($result != NULL) {
+        return $result;
+    } else {
+        return false; 
+    }
+}
+
+
 }
 
 

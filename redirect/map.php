@@ -176,6 +176,7 @@
       console.log(canvas);
       setupCanvas();
       loadImages();
+      setupMachineContent();
     }
 
     function loadImages() {
@@ -283,6 +284,56 @@
       context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    function setupMachineContent()  {
+      <?php
+        $production = $db->getCurrentProductionByTeamCode($_SESSION["Team"]);
+
+        if($production != false) {
+
+          while($xyz = $production->fetch_array()) {
+
+            switch ($xyz["lane"]) {
+              case 1:
+                ?>
+                    machineCircleMaker(context, 1049, 217, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
+                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
+                  <?php
+                  break;
+              case 2:
+                ?>
+                    machineCircleMaker(context, 1049, 328, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
+                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
+                  <?php
+                  break;
+              case 3:
+                ?>
+                    machineCircleMaker(context, 1200, 447, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
+                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
+                  <?php
+                  break;
+              case 4:
+                ?>
+                    machineCircleMaker(context, 1200, 560, "lane1Content", <?php echo $xyz["Anzahl"] ?>);
+                    //hier code für text; Zugriff via $xyz["Zielprodukt"]
+                  <?php
+                break;
+            }
+
+          }
+      }
+    
+
+      ?>
+    }
+
+    function machineCircleMaker(context, x, y, name, num) {
+      context.beginPath();
+      context.arc(x, y, 15, 0, 2 * Math.PI);
+
+      number = num;
+      offsetX = number.toString().length  * 5.5;
+      context.fillText(number, x - offsetX , y + 6);
+    }
 
     function circleMaker(context, x, y, name, color) {
       context.fillStyle = color;
