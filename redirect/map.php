@@ -295,71 +295,84 @@
         while ($xyz = $production->fetch_array()) {
           switch ($xyz["lane"]) {
             case 1:
-              ?>
-              console.log($xyz["Zielprodukt"]);
-              productionHiglight(context, 808, 519);
-              if($xyz["Zielprodukt"] == "Base" )
+              if($xyz["Zielprodukt"] == "Base")
               {
+                ?>
                 productionHiglight(context, 808, 172);
+                <?php
               }
               if($xyz["Zielprodukt"] == "Max")
               {
+                ?>
                 productionHiglight(context, 808, 200);
+                <?php
               }
               if($xyz["Zielprodukt"] == "Plus")
               {
+                ?>
                 productionHiglight(context, 808, 228);
+                <?php
               }
-            <?php
               break;
             case 2:
-            ?>
               if($xyz['Zielprodukt'] == "Base" )
               {
+                ?>
                 productionHiglight(context, 808, 285);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Max")
               {
+                ?>
                 productionHiglight(context, 808, 313);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Plus")
               {
+                ?>
                 productionHiglight(context, 808, 341);
+                <?php
               }
-            <?php
               break;
-            case 3:
-            ?>
-              if($xyz['Zielprodukt'] == "Base" )
-              {
+              case 3:
+                if($xyz['Zielprodukt'] == "Base" )
+                {
+                ?>
                 productionHiglight(context, 808, 402);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Max")
               {
+                ?>
                 productionHiglight(context, 808, 430);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Plus")
               {
+                ?>
                 productionHiglight(context, 808, 458);
+                <?php
               }
-            <?php
               break;
             case 4:
-            ?>
               if($xyz['Zielprodukt'] == "Base" )
               {
+                ?>
                 productionHiglight(context, 808, 519);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Max")
               {
+                ?>
                 productionHiglight(context, 808, 547);
+                <?php
               }
               if($xyz['Zielprodukt'] == "Plus")
               {
+                ?>
                 productionHiglight(context, 808, 575);
+                <?php
               }
-
-      <?php
               break;
           }
         }
