@@ -7,15 +7,15 @@
             </tr>
             <tr>
                 <b><label for="form-control">Base</label>
-                <input class="form-control" name="BaseOrder" type="" placeholder="0">
+                <input class="form-control" name="BaseOrder" value="0" type="" placeholder="0">
             </tr>
             <tr>
                 <b><label for="form-control">Plus</label>
-                <input class="form-control" name="PlusOrder" type="" placeholder="0">
+                <input class="form-control" name="PlusOrder" value="0" type="" placeholder="0">
             </tr>
             <tr>
                 <b><label for="form-control">Max</label>
-                <input class="form-control" name="MaxOrder" type="" placeholder="0" min="2">
+                <input class="form-control" name="MaxOrder" value="0" type="" placeholder="0" min="2">
             </tr>
             <br>
             <tr>

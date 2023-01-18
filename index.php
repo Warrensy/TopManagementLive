@@ -117,7 +117,6 @@
             $q = $q - 4;
             $year++;
           }
-
           $_SESSION["Year"] = $year;
 
         ?>

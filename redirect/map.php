@@ -36,15 +36,15 @@
                 </tr>
                 <tr>
                   <b><label for="form-control">Base</label>
-                    <input class="form-control" name="BaseOrder" type="" placeholder="0">
+                    <input class="form-control" name="BaseOrder" value="0" type="" placeholder="0">
                 </tr>
                 <tr>
                   <b><label for="form-control">Plus</label>
-                    <input class="form-control" name="PlusOrder" type="" placeholder="0">
+                    <input class="form-control" name="PlusOrder" value="0" type="" placeholder="0">
                 </tr>
                 <tr>
                   <b><label for="form-control">Max</label>
-                    <input class="form-control" name="MaxOrder" type="" placeholder="0" min="2">
+                    <input class="form-control" name="MaxOrder" value="0" type="" placeholder="0" min="2">
                 </tr>
                 <br>
                 <tr>
@@ -209,55 +209,59 @@
     function start() {
       console.log(canvas);
       setupCanvas();
-      loadImages();
-      setupMachineContent();
-      highlightSetup();
+      loadImages(); 
     }
 
-    function loadImages() {
-
-      const lane1img = new Image(1000, 1000);
-      const lane2img = new Image(1000, 1000);
-      const lane3img = new Image(1000, 1000);
-      const lane4img = new Image(1000, 1000);
-
+    function loadImages2() {
       <?php
-      $result = $db->getMachinesByTeamId($_SESSION["Team"]);
+        
+        $result = $db->getMachinesByTeamId($_SESSION["Team"]);
 
-      if ($result != false) {
+        if ($result != false) {
 
-        while ($res = $result->fetch_array()) {
+          while ($res = $result->fetch_array()) {
 
-          switch ($res["lane"]) {
-            case 1:
-      ?>
-              lane1img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-              context.drawImage(lane1img, 805, 170, 280, 85);
-            <?php
-              break;
-            case 2:
-            ?>
-              lane2img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-              context.drawImage(lane2img, 805, 282, 280, 85);
-            <?php
-              break;
-            case 3:
-            ?>
-              lane3img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-              context.drawImage(lane3img, 805, 400, 280, 85);
-            <?php
-              break;
-            case 4:
-            ?>
-              lane4img.src = "img/machine_<?php echo $res["Maschinentyp"] ?>.png";
-              context.drawImage(lane4img, 805, 515, 280, 85);
-      <?php
-              break;
+            switch ($res["lane"]) {
+              case 1:
+              ?>
+                context.drawImage(<?php echo $res["Maschinentyp"]?>, 805, 170, 280, 85);
+              <?php
+                break;
+              case 2:
+              ?>
+                context.drawImage(<?php echo $res["Maschinentyp"]?>, 805, 282, 280, 85);
+              <?php
+                break;
+              case 3:
+              ?>
+                context.drawImage(<?php echo $res["Maschinentyp"]?>, 805, 400, 280, 85);
+              <?php
+                break;
+              case 4:
+              ?>
+                context.drawImage(<?php echo $res["Maschinentyp"]?>, 805, 515, 280, 85);
+        <?php
+                break;
+            }
           }
         }
-      }
-
-      ?>
+        
+        ?>
+    }
+      
+      function loadImages() {
+        
+        Conti = new Image(1000, 1000);
+        Conti.src = "img/machine_Conti.png";
+        Flex = new Image(1000, 1000);
+        Flex.src = "img/machine_Flex.png";
+        Power = new Image(1000, 1000);
+        Power.src = "img/machine_Power.png";
+        Power.onload = function() {
+          loadImages2();
+          setupMachineContent();
+          highlightSetup();
+        }    
     }
 
     function setupCanvas() {
@@ -433,41 +437,142 @@
     function setupMachineContent() {
       <?php
       $production = $db->getCurrentProductionByTeamCode($_SESSION["Team"]);
-
       if ($production != false) {
 
         while ($xyz = $production->fetch_array()) {
 
           switch ($xyz["lane"]) {
             case 1:
-      ?>
-              machineCircleMaker(context, 1050, 217, <?php echo $xyz["Anzahl"] ?>);
-              //hier code für text; Zugriff via $xyz["Zielprodukt"]
-            <?php
+              if($xyz["Maschinentyp"] == "Power" && $xyz["Anzahl"] > 1) {
+                if($xyz["Anzahl"] % 2 == 0) {
+                  $leftval = $xyz["Anzahl"] / 2; 
+                  $rightval = $leftval;
+                } else {
+                  $leftval = ($xyz["Anzahl"] / 2) + 0.5; 
+                  $rightval = $leftval - 1;
+                }
+                ?>
+                machineCircleMaker(context, 985, 217, <?php echo $leftval ?>);
+                machineCircleMaker(context, 1050, 217, <?php echo $rightval ?>);
+              <?php
+              } else if($xyz["Maschinentyp"] == "Flex") {
+                
+                $remainingqs = $xyz["FertigstellungQuartal"] - $db->getQuartalByTeam($_SESSION["Team"]); 
+                
+                if($remainingqs == 1) {
+                  ?>
+                  machineCircleMaker(context, 1050, 217, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                } else {
+                  ?>
+                  machineCircleMaker(context, 985, 217, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                }
+              } else {
+                ?>
+                machineCircleMaker(context, 1050, 217, <?php echo $xyz["Anzahl"] ?>);
+                <?php
+              }
               break;
             case 2:
-            ?>
-              machineCircleMaker(context, 1050, 328, <?php echo $xyz["Anzahl"] ?>);
-              //hier code für text; Zugriff via $xyz["Zielprodukt"]
-            <?php
+              if($xyz["Maschinentyp"] == "Power" && $xyz["Anzahl"] > 1) {
+                if($xyz["Anzahl"] % 2 == 0) {
+                  $leftval = $xyz["Anzahl"] / 2; 
+                  $rightval = $leftval;
+                } else {
+                  $leftval = ($xyz["Anzahl"] / 2) + 0.5; 
+                  $rightval = $leftval - 1;
+                }
+                ?>
+                machineCircleMaker(context, 985, 330, <?php echo $leftval ?>);
+                machineCircleMaker(context, 1050, 330, <?php echo $rightval ?>);
+              <?php
+              } else if($xyz["Maschinentyp"] == "Flex") {
+                
+                $remainingqs = $xyz["FertigstellungQuartal"] - $db->getQuartalByTeam($_SESSION["Team"]); 
+                
+                if($remainingqs == 1) {
+                  ?>
+                  machineCircleMaker(context, 1050, 330, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                } else {
+                  ?>
+                  machineCircleMaker(context, 985, 330, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                }
+              } else {
+                ?>
+                machineCircleMaker(context, 1050, 330, <?php echo $xyz["Anzahl"] ?>);
+                <?php
+              }
               break;
             case 3:
-            ?>
-              machineCircleMaker(context, 1050, 447, <?php echo $xyz["Anzahl"] ?>);
-              //hier code für text; Zugriff via $xyz["Zielprodukt"]
-            <?php
+              if($xyz["Maschinentyp"] == "Power" && $xyz["Anzahl"] > 1) {
+                if($xyz["Anzahl"] % 2 == 0) {
+                  $leftval = $xyz["Anzahl"] / 2; 
+                  $rightval = $leftval;
+                } else {
+                  $leftval = ($xyz["Anzahl"] / 2) + 0.5; 
+                  $rightval = $leftval - 1;
+                }
+                ?>
+                machineCircleMaker(context, 985, 447, <?php echo $leftval ?>);
+                machineCircleMaker(context, 1050, 447, <?php echo $rightval ?>);
+              <?php
+              } else if($xyz["Maschinentyp"] == "Flex") {
+                
+                $remainingqs = $xyz["FertigstellungQuartal"] - $db->getQuartalByTeam($_SESSION["Team"]); 
+                
+                if($remainingqs == 1) {
+                  ?>
+                  machineCircleMaker(context, 1050, 447, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                } else {
+                  ?>
+                  machineCircleMaker(context, 985, 447, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                }
+              } else {
+                ?>
+                machineCircleMaker(context, 1050, 447, <?php echo $xyz["Anzahl"] ?>);
+                <?php
+              }
               break;
             case 4:
-            ?>
-              machineCircleMaker(context, 1050, 560, <?php echo $xyz["Anzahl"] ?>);
-              //hier code für text; Zugriff via $xyz["Zielprodukt"]
-      <?php
+              if($xyz["Maschinentyp"] == "Power" && $xyz["Anzahl"] > 1) {
+                if($xyz["Anzahl"] % 2 == 0) {
+                  $leftval = $xyz["Anzahl"] / 2; 
+                  $rightval = $leftval;
+                } else {
+                  $leftval = ($xyz["Anzahl"] / 2) + 0.5; 
+                  $rightval = $leftval - 1;
+                }
+                ?>
+                machineCircleMaker(context, 985, 561, <?php echo $leftval ?>);
+                machineCircleMaker(context, 1050, 561, <?php echo $rightval ?>);
+              <?php
+              } else if($xyz["Maschinentyp"] == "Flex") {
+                
+                $remainingqs = $xyz["FertigstellungQuartal"] - $db->getQuartalByTeam($_SESSION["Team"]); 
+                
+                if($remainingqs == 1) {
+                  ?>
+                  machineCircleMaker(context, 1050, 561, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                } else {
+                  ?>
+                  machineCircleMaker(context, 985, 561, <?php echo $xyz["Anzahl"] ?>);
+                  <?php
+                }
+              } else {
+                ?>
+                machineCircleMaker(context, 1050, 561, <?php echo $xyz["Anzahl"] ?>);
+                <?php
+              }
               break;
           }
         }
       }
-
-
       ?>
     }
 
