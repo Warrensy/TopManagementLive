@@ -160,6 +160,40 @@
     <a xlink:href="index.php?site=index">
       <circle cx="75" cy="175" r="40" opacity="0" />
     </a>
+    <!--GuV-->
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="380" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="430" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="480" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="530" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="580" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="630" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="680" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="825" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="875" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="1005" width="60" height="40" opacity="0" />
+    </a>
+    <a xlink:href="index.php?site=profitAndLoss">
+      <rect x="265" y="1085" width="60" height="40" opacity="0" />
+    </a>
   </svg>
   <script>
     var myGamePiece;
@@ -278,6 +312,18 @@
       circleMaker(context, 1050, 1090, "claims180", "green");
       circleMaker(context, 1140, 1080, "claims270", "green");
       circleMaker(context, 1220, 1065, "claims360", "green");
+      //GuV top-down
+      rectangleMaker(context, 265, 380, "sales", "lightblue");
+      rectangleMaker(context, 265, 430, "productionCost", "lightblue");
+      rectangleMaker(context, 265, 480, "grossResult", "green");
+      rectangleMaker(context, 265, 530, "r&d", "lightblue");
+      rectangleMaker(context, 265, 580, "management", "lightblue");
+      rectangleMaker(context, 265, 630, "marketing", "lightblue");
+      rectangleMaker(context, 265, 680, "otherExpenses", "lightblue");
+      rectangleMaker(context, 265, 825, "depreciation", "lightblue");
+      rectangleMaker(context, 265, 875, "operatingResult", "green");
+      rectangleMaker(context, 265, 1005, "taxes", "lightblue");
+      rectangleMaker(context, 265, 1085, "resultWithTaxes", "red");
     }
 
     function productionHiglight(context, x, y) {
@@ -447,6 +493,19 @@
       context.fillText(number, x - offsetX, y + 6);
     }
 
+    function rectangleMaker(context, x, y, name, color){
+      context.fillStyle = color;
+      context.beginPath();
+      context.rect(x, y, 60, 40);
+      context.fill();
+      context.stroke();
+
+      context.fillStyle = 'black';
+      number = getNumber(name);
+      offsetX = number.toString().length;
+      context.fillText(number, x + offsetX + 12.5, y + 27.5);
+    }
+
     function circleMakerSmol(context, x, y, name, color) {
       context.fillStyle = color;
       context.beginPath();
@@ -593,6 +652,72 @@
       <?php }
         } ?>
       break;
+      case "sales":
+          <?php
+          $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+          ?>
+          number = <?php echo (int)$guv["umsatzerloese"] ?>;
+          break;
+      case "productionCost":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["herstellungskosten"] ?>;
+        break;
+      case "r&d":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["forschungundentwicklung"] ?>;
+        break;
+      case "management":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["verwaltung"] ?>;
+        break;
+      case "marketing":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["marketingundvertrieb"] ?>;
+        break;
+      case "otherExpenses":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["sonstigeertraege"] ?>;
+        break;
+      case "depreciation":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["abschreibung"] ?>;
+        break;
+      case "grossResult":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["bruttoergebnis"] ?>;
+        break;
+      case "operatingResult":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["betriebsergebnis"] ?>;
+        break;
+      case "taxes":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["steuern"] ?>;
+        break;
+      case "resultWithTaxes":
+        <?php
+        $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        ?>
+        number = <?php echo (int)$guv["ergebnisnachsteuern"] ?>;
+        break;
       default:
         break;
       }

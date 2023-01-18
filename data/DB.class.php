@@ -474,12 +474,29 @@ class DBclass {
 
     function getGuvEntriesByTeam($teamcode)
     {
-        $stmt = $this->verbindung->prepare("SELECT * FROM guv WHERE teamcode = ?;");
+        $stmt = $this->verbindung->prepare("SELECT * FROM `guv` WHERE `teamcode` = (?);");
         $stmt->bind_param("s",$teamcode);
         $stmt->execute();
 
         $result = $stmt->get_result();
         $details = $result;
+
+
+        if ($details != NULL) {
+            return $details;
+        } else {
+            return false;
+        }
+    }
+
+    function getOneGuvEntryByTeam($teamcode)
+    {
+        $stmt = $this->verbindung->prepare("SELECT * FROM `guv` WHERE `teamcode` = (?) ORDER BY `year` DESC LIMIT 1;");
+        $stmt->bind_param("s",$teamcode);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $details = $result->fetch_array();
 
 
         if ($details != NULL) {
