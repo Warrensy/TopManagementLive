@@ -74,6 +74,190 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="MaterialLagerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="row justify-content-center">
+                <h1>Materiallager</h1>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+            <?php $rawMaterial = $db->getRawMaterial($_SESSION["Team"])?>
+                <table class="table-striped table-dark table-bordered">
+                    <tr>
+                        <th class="tablepadding">Base</th>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Lagernd</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohBase"] ?></h6></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Wert in M</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohBase"]*2 ?></h6></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Bestellt</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["AusstehendRohBase"] ?></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="tablepadding">Plus</th>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Lagernd</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohPlus"] ?></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Wert in M</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohPlus"]*3 ?></h6></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Bestellt</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["AusstehendRohPlus"] ?></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="tablepadding">Max</th>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Lagernd</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohMax"] ?></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Wert in M</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["RohMax"]*4 ?></h6></h5>
+                        </td>
+                        <td class="tablepadding">
+                            <h6 class="text-center">Bestellt</h6>
+                            <h5 class="text-center"><?php echo $rawMaterial["AusstehendRohMax"] ?></h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ProduktLagerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">  
+      <div class="row justify-content-center">
+          <h1>Fertigwarenlager</h1>
+      </div>
+      <div class="row justify-content-center">
+      <?php $products = $db->getProducts($_SESSION["Team"])?>
+          <table class="table-striped table-dark table-bordered">
+              <tr>
+                  <th class="tablepadding">Base</th>
+                  <td class="tablepadding"><h5><b><?php echo $products["Base"] ?></b></h5></td>
+              </tr>
+              <tr>
+                  <th class="tablepadding">Plus</th>
+                  <td class="tablepadding"><h5><b><?php echo $products["Plus"] ?></b></h5></td>
+              </tr>
+              <tr>
+                  <th class="tablepadding">Max</th>
+                  <td class="tablepadding"><h5><b><?php echo $products["Max"] ?></b></h5></td>
+              </tr>
+          </table>
+      </div>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ForderungModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="container-fluid">
+            <?php 
+                $contracts = $db->getContractsByTeamCode($_SESSION["Team"]); 
+                $activeoffers = $db->getActiveOffersByTeamCode($_SESSION["Team"]); 
+            ?>
+
+            <?php
+                if(isset($_POST["continue"]) && $_POST["continue"] == 1){
+                    $teamcode = $_SESSION["Team"];
+
+                    $db->continueClaims($teamcode, $contracts, $activeoffers);
+                    // header('Location: index.php?site=claim');
+                }
+
+                while($contract = $contracts->fetch_array()) {
+            ?>
+
+            <div class="justify-content-center">
+                <div class="row">
+                    <div class ="col-1"></div>
+                    <div class ="col-10 border-all">
+                        <div class="row background-row1 row-height">
+                            <div class="col-7">Preis:</div>
+                            <div class="col"><?php echo $contract["Preis"] ?>M</div>
+                        </div>
+                        <div class="row background-row2 row-height">
+                            <div class="col-7">Zahlungsziel:</div>
+                            <div class="col"><?php echo $contract["FinalZahlungsziel"] ?> Tage</div>
+                        </div>
+                    </div>       
+                </div>
+            </div>
+            <br>
+            <?php } 
+                
+                while($activeoffer = $activeoffers->fetch_array()) {
+            ?>
+            <div class="justify-content-center">
+                <div class="row">
+                    <div class ="col-1"></div>
+                    <div class ="col-10 border-all">
+                        <div class="row background-row1 row-height">
+                            <div class="col-7">Preis:</div>
+                            <div class="col"><?php echo $activeoffer["Preis"] ?>M</div>
+                        </div>
+                        <div class="row background-row2 row-height">
+                            <div class="col-7">Zahlungsziel:</div>
+                            <div class="col"><?php echo $activeoffer["Zahlungsziel"] ?> Tage</div>
+                        </div>
+                    </div>       
+                </div>
+            </div>
+            <br>
+            <?php } ?>
+
+            <form method="POST" action="index.php?site=map&continue=1">
+                <div class ="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div class="row row-height">
+                            <button class="col btn btn-success" type="submit" value="1" name ="continue" ID = "continue">Forderungen Vorrücken</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="svg-wrapper">
   <svg viewBox="0 0 2054 1255" width="100%" height="100%" preserveAspectRatio="none">
     <defs>
@@ -102,22 +286,22 @@
     </a>
 
     <!-- Materiallager Top-Down-->
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="532" cy="302" r="30" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="585" cy="285" r="30" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="550" cy="445" r="30" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="604" cy="431" r="30" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="572" cy="580" r="30" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=rawMaterialWarehouse">
+    <a data-toggle="modal" data-target="#MaterialLagerModal">
       <circle cx="625" cy="567" r="30" opacity="0" />
     </a>
     <!-- Production Lanes Top-Down -->
@@ -134,26 +318,26 @@
       <circle cx="1135" cy="555" r="40" opacity="0" />
     </a>
     <!--Fertigwarenlager-->
-    <a xlink:href="index.php?site=productWarehouse">
+    <a data-toggle="modal" data-target="#ProduktLagerModal">
       <circle cx="1440" cy="335" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=productWarehouse">
+    <a data-toggle="modal" data-target="#ProduktLagerModal">
       <circle cx="1420" cy="470" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=productWarehouse">
+    <a data-toggle="modal" data-target="#ProduktLagerModal">
       <circle cx="1400" cy="610" r="40" opacity="0" />
     </a>
     <!--Forderungen left-right-->
-    <a xlink:href="index.php?site=claim">
+    <a data-toggle="modal" data-target="#ForderungModal">
       <circle cx="960" cy="1075" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=claim">
+    <a data-toggle="modal" data-target="#ForderungModal">
       <circle cx="1050" cy="1090" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=claim">
+    <a data-toggle="modal" data-target="#ForderungModal">
       <circle cx="1140" cy="1080" r="40" opacity="0" />
     </a>
-    <a xlink:href="index.php?site=claim">
+    <a data-toggle="modal" data-target="#ForderungModal">
       <circle cx="1220" cy="1065" r="40" opacity="0" />
     </a>
     <!--Back-->
