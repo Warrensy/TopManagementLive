@@ -760,68 +760,101 @@
       case "sales":
           <?php
           $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+          if($guv != false){?>
+            number = <?php echo (int)$guv["umsatzerloese"] ?>;
+          <?php
+          }
           ?>
-          number = <?php echo (int)$guv["umsatzerloese"] ?>;
           break;
       case "productionCost":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["herstellungskosten"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["herstellungskosten"] ?>;
         break;
       case "r&d":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["forschungundentwicklung"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["forschungundentwicklung"] ?>;
         break;
       case "management":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["verwaltung"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["verwaltung"] ?>;
         break;
       case "marketing":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["marketingundvertrieb"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["marketingundvertrieb"] ?>;
         break;
       case "otherExpenses":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["sonstigeertraege"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["sonstigeertraege"] ?>;
         break;
       case "depreciation":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["abschreibung"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["abschreibung"] ?>;
         break;
       case "grossResult":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["bruttoergebnis"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["bruttoergebnis"] ?>;
         break;
       case "operatingResult":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["betriebsergebnis"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["betriebsergebnis"] ?>;
         break;
       case "taxes":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["steuern"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["steuern"] ?>;
         break;
       case "resultWithTaxes":
         <?php
         $guv = $db->getOneGuvEntryByTeam($_SESSION["Team"]);
+        if($guv != false){?>
+          number = <?php echo (int)$guv["ergebnisnachsteuern"] ?>;
+        <?php
+        }
         ?>
-        number = <?php echo (int)$guv["ergebnisnachsteuern"] ?>;
         break;
       default:
         break;
